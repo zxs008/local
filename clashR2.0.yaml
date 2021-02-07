@@ -207,6 +207,15 @@ proxy-groups:
     - "节点选择"
     - "全球直连"
     - "全球拦截"
+ 
+- name: "固定节点选择"
+  type: select
+  proxies:
+    - "CHIN节点选择"
+    - "节点选择"
+    - "全球直连"
+    - "全球拦截"
+ 
 
 # 特殊地址可直连 
 - name: "特殊地址可直连"
@@ -321,8 +330,18 @@ rules:
   - DOMAIN-KEYWORD,google,google节点选择
   - DOMAIN-SUFFIX,gmail.com,google节点选择 # 谷歌邮箱
 
+  - DOMAIN-SUFFIX,gvt0.com,google节点选择 #Google Play
+  - DOMAIN-SUFFIX,gvt1.com,google节点选择 #Google Play
+  - DOMAIN-SUFFIX,gvt3.com,google节点选择 #Google Play
+  - DOMAIN-KEYWORD,google,google节点选择
+  - DOMAIN-SUFFIX,gmail.com,google节点选择 # 谷歌邮箱
+
   - DOMAIN-KEYWORD,uptodown,节点选择 #Uptodown
   - DOMAIN-KEYWORD,apkpure,节点选择 #Apkpure
+  
+  - DOMAIN-SUFFIX,safechat.com,固定节点选择 #safechat
+  - DOMAIN-KEYWORD,safechat,固定节点选择 #safechat
+
 
   - DOMAIN-SUFFIX,fb.com,facebook节点选择 #脸书
   - DOMAIN-SUFFIX,fb.me,facebook节点选择 #脸书
