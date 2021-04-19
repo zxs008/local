@@ -43,45 +43,43 @@ dns:
 
 proxies:
 - {
-   name: "🇷🇺 Russia CN2 443 (trojan)",
-   type: trojan,
-   server: tr.zxs007.top,
-   port: 443,
-   password: cc..1234,
-   sni: tr.zxs007.top, 
-   skip-cert-verify: false
-  }
-
-- {
-   name: "🇷🇺 Russia CN2 443 (vmess)",
+   name: "🇷🇺 Russia CF CN2 (vmess)",
    type: vmess,
-   server: vr.zxs007.top,
+   server: cfvray.zxs007.top,
    port: 443,
-   uuid: 89af4368-b2b6-4b5e-c4f9-53d9b21b548c,
+   uuid: 4f70a1ea-d5ae-4a76-d0f1-51c83d133026,
    alterId: 64,
    cipher: auto,
    tls: true,
    network: ws,
    ws-path: /zxcasd,
-   ws-headers: {Host: vr.zxs007.top}
-  }
-  
+   ws-headers: {Host: cfvray.zxs007.top}
+   # udp: true
+   # skip-cert-verify: true
+  }  
+
 - {
-   name: "🇷🇺 Russia CN2 (trojan)",
-   type: trojan,
-   server: tr.zxs007.top,
-   port: 441,
-   password: cc..1234,
-   sni: tr.zxs007.top, 
-   skip-cert-verify: false
+   name: "🇷🇺 Russia CN2 443 (vmess)",
+   type: vmess,
+   server: vray.zxs007.top,
+   port: 443,
+   uuid: bc751c69-2857-4922-a661-aef202e8517b,
+   alterId: 64,
+   cipher: auto,
+   tls: true,
+   network: ws,
+   ws-path: /zxcasd,
+   ws-headers: {Host: vray.zxs007.top}
+   # tls: true
+   # skip-cert-verify: true
   }
-  
+
 - {
    name: "🇷🇺 Russia CN2 (vmess)",
    type: vmess,
-   server: vr.zxs007.top,
-   port: 13138,
-   uuid: 985ca59c-aa61-4717-cbaf-b91ddfaa7da5,
+   server: vray.zxs007.top,
+   port: 14140,
+   uuid: deeb7bf4-e623-4432-a928-7234e5d87ec5,
    alterId: 64,
    cipher: auto,
    tls: false,
@@ -92,64 +90,42 @@ proxies:
   }
 
 - {
-   name: "🇷🇺 Russia CF CN2 (vmess)",
+   name: "🇷🇺 Russia CN2 (trojan)",
+   type: trojan,
+   server: trjan.zxs007.top,
+   port: 441,
+   password: cc..1234,
+   sni: tr.zxs007.top, 
+   skip-cert-verify: false
+  }
+
+- {
+   name: "🇷🇺 Ru CF 443 (vmess)",
    type: vmess,
    server: cfvr.zxs007.top,
    port: 443,
-   uuid: be36a721-ba20-420d-bdf9-b56a98c7de66,
+   uuid: 31d5c1d7-2166-47b1-fe69-18b96b478407,
    alterId: 64,
    cipher: auto,
    tls: true,
    network: ws,
    ws-path: /zxcasd,
    ws-headers: {Host: cfvr.zxs007.top}
-   # udp: true
-   # skip-cert-verify: true
-  }  
-
-- {
-   name: "🇨🇳 联通转Russia (vmess)",
-   type: vmess,
-   server: hray.zxs007.top,
-   port: 443,
-   uuid: 3a650d4a-e8e5-4afa-8c5e-c3104db3eeb9,
-   alterId: 64,
-   cipher: auto,
-   tls: true,
-   network: ws,
-   ws-path: /zxcasd,
-   ws-headers: {Host: hray.zxs007.top}
-   # tls: true
-   # skip-cert-verify: true
-  }
-
-- {
-   name: "🇺🇸 Us CN2 443 (vmess)",
-   type: vmess,
-   server: us.zxs007.top,
-   port: 443,
-   uuid: b491aab9-fad7-44d0-a519-1703ccfa2e16,
-   alterId: 64,
-   cipher: auto,
-   tls: true,
-   network: ws,
-   ws-path: /zxcvbnm,
-   ws-headers: {Host: us.zxs007.top}
    # tls: true
    # skip-cert-verify: true
   }
 
 - { 
-   name: "🇺🇸 Us CN2 (vmess)",
+   name: "🇷🇺 Ru (vmess)",
    type: vmess,
-   server: us.zxs007.top,
-   port: 13138,
-   uuid: 8f466abc-3b64-4099-9573-1e9eff610199,
+   server: vr.zxs007.top,
+   port: 14140,
+   uuid: 78471555-c1b3-487e-9b26-243c39f164b0,
    alterId: 64,
    cipher: auto,
    tls: false,
    network: ws,
-   ws-path: /zxcvbnm
+   ws-path: /zxcasd
   }
 
 proxy-groups:
