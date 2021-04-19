@@ -100,7 +100,7 @@ proxies:
   }
 
 - {
-   name: "🇷🇺 Ru CF 443 (vmess)",
+   name: "🇷🇺 Ru CF (vmess)",
    type: vmess,
    server: cfvr.zxs007.top,
    port: 443,
@@ -135,12 +135,10 @@ proxy-groups:
   proxies:
     - "全球直连"
     - "全球拦截"
-    - "🇷🇺 Russia CN2 443 (trojan)"
-    - "🇷🇺 Russia CN2 443 (vmess)"
-    - "🇷🇺 Russia CN2 (trojan)"
-    - "🇷🇺 Russia CN2 (vmess)"
     - "🇷🇺 Russia CF CN2 (vmess)"
-    - "🇨🇳 联通转Russia (vmess)"
+    - "🇷🇺 Russia CN2 443 (vmess)"
+    - "🇷🇺 Russia CN2 (vmess)"
+    - "🇷🇺 Russia CN2 (trojan)"
 
 #代理节点选择
 - name: "节点选择"
@@ -148,8 +146,8 @@ proxy-groups:
   proxies:
     - "全球选择"
     - "CHIN节点选择"
-    - "🇺🇸 Us CN2 (vmess)"
-    - "🇺🇸 Us CN2 443 (vmess)"
+    - "🇷🇺 Ru CF (vmess)"
+    - "🇷🇺 Ru (vmess)"
     
 # 代理节点选择
 - name: "facebook节点选择"
