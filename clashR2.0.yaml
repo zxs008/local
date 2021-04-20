@@ -155,6 +155,8 @@ proxy-groups:
   proxies:
     - "CHIN节点选择"
     - "节点选择"
+    - "全球全局"
+    - "全球节点"
     - "全球直连"
     - "全球拦截"
     
@@ -163,6 +165,8 @@ proxy-groups:
   proxies:
     - "CHIN节点选择"
     - "节点选择"
+    - "全球全局"
+    - "全球节点"
     - "全球直连"
     - "全球拦截"
 
@@ -171,6 +175,8 @@ proxy-groups:
   proxies:
     - "CHIN节点选择"
     - "节点选择"
+    - "全球全局"
+    - "全球节点"
     - "全球直连"
     - "全球拦截"
 
@@ -179,6 +185,8 @@ proxy-groups:
   proxies:
     - "CHIN节点选择"
     - "节点选择"
+    - "全球全局"
+    - "全球节点"
     - "全球直连"
     - "全球拦截"
  
@@ -187,6 +195,8 @@ proxy-groups:
   proxies:
     - "CHIN节点选择"
     - "节点选择"
+    - "全球全局"
+    - "全球节点"
     - "全球直连"
     - "全球拦截"
  
@@ -275,28 +285,28 @@ rules:
   - DOMAIN-KEYWORD,amazon,特殊地址可直连
   - DOMAIN-SUFFIX,amazon.com,特殊地址可直连
  
-  - DOMAIN-KEYWORD,youtube,节点选择
-  - DOMAIN-KEYWORD,gvt,节点选择
-  - DOMAIN-KEYWORD,porn,节点选择 #p站
-  - DOMAIN-KEYWORD,usky,节点选择
-  - DOMAIN-KEYWORD,ssrtool,节点选择
+  - DOMAIN-KEYWORD,youtube,全球节点
+  - DOMAIN-KEYWORD,gvt,全球节点
+  - DOMAIN-KEYWORD,porn,全球节点 #p站
+  - DOMAIN-KEYWORD,usky,全球节点
+  - DOMAIN-KEYWORD,ssrtool,全球节点
   
-  - DOMAIN-SUFFIX,youtu.be,节点选择
-  - DOMAIN-SUFFIX,wikimapia.org,节点选择 #维基
-  - DOMAIN-SUFFIX,wikimedia.org,节点选择 #维基
-  - DOMAIN-SUFFIX,wikipedia.org,节点选择 #维基百科
-  - DOMAIN-SUFFIX,wikiquote.org,节点选择 #维基
-  - DOMAIN-SUFFIX,wikiwand.com,节点选择  #维基
-  - DOMAIN-SUFFIX,v2ray.com,节点选择
+  - DOMAIN-SUFFIX,youtu.be,全球节点
+  - DOMAIN-SUFFIX,wikimapia.org,全球节点 #维基
+  - DOMAIN-SUFFIX,wikimedia.org,全球节点 #维基
+  - DOMAIN-SUFFIX,wikipedia.org,全球节点 #维基百科
+  - DOMAIN-SUFFIX,wikiquote.org,全球节点 #维基
+  - DOMAIN-SUFFIX,wikiwand.com,全球节点  #维基
+  - DOMAIN-SUFFIX,v2ray.com,全球节点
 
-  - DOMAIN-KEYWORD,ads-pixiv.com,节点选择
-  - DOMAIN-KEYWORD,pixiv,节点选择 #p 漫画
-  - DOMAIN-KEYWORD,pximg,节点选择 #p 漫画
+  - DOMAIN-KEYWORD,ads-pixiv.com,全球节点
+  - DOMAIN-KEYWORD,pixiv,全球节点 #p 漫画
+  - DOMAIN-KEYWORD,pximg,全球节点 #p 漫画
 
-  - DOMAIN-SUFFIX,gstatic.com,节点选择
-  - DOMAIN-SUFFIX,line.me,节点选择
-  - DOMAIN-SUFFIX,line-apps.com,节点选择
-  - DOMAIN-SUFFIX,line-scdn.net,节点选择
+  - DOMAIN-SUFFIX,gstatic.com,全球节点
+  - DOMAIN-SUFFIX,line.me,全球节点
+  - DOMAIN-SUFFIX,line-apps.com,全球节点
+  - DOMAIN-SUFFIX,line-scdn.net,全球节点
   
   - DOMAIN-SUFFIX,gvt0.com,google节点选择 #Google Play
   - DOMAIN-SUFFIX,gvt1.com,google节点选择 #Google Play
@@ -310,8 +320,8 @@ rules:
   - DOMAIN-KEYWORD,google,google节点选择
   - DOMAIN-SUFFIX,gmail.com,google节点选择 # 谷歌邮箱
 
-  - DOMAIN-KEYWORD,uptodown,节点选择 #Uptodown
-  - DOMAIN-KEYWORD,apkpure,节点选择 #Apkpure
+  - DOMAIN-KEYWORD,uptodown,全球节点 #Uptodown
+  - DOMAIN-KEYWORD,apkpure,全球节点 #Apkpure
   
   - DOMAIN-SUFFIX,safechat.com,固定节点选择 #safechat
   - DOMAIN-KEYWORD,safechat,固定节点选择 #safechat
@@ -382,7 +392,7 @@ rules:
   - DOMAIN-SUFFIX,live.com,微软可直连
   - DOMAIN-SUFFIX,live.net,微软可直连
   - DOMAIN-SUFFIX,lync.com,微软可直连
-  - DOMAIN-SUFFIX,msapp节点选择.net,微软可直连
+  - DOMAIN-SUFFIX,msapp.net,微软可直连
   - DOMAIN-SUFFIX,msauth.net,微软可直连
   - DOMAIN-SUFFIX,msauthimages.net,微软可直连
   - DOMAIN-SUFFIX,msecnd.net,微软可直连
@@ -1681,7 +1691,7 @@ rules:
   - DOMAIN-SUFFIX,ad.pixnet.net,全球拦截
   - DOMAIN-SUFFIX,ad.player.baidu.com,全球拦截
   - DOMAIN-SUFFIX,ad.propellerads.com,全球拦截
-  - DOMAIN-SUFFIX,ad.节点选择.sh,全球拦截
+  - DOMAIN-SUFFIX,ad.sh,全球拦截
   - DOMAIN-SUFFIX,ad.qq.com,全球拦截
   - DOMAIN-SUFFIX,ad.r.worldssl.net,全球拦截
   - DOMAIN-SUFFIX,ad.rambler.ru,全球拦截
@@ -3060,7 +3070,6 @@ rules:
   - DOMAIN-SUFFIX,coinhive.com,全球拦截
   - DOMAIN-SUFFIX,coin-hive.com,全球拦截
   - DOMAIN-SUFFIX,coinhive-manager.com,全球拦截
-  - DOMAIN-SUFFIX,coin-hive-节点选择-ybydcnjgkl.now.sh,全球拦截
   - DOMAIN-SUFFIX,coinminerz.com,全球拦截
   - DOMAIN-SUFFIX,coinnebula.com,全球拦截
   - DOMAIN-SUFFIX,col.hztags.net,全球拦截
@@ -6627,7 +6636,6 @@ rules:
   - DOMAIN-SUFFIX,propellerads.com,全球拦截
   - DOMAIN-SUFFIX,prophet.heise.de,全球拦截
   - DOMAIN-SUFFIX,proton.flurry.com,全球拦截
-  - DOMAIN-SUFFIX,节点选择.sec.miui.com,全球拦截
   - DOMAIN-SUFFIX,prw.lenovomm.com,全球拦截
   - DOMAIN-SUFFIX,ps.3fenge.com,全球拦截
   - DOMAIN-SUFFIX,psb.lenovomm.com,全球拦截
@@ -7349,7 +7357,6 @@ rules:
   - DOMAIN-SUFFIX,sponsorpay.com,全球拦截
   - DOMAIN-SUFFIX,sponsors.s2ki.com,全球拦截
   - DOMAIN-SUFFIX,sponsors.webosroundup.com,全球拦截
-  - DOMAIN-SUFFIX,sp节点选择.autobytel.com,全球拦截
   - DOMAIN-SUFFIX,spro.so.com,全球拦截
   - DOMAIN-SUFFIX,spt.dictionary.com,全球拦截
   - DOMAIN-SUFFIX,sqd.jstdjq.com,全球拦截
@@ -8094,7 +8101,6 @@ rules:
   - DOMAIN-SUFFIX,wangmeng.baidu.com,全球拦截
   - DOMAIN-SUFFIX,wangmeng.sogou.com,全球拦截
   - DOMAIN-SUFFIX,wangsufast.com,全球拦截
-  - DOMAIN-SUFFIX,wan节点选择.127.net,全球拦截
   - DOMAIN-SUFFIX,wantaico.com,全球拦截
   - DOMAIN-SUFFIX,wantfour.com,全球拦截
   - DOMAIN-SUFFIX,wap.114so.cn,全球拦截
@@ -8891,7 +8897,6 @@ rules:
   - DOMAIN,h-adashx.ut.taobao.com,全球拦截
   - DOMAIN,nbsdk-baichuan.alicdn.com,全球拦截
   - DOMAIN,tunion-api.m.taobao.com,全球拦截
-  - DOMAIN,ad节点选择.autohome.com.cn,全球拦截
   - DOMAIN,rd.autohome.com.cn,全球拦截
   - DOMAIN,ad.k.21cn.com,全球拦截
   - DOMAIN,al.autohome.com.cn,全球拦截
