@@ -115,6 +115,22 @@ proxies:
    # skip-cert-verify: true
   }
 
+- {
+   name: "🇷🇺 Russia 443 (vmess)",
+   type: vmess,
+   server: vr.zxs007.top,
+   port: 443,
+   uuid: 76803a07-5f78-4e74-d2fb-9a35e825066e,
+   alterId: 64,
+   cipher: auto,
+   tls: true,
+   network: ws,
+   ws-path: /zxcasd,
+   ws-headers: {Host: vr.zxs007.top}
+   # tls: true
+   # skip-cert-verify: true
+  }
+
 - { 
    name: "🇷🇺 Ru (vmess)",
    type: vmess,
@@ -128,6 +144,15 @@ proxies:
    ws-path: /zxcasd
   }
 
+- {
+   name: "🇷🇺 Russia (trojan)",
+   type: trojan,
+   server: tr.zxs007.top,
+   port: 441,
+   password: cc..1234,
+   sni: tr.zxs007.top, 
+   skip-cert-verify: false
+  }
 proxy-groups:
 # 代理节点选择
 - name: "CHIN节点选择"
