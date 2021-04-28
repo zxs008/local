@@ -173,6 +173,8 @@ proxy-groups:
     - "CHIN节点选择"
     - "🇷🇺 Ru CF (vmess)"
     - "🇷🇺 Ru (vmess)"
+    - "🇷🇺 Russia 443 (vmess)"
+    - "🇷🇺 Russia (trojan)"
     
 # 代理节点选择
 - name: "facebook节点选择"
