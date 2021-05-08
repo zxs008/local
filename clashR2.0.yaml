@@ -311,7 +311,7 @@ proxy-groups:
     - "全球直连"
     - "全球节点" 
   url: 'http://www.gstatic.com/generate_204'
-  interval: 300
+  interval: 120
 
 #规则
 rules:
