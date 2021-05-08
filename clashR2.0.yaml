@@ -227,6 +227,13 @@ proxy-groups:
     - "全球直连"
     - "全球拦截"
  
+- name: "故障选择"
+  type: fallback
+  proxies:
+    - 全球全局
+    - 全球节点 
+  url: 'http://www.gstatic.com/generate_204'
+  interval: 300
 
 # 特殊地址可直连 
 - name: "特殊地址可直连"
@@ -300,10 +307,10 @@ proxy-groups:
 - name: "漏网之鱼"
   type: select
   proxies:
+    - "故障选择"
     - "全球直连"
     - "全球拦截"
     - "全球全局"
-    - "全球节点"
 
 #规则
 rules:
