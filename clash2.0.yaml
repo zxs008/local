@@ -5,7 +5,7 @@ mode: Rule
 log-level: info
 external-controller: :9090
 proxies:
-  - {name: asd, server: 45.144.178.111, port: 80, type: vmess, uuid: f5f77aae-bdc8-30ca-ab43-b7c5f3f07dfd, alterId: 64, cipher: auto, tls: false, skip-cert-verify: false, network: ws, ws-path: /v2ray, ws-headers: {Host: 45.144.178.111}}
+  - {name: asd, server: 45.144.178.110, port: 80, type: vmess, uuid: f5f77aae-bdc8-30ca-ab43-b7c5f3f07dfd, alterId: 64, cipher: auto, tls: false, skip-cert-verify: false, network: ws, ws-path: /v2ray, ws-headers: {Host: 45.144.178.111}}
 proxy-groups:
   - name: Proxies
     type: select
