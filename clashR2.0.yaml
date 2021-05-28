@@ -43,6 +43,37 @@ dns:
 
 proxies:
 - {
+   name: "🇯🇵 Japan (vmess)",
+   type: vmess,
+   server: vray.aimdd.com,
+   port: 14140,
+   uuid: 35a0a10a-54fd-4864-b119-aaa4c26b4df2,
+   alterId: 64,
+   cipher: auto,
+   tls: false,
+   network: ws,
+   ws-path: /zxcasd
+   # udp: true
+   # skip-cert-verify: true
+  }  
+
+- {
+   name: "🇯🇵 Japan 443 (vmess) ",
+   type: vmess,
+   server: vray.aimdd.com,
+   port: 443,
+   uuid: e7632537-11cc-4100-bf42-6de88fffb19f,
+   alterId: 64,
+   cipher: auto,
+   tls: true,
+   network: ws,
+   ws-path: /zxcasd,
+   ws-headers: {Host: vray.aimdd.com}
+   # tls: true
+   # skip-cert-verify: true
+  }
+
+- {
    name: "🇷🇺 Russia CF CN2 (vmess)",
    type: vmess,
    server: cfvray.zxs007.top,
@@ -322,7 +353,8 @@ proxy-groups:
 
 #规则
 rules:
-  
+  - DOMAIN-SUFFIX,hm8848.com,全球拦截
+
   - DOMAIN-SUFFIX,translate.google.cn,特殊地址可直连
   - DOMAIN-KEYWORD,amazon,特殊地址可直连
   - DOMAIN-SUFFIX,amazon.com,特殊地址可直连
