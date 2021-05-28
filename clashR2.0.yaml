@@ -58,7 +58,7 @@ proxies:
   }  
 
 - {
-   name: "🇯🇵 Japan 443 (vmess) ",
+   name: "🇯🇵 Japan 443 (vmess)",
    type: vmess,
    server: vray.aimdd.com,
    port: 443,
@@ -202,6 +202,8 @@ proxy-groups:
   proxies:
     - "全球选择"
     - "CHIN节点选择"
+    - "🇯🇵 Japan (vmess)"
+    - "🇯🇵 Japan 443 (vmess)"
     - "🇷🇺 Ru CF (vmess)"
     - "🇷🇺 Ru (vmess)"
     - "🇷🇺 Russia 443 (vmess)"
