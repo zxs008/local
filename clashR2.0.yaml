@@ -43,19 +43,20 @@ dns:
 
 proxies:
 - {
-   name: "🇯🇵 Japan (vmess)",
+   name: "🇯🇵 Japan CF (vmess)",
    type: vmess,
-   server: vray.aimdd.com,
-   port: 14140,
-   uuid: 35a0a10a-54fd-4864-b119-aaa4c26b4df2,
+   server: cfvray.aimdd.com,
+   port: 443,
+   uuid: b9c301ec-4770-4d5d-b118-ce58523289d6,
    alterId: 64,
    cipher: auto,
-   tls: false,
+   tls: true,
    network: ws,
-   ws-path: /zxcasd
+   ws-path: /zxcasd,
+   ws-headers: {Host: cfvray.aimdd.com}
    # udp: true
    # skip-cert-verify: true
-  }  
+  }
 
 - {
    name: "🇯🇵 Japan 443 (vmess)",
@@ -71,6 +72,31 @@ proxies:
    ws-headers: {Host: vray.aimdd.com}
    # tls: true
    # skip-cert-verify: true
+  }
+
+- {
+   name: "🇯🇵 Japan (vmess)",
+   type: vmess,
+   server: vray.aimdd.com,
+   port: 14140,
+   uuid: 35a0a10a-54fd-4864-b119-aaa4c26b4df2,
+   alterId: 64,
+   cipher: auto,
+   tls: false,
+   network: ws,
+   ws-path: /zxcasd
+   # udp: true
+   # skip-cert-verify: true
+  }  
+
+- {
+   name: "🇯🇵 Japan (trojan)",
+   type: trojan,
+   server: trjan.aimdd.com,
+   port: 441,
+   password: cc..1234,
+   sni: trjan.aimdd.com, 
+   skip-cert-verify: false
   }
 
 - {
@@ -126,64 +152,10 @@ proxies:
    server: trjan.zxs007.top,
    port: 441,
    password: cc..1234,
-   sni: tr.zxs007.top, 
+   sni: trjan.zxs007.top, 
    skip-cert-verify: false
   }
 
-- {
-   name: "🇷🇺 Ru CF (vmess)",
-   type: vmess,
-   server: cfvr.zxs007.top,
-   port: 443,
-   uuid: 31d5c1d7-2166-47b1-fe69-18b96b478407,
-   alterId: 64,
-   cipher: auto,
-   tls: true,
-   network: ws,
-   ws-path: /zxcasd,
-   ws-headers: {Host: cfvr.zxs007.top}
-   # tls: true
-   # skip-cert-verify: true
-  }
-
-- {
-   name: "🇷🇺 Russia 443 (vmess)",
-   type: vmess,
-   server: vr.zxs007.top,
-   port: 443,
-   uuid: 76803a07-5f78-4e74-d2fb-9a35e825066e,
-   alterId: 64,
-   cipher: auto,
-   tls: true,
-   network: ws,
-   ws-path: /zxcasd,
-   ws-headers: {Host: vr.zxs007.top}
-   # tls: true
-   # skip-cert-verify: true
-  }
-
-- { 
-   name: "🇷🇺 Ru (vmess)",
-   type: vmess,
-   server: vr.zxs007.top,
-   port: 14140,
-   uuid: 78471555-c1b3-487e-9b26-243c39f164b0,
-   alterId: 64,
-   cipher: auto,
-   tls: false,
-   network: ws,
-   ws-path: /zxcasd
-  }
-
-- {
-   name: "🇷🇺 Russia (trojan)",
-   type: trojan,
-   server: tr.zxs007.top,
-   port: 441,
-   password: cc..1234,
-   sni: tr.zxs007.top, 
-   skip-cert-verify: false
-  }
 proxy-groups:
 # 代理节点选择
 - name: "CHIN节点选择"
@@ -202,12 +174,10 @@ proxy-groups:
   proxies:
     - "全球选择"
     - "CHIN节点选择"
-    - "🇯🇵 Japan (vmess)"
+    - "🇯🇵 Japan CF (vmess)"
     - "🇯🇵 Japan 443 (vmess)"
-    - "🇷🇺 Ru CF (vmess)"
-    - "🇷🇺 Ru (vmess)"
-    - "🇷🇺 Russia 443 (vmess)"
-    - "🇷🇺 Russia (trojan)"
+    - "🇯🇵 Japan (vmess)"
+    - "🇯🇵 Japan (trojan)"
     
 # 代理节点选择
 - name: "facebook节点选择"
