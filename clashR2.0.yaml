@@ -93,7 +93,7 @@ proxies:
    name: "🇯🇵 Japan (trojan)",
    type: trojan,
    server: trjan.aimdd.com,
-   port: 441,
+   port: 443,
    password: cc..1234,
    sni: trjan.aimdd.com, 
    skip-cert-verify: false
@@ -150,7 +150,7 @@ proxies:
    name: "🇷🇺 Russia CN2 (trojan)",
    type: trojan,
    server: trjan.zxs007.top,
-   port: 441,
+   port: 443,
    password: cc..1234,
    sni: trjan.zxs007.top, 
    skip-cert-verify: false
