@@ -52,7 +52,7 @@ proxies:
    cipher: auto,
    tls: true,
    network: ws,
-   ws-path: /zxcasd,
+   ws-path: /JapanOsaka,
    ws-headers: {Host: cfvray.aimdd.com}
    # udp: true
    # skip-cert-verify: true
@@ -68,7 +68,7 @@ proxies:
    cipher: auto,
    tls: true,
    network: ws,
-   ws-path: /zxcasd,
+   ws-path: /JapanOsaka,
    ws-headers: {Host: vray.aimdd.com}
    # tls: true
    # skip-cert-verify: true
@@ -78,13 +78,13 @@ proxies:
    name: "🇯🇵 Japan (vmess)",
    type: vmess,
    server: vray.aimdd.com,
-   port: 14140,
-   uuid: 35a0a10a-54fd-4864-b119-aaa4c26b4df2,
+   port: 14138,
+   uuid: 96cc7faf-1cf9-48c6-a0bd-5c59a0b30251,
    alterId: 64,
    cipher: auto,
    tls: false,
    network: ws,
-   ws-path: /zxcasd
+   ws-path: /JapanOsaka
    # udp: true
    # skip-cert-verify: true
   }  
@@ -109,7 +109,7 @@ proxies:
    cipher: auto,
    tls: true,
    network: ws,
-   ws-path: /zxcasd,
+   ws-path: /RussiaMoscow,
    ws-headers: {Host: cfvray.zxs007.top}
    # udp: true
    # skip-cert-verify: true
@@ -125,7 +125,7 @@ proxies:
    cipher: auto,
    tls: true,
    network: ws,
-   ws-path: /zxcasd,
+   ws-path: /RussiaMoscow,
    ws-headers: {Host: vray.zxs007.top}
    # tls: true
    # skip-cert-verify: true
@@ -135,13 +135,13 @@ proxies:
    name: "🇷🇺 Russia CN2 (vmess)",
    type: vmess,
    server: vray.zxs007.top,
-   port: 14140,
+   port: 14138,
    uuid: deeb7bf4-e623-4432-a928-7234e5d87ec5,
    alterId: 64,
    cipher: auto,
    tls: false,
    network: ws,
-   ws-path: /zxcasd
+   ws-path: /RussiaMoscow
    # udp: true
    # skip-cert-verify: true
   }
