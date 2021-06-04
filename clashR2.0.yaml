@@ -92,10 +92,10 @@ proxies:
 - {
    name: "🇯🇵 Japan (trojan)",
    type: trojan,
-   server: trjan.aimdd.com,
+   server: xray.aimdd.com,
    port: 443,
    password: cc..1234,
-   sni: trjan.aimdd.com, 
+   sni: xray.aimdd.com, 
    skip-cert-verify: false
   }
 
