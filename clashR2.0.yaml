@@ -78,7 +78,7 @@ proxies:
    name: "🇯🇵 Japan (vmess)",
    type: vmess,
    server: vray.aimdd.com,
-   port: 14138,
+   port: 11443,
    uuid: 96cc7faf-1cf9-48c6-a0bd-5c59a0b30251,
    alterId: 64,
    cipher: auto,
