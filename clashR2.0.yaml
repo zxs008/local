@@ -135,7 +135,7 @@ proxies:
    name: "🇷🇺 Russia CN2 (vmess)",
    type: vmess,
    server: vray.zxs007.top,
-   port: 14138,
+   port: 11443,
    uuid: deeb7bf4-e623-4432-a928-7234e5d87ec5,
    alterId: 64,
    cipher: auto,
