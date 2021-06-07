@@ -156,6 +156,21 @@ proxies:
    skip-cert-verify: false
   }
 
+- {
+   name: " 🇺🇸 America CN2 (vmess)",
+   type: vmess,
+   server: 198.55.103.155,
+   port: 13138,
+   uuid: 8f466abc-3b64-4099-9573-1e9eff610199,
+   alterId: 64,
+   cipher: auto,
+   tls: false,
+   network: ws,
+   ws-path: /zxcvbnm
+   # udp: true
+   # skip-cert-verify: true
+  }
+
 proxy-groups:
 # 代理节点选择
 - name: "CHIN节点选择"
@@ -178,6 +193,15 @@ proxy-groups:
     - "🇯🇵 Japan 443 (vmess)"
     - "🇯🇵 Japan (vmess)"
     - "🇯🇵 Japan (trojan)"
+
+#代理节点选择
+- name: "Us节点选择"
+  type: select
+  proxies:
+    - "全球选择"
+    - "CHIN节点选择"
+    - "节点选择"
+    - "🇺🇸 America CN2 (vmess)"
     
 # 代理节点选择
 - name: "facebook节点选择"
