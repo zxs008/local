@@ -312,6 +312,7 @@ proxy-groups:
   proxies:   
     - "CHIN节点选择"
     - "节点选择"
+    - "Us节点选择"
 # 全局选择
 - name: "全球选择"
   type: select
