@@ -159,8 +159,8 @@ proxies:
 - {
    name: "🇺🇸 America CN2 (vmess)",
    type: vmess,
-   server: xray.i0x0.cn,
-   port: 11443,
+   server: 198.55.103.155,
+   port: 13138,
    uuid: 8f466abc-3b64-4099-9573-1e9eff610199,
    alterId: 64,
    cipher: auto,
@@ -176,8 +176,7 @@ proxy-groups:
 - name: "CHIN节点选择"
   type: select
   proxies:
-    - "全球直连"
-    - "全球拦截"
+    - "全球选择"
     - "🇷🇺 Russia CF CN2 (vmess)"
     - "🇷🇺 Russia CN2 443 (vmess)"
     - "🇷🇺 Russia CN2 (vmess)"
@@ -209,50 +208,50 @@ proxy-groups:
   proxies:
     - "CHIN节点选择"
     - "节点选择"
+    - "Us节点选择"
+    - "全球选择"
     - "全球全局"
     - "全球节点"
-    - "全球直连"
-    - "全球拦截"
     
 - name: "twitter节点选择"
   type: select
   proxies:
     - "CHIN节点选择"
     - "节点选择"
+    - "Us节点选择"
+    - "全球选择"
     - "全球全局"
     - "全球节点"
-    - "全球直连"
-    - "全球拦截"
 
 - name: "telegra节点选择"
   type: select
   proxies:
     - "CHIN节点选择"
     - "节点选择"
+    - "Us节点选择"
+    - "全球选择"
     - "全球全局"
     - "全球节点"
-    - "全球直连"
-    - "全球拦截"
 
 - name: "google节点选择"
   type: select
   proxies:
     - "CHIN节点选择"
     - "节点选择"
+    - "Us节点选择"
+    - "全球选择"
     - "全球全局"
     - "全球节点"
-    - "全球直连"
-    - "全球拦截"
  
 - name: "固定节点选择"
   type: select
   proxies:
     - "CHIN节点选择"
     - "节点选择"
+    - "Us节点选择"
+    - "全球选择"
     - "全球全局"
     - "全球节点"
-    - "全球直连"
-    - "全球拦截"
 
 # 特殊地址可直连 
 - name: "特殊地址可直连"
