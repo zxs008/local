@@ -170,6 +170,22 @@ proxies:
    # udp: true
    # skip-cert-verify: true
   }
+  
+- {
+   name: "🇺🇸 America CN2 443 (vmess)",
+   type: vmess,
+   server: xray.i0x0.cn,
+   port: 443,
+   uuid: b491aab9-fad7-44d0-a519-1703ccfa2e16,
+   alterId: 64,
+   cipher: auto,
+   tls: true,
+   network: ws,
+   ws-path: /zxcvbnm,
+   ws-headers: {Host: xray.i0x0.cn}
+   # tls: true
+   # skip-cert-verify: true
+  }
 
 proxy-groups:
 # 代理节点选择
@@ -201,6 +217,7 @@ proxy-groups:
     - "CHIN节点选择"
     - "节点选择"
     - "🇺🇸 America CN2 (vmess)"
+    - "🇺🇸 America CN2 443 (vmess)"
     
 # 代理节点选择
 - name: "facebook节点选择"
