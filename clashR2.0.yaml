@@ -159,8 +159,8 @@ proxies:
 - {
    name: "🇺🇸 America CN2 (vmess)",
    type: vmess,
-   server: 198.55.103.155,
-   port: 13138,
+   server: xray.i0x0.cn,
+   port: 11443,
    uuid: 8f466abc-3b64-4099-9573-1e9eff610199,
    alterId: 64,
    cipher: auto,
