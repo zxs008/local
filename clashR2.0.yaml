@@ -43,63 +43,6 @@ dns:
 
 proxies:
 - {
-   name: "🇯🇵 Japan CF (vmess)",
-   type: vmess,
-   server: cfvray.aimdd.com,
-   port: 443,
-   uuid: b9c301ec-4770-4d5d-b118-ce58523289d6,
-   alterId: 64,
-   cipher: auto,
-   tls: true,
-   network: ws,
-   ws-path: /JapanOsaka,
-   ws-headers: {Host: cfvray.aimdd.com}
-   # udp: true
-   # skip-cert-verify: true
-  }
-
-- {
-   name: "🇯🇵 Japan 443 (vmess)",
-   type: vmess,
-   server: vray.aimdd.com,
-   port: 443,
-   uuid: e7632537-11cc-4100-bf42-6de88fffb19f,
-   alterId: 64,
-   cipher: auto,
-   tls: true,
-   network: ws,
-   ws-path: /JapanOsaka,
-   ws-headers: {Host: vray.aimdd.com}
-   # tls: true
-   # skip-cert-verify: true
-  }
-
-- {
-   name: "🇯🇵 Japan (vmess)",
-   type: vmess,
-   server: vray.aimdd.com,
-   port: 11443,
-   uuid: 96cc7faf-1cf9-48c6-a0bd-5c59a0b30251,
-   alterId: 64,
-   cipher: auto,
-   tls: false,
-   network: ws,
-   ws-path: /JapanOsaka
-   # udp: true
-   # skip-cert-verify: true
-  }  
-
-- {
-   name: "🇯🇵 Japan (trojan)",
-   type: trojan,
-   server: xray.aimdd.com,
-   port: 443,
-   password: cc..1234,
-   sni: xray.aimdd.com, 
-   skip-cert-verify: false
-  }
-
-- {
    name: "🇷🇺 Russia CF CN2 (vmess)",
    type: vmess,
    server: cfvray.zxs007.top,
@@ -132,27 +75,54 @@ proxies:
   }
 
 - {
-   name: "🇷🇺 Russia CN2 (vmess)",
-   type: vmess,
-   server: vray.zxs007.top,
-   port: 11443,
-   uuid: deeb7bf4-e623-4432-a928-7234e5d87ec5,
-   alterId: 64,
-   cipher: auto,
-   tls: false,
-   network: ws,
-   ws-path: /RussiaMoscow
-   # udp: true
-   # skip-cert-verify: true
-  }
-
-- {
    name: "🇷🇺 Russia CN2 (trojan)",
    type: trojan,
    server: trjan.zxs007.top,
    port: 443,
    password: cc..1234,
    sni: trjan.zxs007.top, 
+   skip-cert-verify: false
+  }
+
+- {
+   name: "🇯🇵 Japan CF (vmess)",
+   type: vmess,
+   server: cfvray.aimdd.com,
+   port: 443,
+   uuid: b9c301ec-4770-4d5d-b118-ce58523289d6,
+   alterId: 64,
+   cipher: auto,
+   tls: true,
+   network: ws,
+   ws-path: /JapanOsaka,
+   ws-headers: {Host: cfvray.aimdd.com}
+   # udp: true
+   # skip-cert-verify: true
+  }
+
+- {
+   name: "🇯🇵 Japan 443 (vmess)",
+   type: vmess,
+   server: vray.aimdd.com,
+   port: 443,
+   uuid: e7632537-11cc-4100-bf42-6de88fffb19f,
+   alterId: 64,
+   cipher: auto,
+   tls: true,
+   network: ws,
+   ws-path: /JapanOsaka,
+   ws-headers: {Host: vray.aimdd.com}
+   # tls: true
+   # skip-cert-verify: true
+  }
+
+- {
+   name: "🇯🇵 Japan (trojan)",
+   type: trojan,
+   server: xray.aimdd.com,
+   port: 443,
+   password: cc..1234,
+   sni: xray.aimdd.com, 
    skip-cert-verify: false
   }
 
@@ -170,7 +140,7 @@ proxies:
    # udp: true
    # skip-cert-verify: true
   }
-  
+
 - {
    name: "🇺🇸 America CN2 443 (vmess)",
    type: vmess,
@@ -195,7 +165,6 @@ proxy-groups:
     - "全球选择"
     - "🇷🇺 Russia CF CN2 (vmess)"
     - "🇷🇺 Russia CN2 443 (vmess)"
-    - "🇷🇺 Russia CN2 (vmess)"
     - "🇷🇺 Russia CN2 (trojan)"
 
 #代理节点选择
@@ -206,7 +175,6 @@ proxy-groups:
     - "CHIN节点选择"
     - "🇯🇵 Japan CF (vmess)"
     - "🇯🇵 Japan 443 (vmess)"
-    - "🇯🇵 Japan (vmess)"
     - "🇯🇵 Japan (trojan)"
 
 #代理节点选择
