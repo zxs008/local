@@ -42,7 +42,6 @@ dns:
     - https://cloudflare-dns.com/dns-query
 
 proxies:
-
 - {
    name: "🇷🇺 Russia CF CN2 (vmess)",
    type: vmess,
@@ -57,7 +56,7 @@ proxies:
    ws-headers: {Host: cfvray.zxs007.top}
    # udp: true
    # skip-cert-verify: true
-  }  
+  }
 
 - {
    name: "🇷🇺 Russia CN2 443 (vmess)",
@@ -158,7 +157,7 @@ proxies:
    # skip-cert-verify: true
   }
 
-  - {
+- {
    name: "🇺🇸 America CN2 (trojan)",
    type: trojan,
    server: uxray.zxs007.top,
@@ -197,6 +196,7 @@ proxy-groups:
     - "节点选择"
     - "🇺🇸 America CN2 (vmess)"
     - "🇺🇸 America CN2 443 (vmess)"
+    - "🇺🇸 America CN2 (trojan)"
     
 # 代理节点选择
 - name: "facebook节点选择"
