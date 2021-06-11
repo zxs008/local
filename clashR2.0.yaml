@@ -42,6 +42,7 @@ dns:
     - https://cloudflare-dns.com/dns-query
 
 proxies:
+
 - {
    name: "🇷🇺 Russia CF CN2 (vmess)",
    type: vmess,
@@ -155,6 +156,16 @@ proxies:
    ws-headers: {Host: xray.i0x0.cn}
    # tls: true
    # skip-cert-verify: true
+  }
+
+  - {
+   name: "🇺🇸 America CN2 (trojan)",
+   type: trojan,
+   server: uxray.zxs007.top,
+   port: 443,
+   password: cc..1234,
+   sni: uxray.zxs007.top, 
+   skip-cert-verify: false
   }
 
 proxy-groups:
