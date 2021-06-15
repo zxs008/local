@@ -127,21 +127,6 @@ proxies:
   }
 
 - {
-   name: "🇺🇸 America CN2 (vmess)",
-   type: vmess,
-   server: xray.i0x0.cn,
-   port: 11443,
-   uuid: 8f466abc-3b64-4099-9573-1e9eff610199,
-   alterId: 64,
-   cipher: auto,
-   tls: false,
-   network: ws,
-   ws-path: /zxcvbnm
-   # udp: true
-   # skip-cert-verify: true
-  }
-
-- {
    name: "🇺🇸 America CN2 443 (vmess)",
    type: vmess,
    server: xray.i0x0.cn,
@@ -194,7 +179,6 @@ proxy-groups:
     - "全球选择"
     - "CHIN节点选择"
     - "节点选择"
-    - "🇺🇸 America CN2 (vmess)"
     - "🇺🇸 America CN2 443 (vmess)"
     - "🇺🇸 America CN2 (trojan)"
     
