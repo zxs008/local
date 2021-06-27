@@ -511,6 +511,7 @@ rules:
   - DOMAIN-SUFFIX,mzstatic.com,苹果可直连
   - DOMAIN,www-cdn.icloud.com.akadns.net,苹果可直连
 
+  - DOMAIN-KEYWORD,tiktok,国外媒体等
   - DOMAIN-SUFFIX,deezer.com,国外媒体等
   - DOMAIN-SUFFIX,dzcdn.net,国外媒体等
   - DOMAIN-SUFFIX,kkbox.com,国外媒体等
