@@ -43,44 +43,28 @@ dns:
 
 proxies:
 - {
-   name: "🇷🇺 Russia CF CN2 (vmess)",
+   name: "🇰🇷 Korea CN2 443 (vmess)",
    type: vmess,
-   server: cfvray.zxs007.top,
+   server: ccvray.aimdd.com,
    port: 443,
-   uuid: 4f70a1ea-d5ae-4a76-d0f1-51c83d133026,
+   uuid: 96746e36-8745-49ae-e3b0-e92a5ea80116,
    alterId: 64,
    cipher: auto,
    tls: true,
    network: ws,
-   ws-path: /RussiaMoscow,
-   ws-headers: {Host: cfvray.zxs007.top}
-   # udp: true
-   # skip-cert-verify: true
-  }
-
-- {
-   name: "🇷🇺 Russia CN2 443 (vmess)",
-   type: vmess,
-   server: vray.zxs007.top,
-   port: 443,
-   uuid: bc751c69-2857-4922-a661-aef202e8517b,
-   alterId: 64,
-   cipher: auto,
-   tls: true,
-   network: ws,
-   ws-path: /RussiaMoscow,
-   ws-headers: {Host: vray.zxs007.top}
+   ws-path: /KoreaChuncheon,
+   ws-headers: {Host: ccvray.aimdd.com}
    # tls: true
    # skip-cert-verify: true
   }
 
 - {
-   name: "🇷🇺 Russia CN2 (trojan)",
+   name: "🇰🇷 Korea CN2 (trojan)",
    type: trojan,
-   server: trjan.zxs007.top,
+   server: ccxray.zxs007.top,
    port: 443,
    password: cc..1234,
-   sni: trjan.zxs007.top, 
+   sni: ccxray.zxs007.top, 
    skip-cert-verify: false
   }
 
