@@ -43,7 +43,7 @@ dns:
 
 proxies:
 - {
-   name: "🇰🇷 KoreaN 443 (vmess)",
+   name: "🇰🇷 KoreaN 443 (Vmess)",
    type: vmess,
    server: ccnvray.aimdd.com,
    port: 443,
@@ -59,7 +59,7 @@ proxies:
   }
 
 - {
-   name: "🇰🇷 KoreaN (trojan)",
+   name: "🇰🇷 KoreaN (Trojan)",
    type: trojan,
    server: ccnxray.aimdd.com,
    port: 443,
@@ -69,7 +69,7 @@ proxies:
   }
 
 - {
-   name: "🇰🇷 KoreaN2 443 (vmess)",
+   name: "🇰🇷 KoreaN2 443 (Vmess)",
    type: vmess,
    server: ccn2vray.aimdd.com,
    port: 443,
@@ -85,7 +85,7 @@ proxies:
   }
 
 - {
-   name: "🇰🇷 KoreaN2 (trojan)",
+   name: "🇰🇷 KoreaN2 (Trojan)",
    type: trojan,
    server: ccn2xray.aimdd.com,
    port: 443,
@@ -95,7 +95,7 @@ proxies:
   }
 
 - {
-   name: "🇯🇵 JapanN CF (vmess)",
+   name: "🇯🇵 JapanN CF (Vmess)",
    type: vmess,
    server: cfvray.aimdd.com,
    port: 443,
@@ -111,7 +111,7 @@ proxies:
   }
 
 - {
-   name: "🇯🇵 JapanN 443 (vmess)",
+   name: "🇯🇵 JapanN 443 (Vmess)",
    type: vmess,
    server: dbnvray.aimdd.com,
    port: 443,
@@ -127,7 +127,7 @@ proxies:
   }
 
 - {
-   name: "🇯🇵 JapanN (trojan)",
+   name: "🇯🇵 JapanN (Trojan)",
    type: trojan,
    server: dbnxray.aimdd.com,
    port: 443,
@@ -137,7 +137,7 @@ proxies:
   }
 
 - {
-   name: "🇺🇸 America CN2 443 (vmess)",
+   name: "🇺🇸 America CN2 443 (Vmess)",
    type: vmess,
    server: xray.i0x0.cn,
    port: 443,
@@ -153,7 +153,7 @@ proxies:
   }
 
 - {
-   name: "🇺🇸 America CN2 (trojan)",
+   name: "🇺🇸 America CN2 (Trojan)",
    type: trojan,
    server: uxray.zxs007.top,
    port: 443,
@@ -190,8 +190,8 @@ proxy-groups:
     - "全球选择"
     - "CHIN节点选择"
     - "节点选择"
-    - "🇺🇸 America CN2 443 (vmess)"
-    - "🇺🇸 America CN2 (trojan)"
+    - "🇺🇸 America CN2 443 (Vmess)"
+    - "🇺🇸 America CN2 (Trojan)"
     
 # 代理节点选择
 - name: "facebook节点选择"
