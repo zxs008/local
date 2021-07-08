@@ -168,8 +168,10 @@ proxy-groups:
   type: select
   proxies:
     - "全球选择"
-    - "🇰🇷 Korea 443 (vmess)"
-    - "🇰🇷 Korea (trojan)"
+    - "🇰🇷 KoreaN 443 (Vmess)"
+    - "🇰🇷 KoreaN (Trojan)"
+    - "🇰🇷 KoreaN2 443 (Vmess)"
+    - "🇰🇷 KoreaN2 (Trojan)"
 
 #代理节点选择
 - name: "节点选择"
@@ -177,9 +179,9 @@ proxy-groups:
   proxies:
     - "全球选择"
     - "CHIN节点选择"
-    - "🇯🇵 Japan CF (vmess)"
-    - "🇯🇵 Japan 443 (vmess)"
-    - "🇯🇵 Japan (trojan)"
+    - "🇯🇵 JapanN CF (Vmess)"
+    - "🇯🇵 JapanN 443 (Vmess)"
+    - "🇯🇵 JapanN (Trojan)"
 
 #代理节点选择
 - name: "Us节点选择"
