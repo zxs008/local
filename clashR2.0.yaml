@@ -43,33 +43,59 @@ dns:
 
 proxies:
 - {
-   name: "🇰🇷 Korea 443 (vmess)",
+   name: "🇰🇷 KoreaN 443 (vmess)",
    type: vmess,
-   server: ccvray.aimdd.com,
+   server: ccnvray.aimdd.com,
+   port: 443,
+   uuid: 4e79da35-a842-4571-9300-89003db65a68,
+   alterId: 64,
+   cipher: auto,
+   tls: true,
+   network: ws,
+   ws-path: /KoreaChuncheonN,
+   ws-headers: {Host: ccnvray.aimdd.com}
+   # tls: true
+   # skip-cert-verify: true
+  }
+
+- {
+   name: "🇰🇷 KoreaN (trojan)",
+   type: trojan,
+   server: ccnxray.aimdd.com,
+   port: 443,
+   password: cc..1234,
+   sni: ccnxray.aimdd.com, 
+   skip-cert-verify: false
+  }
+
+- {
+   name: "🇰🇷 KoreaN2 443 (vmess)",
+   type: vmess,
+   server: ccn2vray.aimdd.com,
    port: 443,
    uuid: 96746e36-8745-49ae-e3b0-e92a5ea80116,
    alterId: 64,
    cipher: auto,
    tls: true,
    network: ws,
-   ws-path: /KoreaChuncheon,
-   ws-headers: {Host: ccvray.aimdd.com}
+   ws-path: /KoreaChuncheonN2,
+   ws-headers: {Host: ccn2vray.aimdd.com}
    # tls: true
    # skip-cert-verify: true
   }
 
 - {
-   name: "🇰🇷 Korea (trojan)",
+   name: "🇰🇷 KoreaN2 (trojan)",
    type: trojan,
-   server: ccxray.zxs007.top,
+   server: ccn2xray.aimdd.com,
    port: 443,
    password: cc..1234,
-   sni: ccxray.zxs007.top, 
+   sni: ccn2xray.aimdd.com, 
    skip-cert-verify: false
   }
 
 - {
-   name: "🇯🇵 Japan CF (vmess)",
+   name: "🇯🇵 JapanN CF (vmess)",
    type: vmess,
    server: cfvray.aimdd.com,
    port: 443,
@@ -78,35 +104,35 @@ proxies:
    cipher: auto,
    tls: true,
    network: ws,
-   ws-path: /JapanOsaka,
+   ws-path: /JapanOsakaCFN,
    ws-headers: {Host: cfvray.aimdd.com}
    # udp: true
    # skip-cert-verify: true
   }
 
 - {
-   name: "🇯🇵 Japan 443 (vmess)",
+   name: "🇯🇵 JapanN 443 (vmess)",
    type: vmess,
-   server: vray.aimdd.com,
+   server: dbnvray.aimdd.com,
    port: 443,
    uuid: e7632537-11cc-4100-bf42-6de88fffb19f,
    alterId: 64,
    cipher: auto,
    tls: true,
    network: ws,
-   ws-path: /JapanOsaka,
-   ws-headers: {Host: vray.aimdd.com}
+   ws-path: /JapanOsakaVN,
+   ws-headers: {Host: dbnvray.aimdd.com}
    # tls: true
    # skip-cert-verify: true
   }
 
 - {
-   name: "🇯🇵 Japan (trojan)",
+   name: "🇯🇵 JapanN (trojan)",
    type: trojan,
-   server: xray.aimdd.com,
+   server: dbnxray.aimdd.com,
    port: 443,
    password: cc..1234,
-   sni: xray.aimdd.com, 
+   sni: dbnxray.aimdd.com, 
    skip-cert-verify: false
   }
 
