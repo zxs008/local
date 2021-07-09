@@ -67,7 +67,7 @@ proxies:
    sni: ccnxray.aimdd.com, 
    skip-cert-verify: false
   }
-  
+
 - {
    name: "🇰🇷 KoreaN2 443 (Vmess)",
    type: vmess,
@@ -79,7 +79,7 @@ proxies:
    tls: true,
    network: ws,
    ws-path: /KoreaChuncheonN2,
-   ws-headers: {Host: ccnvray.aimdd.com}
+   ws-headers: {Host: ccn2vray.aimdd.com}
    # tls: true
    # skip-cert-verify: true
   }
@@ -90,7 +90,7 @@ proxies:
    server: ccn2xray.aimdd.com,
    port: 443,
    password: cc..1234,
-   sni: ccnxray.aimdd.com, 
+   sni: ccn2xray.aimdd.com, 
    skip-cert-verify: false
   }
 
