@@ -47,7 +47,7 @@ proxies:
    type: vmess,
    server: ccnvray.aimdd.com,
    port: 443,
-   uuid: 4e79da35-a842-4571-9300-89003db65a68,
+   uuid: 96746e36-8745-49ae-e3b0-e92a5ea80116,
    alterId: 64,
    cipher: auto,
    tls: true,
@@ -67,19 +67,19 @@ proxies:
    sni: ccnxray.aimdd.com, 
    skip-cert-verify: false
   }
-
+  
 - {
    name: "🇰🇷 KoreaN2 443 (Vmess)",
    type: vmess,
    server: ccn2vray.aimdd.com,
    port: 443,
-   uuid: 96746e36-8745-49ae-e3b0-e92a5ea80116,
+   uuid: 4e79da35-a842-4571-9300-89003db65a68,
    alterId: 64,
    cipher: auto,
    tls: true,
    network: ws,
    ws-path: /KoreaChuncheonN2,
-   ws-headers: {Host: ccn2vray.aimdd.com}
+   ws-headers: {Host: ccnvray.aimdd.com}
    # tls: true
    # skip-cert-verify: true
   }
@@ -90,7 +90,7 @@ proxies:
    server: ccn2xray.aimdd.com,
    port: 443,
    password: cc..1234,
-   sni: ccn2xray.aimdd.com, 
+   sni: ccnxray.aimdd.com, 
    skip-cert-verify: false
   }
 
