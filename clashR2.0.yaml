@@ -52,7 +52,7 @@ proxies:
    cipher: auto,
    tls: true,
    network: ws,
-   ws-path: /KoreaChuncheonN,
+   ws-path: /KoreaChuncheonVN,
    ws-headers: {Host: ccnvray.aimdd.com}
    # tls: true
    # skip-cert-verify: true
@@ -78,7 +78,7 @@ proxies:
    cipher: auto,
    tls: true,
    network: ws,
-   ws-path: /KoreaChuncheonN2,
+   ws-path: /KoreaChuncheonVN2,
    ws-headers: {Host: ccn2vray.aimdd.com}
    # tls: true
    # skip-cert-verify: true
