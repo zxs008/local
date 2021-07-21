@@ -223,6 +223,16 @@ proxy-groups:
     - "全球选择"
     - "全球全局"
     - "全球节点"
+    
+- name: "potato节点选择"
+  type: select
+  proxies:
+    - "CHIN节点选择"
+    - "节点选择"
+    - "Us节点选择"
+    - "全球选择"
+    - "全球全局"
+    - "全球节点"
 
 - name: "google节点选择"
   type: select
@@ -433,6 +443,10 @@ rules:
   - IP-CIDR6,2001:b28:f23f::/48,telegra节点选择,no-resolve #电报
   - IP-CIDR6,2001:67c:4e8::/48,telegra节点选择,no-resolve #电报
   
+  - DOMAIN-KEYWORD,potato,potato节点选择 #电报
+  - DOMAIN-KEYWORD,otatop,potato节点选择 #电报
+  - DOMAIN-SUFFIX,otatop.app,potato节点选择 #电报
+
   - DOMAIN-KEYWORD,1drv,微软可直连
   - DOMAIN-KEYWORD,microsoft,微软可直连
   - DOMAIN-SUFFIX,aadrm.com,微软可直连
