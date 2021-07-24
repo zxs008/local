@@ -155,10 +155,10 @@ proxies:
 - {
    name: "🇺🇸 America CN2 (Trojan)",
    type: trojan,
-   server: uxray.zxs007.top,
+   server: usxray.salir.cl,
    port: 443,
    password: cc..1234,
-   sni: uxray.zxs007.top, 
+   sni: usxray.salir.cl, 
    skip-cert-verify: false
   }
 
