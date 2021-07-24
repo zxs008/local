@@ -221,8 +221,10 @@ proxy-groups:
   proxies:
     - "全球选择"
     - "🇰🇷 KoreaN 443 (Vmess)"
+    - "🇰🇷 KoreaN 443 (Vless)"
     - "🇰🇷 KoreaN (Trojan)"
     - "🇰🇷 KoreaN2 443 (Vmess)"
+    - "🇰🇷 KoreaN2 443 (Vless)"
     - "🇰🇷 KoreaN2 (Trojan)"
     
 
