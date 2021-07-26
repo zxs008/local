@@ -178,7 +178,7 @@ proxies:
 - {
    name: "🇺🇸 America CN2 443 (Vmess)",
    type: vmess,
-   server: xray.i0x0.cn,
+   server: tt.isdnf.com,
    port: 443,
    uuid: b491aab9-fad7-44d0-a519-1703ccfa2e16,
    alterId: 64,
@@ -186,7 +186,7 @@ proxies:
    tls: true,
    network: ws,
    ws-path: /zxcvbnm,
-   ws-headers: {Host: xray.i0x0.cn}
+   ws-headers: {Host: tt.isdnf.com}
    # tls: true
    # skip-cert-verify: true
   }
