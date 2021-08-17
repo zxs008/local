@@ -42,12 +42,13 @@ dns:
     - https://cloudflare-dns.com/dns-query
 
 proxies:
+
 - {
    name: "🇰🇷 KoreaN 443 (Vmess)",
    type: vmess,
    server: ccnvray.aimdd.com,
    port: 443,
-   uuid: 96746e36-8745-49ae-e3b0-e92a5ea80116,
+   uuid: 4e79da35-a842-4571-9300-89003db65a68,
    alterId: 64,
    cipher: auto,
    tls: true,
@@ -63,7 +64,7 @@ proxies:
   type: vless,
   server: ccnxray.aimdd.com,
   port: 443, 
-  uuid: 16877949-4c27-40fa-91fe-f28d9811ee02,
+  uuid: 11f1cb05-4d03-4791-be7a-c75d48b6d91c,
   cipher: auto,
   network: http,
   tls: true,
@@ -78,45 +79,6 @@ proxies:
    port: 443,
    password: cc..1234,
    sni: ccnxray.aimdd.com, 
-   skip-cert-verify: false
-  }
-
-- {
-   name: "🇰🇷 KoreaN2 443 (Vmess)",
-   type: vmess,
-   server: ccn2vray.aimdd.com,
-   port: 443,
-   uuid: 4e79da35-a842-4571-9300-89003db65a68,
-   alterId: 64,
-   cipher: auto,
-   tls: true,
-   network: ws,
-   ws-path: /KoreaChuncheonVN2,
-   ws-headers: {Host: ccn2vray.aimdd.com}
-   # tls: true
-   # skip-cert-verify: true
-  }
-
-- {
-  name: 🇰🇷 KoreaN2 443 (Vless),
-  type: vless,
-  server: ccn2xray.aimdd.com,
-  port: 443, 
-  uuid: 11f1cb05-4d03-4791-be7a-c75d48b6d91c,
-  cipher: auto,
-  network: http,
-  tls: true,
-  flow: xtls-rprx-direct,
-  skip-cert-verify: true
-  }
-
-- {
-   name: "🇰🇷 KoreaN2 (Trojan)",
-   type: trojan,
-   server: ccn2xray.aimdd.com,
-   port: 443,
-   password: cc..1234,
-   sni: ccn2xray.aimdd.com, 
    skip-cert-verify: false
   }
 
@@ -178,7 +140,7 @@ proxies:
 - {
    name: "🇺🇸 America CN2 443 (Vmess)",
    type: vmess,
-   server: tt.isdnf.com,
+   server: xray.i0x0.cn,
    port: 443,
    uuid: b491aab9-fad7-44d0-a519-1703ccfa2e16,
    alterId: 64,
@@ -186,7 +148,7 @@ proxies:
    tls: true,
    network: ws,
    ws-path: /zxcvbnm,
-   ws-headers: {Host: tt.isdnf.com}
+   ws-headers: {Host: xray.i0x0.cn}
    # tls: true
    # skip-cert-verify: true
   }
