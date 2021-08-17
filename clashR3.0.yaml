@@ -185,9 +185,6 @@ proxy-groups:
     - "🇰🇷 KoreaN 443 (Vmess)"
     - "🇰🇷 KoreaN 443 (Vless)"
     - "🇰🇷 KoreaN (Trojan)"
-    - "🇰🇷 KoreaN2 443 (Vmess)"
-    - "🇰🇷 KoreaN2 443 (Vless)"
-    - "🇰🇷 KoreaN2 (Trojan)"
     
 
 #代理节点选择
