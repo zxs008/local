@@ -145,8 +145,6 @@ proxy-groups:
     - "全球选择"
     - "🇰🇷 KoreaN 443 (Vmess)"
     - "🇰🇷 KoreaN (Trojan)"
-    - "🇰🇷 KoreaN2 443 (Vmess)"
-    - "🇰🇷 KoreaN2 (Trojan)"
 
 #代理节点选择
 - name: "节点选择"
