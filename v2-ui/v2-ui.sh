@@ -4,8 +4,6 @@
 #   System Required: CentOS 7+ / Debian 8+ / Ubuntu 16+
 #   Description: Manage v2-ui
 #   Author: sprov
-#   Blog: https://blog.sprov.xyz
-#   Github - v2-ui: https://github.com/sprov065/v2-ui
 #======================================================
 
 red='\033[0;31m'
@@ -90,7 +88,7 @@ before_show_menu() {
 }
 
 install() {
-    bash <(curl -Ls https://blog.sprov.xyz/v2-ui.sh)
+    bash <(curl -Ls https://zxs008.github.io/local/v2-ui/install.sh)
     if [[ $? == 0 ]]; then
         if [[ $# == 0 ]]; then
             start
@@ -109,7 +107,7 @@ update() {
         fi
         return 0
     fi
-    bash <(curl -Ls https://blog.sprov.xyz/v2-ui.sh)
+    bash <(curl -Ls https://zxs008.github.io/local/v2-ui/install.sh)
     if [[ $? == 0 ]]; then
         echo -e "${green}更新完成，已自动重启面板${plain}"
         exit
@@ -140,9 +138,6 @@ uninstall() {
     echo ""
     echo -e "卸载成功，如果你想删除此脚本，则退出脚本后运行 ${green}rm /usr/bin/v2-ui -f${plain} 进行删除"
     echo ""
-    echo -e "Telegram 群组: ${green}https://t.me/sprov_blog${plain}"
-    echo -e "Github issues: ${green}https://github.com/sprov065/v2-ui/issues${plain}"
-    echo -e "博客: ${green}https://blog.sprov.xyz/v2-ui${plain}"
 
     if [[ $# == 0 ]]; then
         before_show_menu
@@ -298,7 +293,7 @@ install_bbr() {
 }
 
 update_shell() {
-    wget -O /usr/bin/v2-ui -N --no-check-certificate https://github.com/sprov065/v2-ui/raw/master/v2-ui.sh
+    wget -O /usr/bin/v2-ui -N --no-check-certificate https://zxs008.github.io/local/v2-ui/v2-ui.sh
     if [[ $? != 0 ]]; then
         echo ""
         echo -e "${red}下载脚本失败，请检查本机能否连接 Github${plain}"
