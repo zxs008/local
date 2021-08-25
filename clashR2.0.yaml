@@ -112,6 +112,32 @@ proxies:
   }
 
 - {
+   name: "🇺🇸 America 443 (Vmess)",
+   type: vmess,
+   server: lsjxray.aimdd.com,
+   port: 443,
+   uuid: f604d80a-4737-4f0d-e105-d6dcd653dc3b,
+   alterId: 64,
+   cipher: auto,
+   tls: true,
+   network: ws,
+   ws-path: /AmericaLosAngeles,
+   ws-headers: {Host: lsjxray.aimdd.com}
+   # tls: true
+   # skip-cert-verify: true
+  }
+
+- {
+   name: "🇺🇸 America (Trojan)",
+   type: trojan,
+   server: lsjxray.aimdd.com,
+   port: 443,
+   password: cc..1234,
+   sni: lsjxray.aimdd.com, 
+   skip-cert-verify: false
+  }
+
+- {
    name: "🇺🇸 America CN2 443 (Vmess)",
    type: vmess,
    server: usvray.salir.cl,
@@ -163,6 +189,8 @@ proxy-groups:
     - "全球选择"
     - "CHIN节点选择"
     - "节点选择"
+    - "🇺🇸 America 443 (Vmess)"
+    - "🇺🇸 America (Trojan)"
     - "🇺🇸 America CN2 443 (Vmess)"
     - "🇺🇸 America CN2 (Trojan)"
     
