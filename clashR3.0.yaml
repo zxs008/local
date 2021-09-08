@@ -60,16 +60,16 @@ proxies:
   }
 
 - {
-  name: 🇰🇷 KoreaN 443 (Vless),
-  type: vless,
-  server: ccnxray.aimdd.com,
-  port: 443, 
-  uuid: 11f1cb05-4d03-4791-be7a-c75d48b6d91c,
-  cipher: auto,
-  network: http,
-  tls: true,
-  flow: xtls-rprx-direct,
-  skip-cert-verify: true
+   name: 🇰🇷 KoreaN 443 (Vless),
+   type: vless,
+   server: ccnxray.aimdd.com,
+   port: 443, 
+   uuid: 11f1cb05-4d03-4791-be7a-c75d48b6d91c,
+   cipher: auto,
+   network: http,
+   tls: true,
+   flow: xtls-rprx-direct,
+   skip-cert-verify: true
   }
 
 - {
@@ -140,15 +140,15 @@ proxies:
 - {
    name: "🇺🇸 America 443 (Vmess)",
    type: vmess,
-   server: lsjvray.aimdd.com,
+   server: lsjnvray.aimdd.com,
    port: 443,
    uuid: f604d80a-4737-4f0d-e105-d6dcd653dc3b,
    alterId: 64,
    cipher: auto,
    tls: true,
    network: ws,
-   ws-path: /AmericaLosAngeles,
-   ws-headers: {Host: lsjvray.aimdd.com}
+   ws-path: /AmericaLosAngelesVN,
+   ws-headers: {Host: lsjnvray.aimdd.com}
    # tls: true
    # skip-cert-verify: true
   }
@@ -156,7 +156,7 @@ proxies:
 - {
   name: 🇺🇸 America 443 (Vless),
   type: vless,
-  server: lsjxray.aimdd.com,
+  server: lsjnxray.aimdd.com,
   port: 443, 
   uuid: 0e4766aa-16d1-496e-d991-3b4b0021179f,
   cipher: auto,
@@ -169,10 +169,10 @@ proxies:
 - {
    name: "🇺🇸 America (Trojan)",
    type: trojan,
-   server: lsjxray.aimdd.com,
+   server: lsjnxray.aimdd.com,
    port: 443,
    password: cc..1234,
-   sni: lsjxray.aimdd.com, 
+   sni: lsjnxray.aimdd.com, 
    skip-cert-verify: false
   }
 
