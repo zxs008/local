@@ -114,15 +114,15 @@ proxies:
 - {
    name: "🇺🇸 America 443 (Vmess)",
    type: vmess,
-   server: lsjvray.aimdd.com,
+   server: lsjnvray.aimdd.com,
    port: 443,
    uuid: f604d80a-4737-4f0d-e105-d6dcd653dc3b,
    alterId: 64,
    cipher: auto,
    tls: true,
    network: ws,
-   ws-path: /AmericaLosAngeles,
-   ws-headers: {Host: lsjvray.aimdd.com}
+   ws-path: /AmericaLosAngelesVN,
+   ws-headers: {Host: lsjnvray.aimdd.com}
    # tls: true
    # skip-cert-verify: true
   }
@@ -130,10 +130,10 @@ proxies:
 - {
    name: "🇺🇸 America (Trojan)",
    type: trojan,
-   server: lsjxray.aimdd.com,
+   server: lsjnxray.aimdd.com,
    port: 443,
    password: cc..1234,
-   sni: lsjxray.aimdd.com, 
+   sni: lsjnxray.aimdd.com, 
    skip-cert-verify: false
   }
 
