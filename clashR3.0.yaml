@@ -83,34 +83,34 @@ proxies:
   }
 
 - {
-   name: "🇯🇵 JapanN CF (Vmess)",
+   name: "🇯🇵 JapanN CM (Vmess)",
    type: vmess,
-   server: cfvray.aimdd.com,
-   port: 443,
-   uuid: b9c301ec-4770-4d5d-b118-ce58523289d6,
-   alterId: 64,
-   cipher: auto,
-   tls: true,
-   network: ws,
-   ws-path: /JapanOsakaCFN,
-   ws-headers: {Host: cfvray.aimdd.com}
-   # udp: true
-   # skip-cert-verify: true
-  }
-
-- {
-   name: "🇯🇵 JapanN 443 (Vmess)",
-   type: vmess,
-   server: dbnvray.aimdd.com,
+   server: dbncfcm.aimdd.com,
    port: 443,
    uuid: e7632537-11cc-4100-bf42-6de88fffb19f,
    alterId: 64,
    cipher: auto,
    tls: true,
    network: ws,
-   ws-path: /JapanOsakaVN,
-   ws-headers: {Host: dbnvray.aimdd.com}
+   ws-path: /JapanOsakaVNCM,
+   ws-headers: {Host: dbncfcm.aimdd.com}
    # tls: true
+   # skip-cert-verify: true
+  }
+
+- {
+   name: "🇯🇵 JapanN CU (Vmess)",
+   type: vmess,
+   server: dbncfcu.aimdd.com,
+   port: 443,
+   uuid: b9c301ec-4770-4d5d-b118-ce58523289d6,
+   alterId: 64,
+   cipher: auto,
+   tls: true,
+   network: ws,
+   ws-path: /JapanOsakaVNCU,
+   ws-headers: {Host: dbncfcu.aimdd.com}
+   # udp: true
    # skip-cert-verify: true
   }
 
@@ -138,17 +138,33 @@ proxies:
   }
 
 - {
-   name: "🇺🇸 America 443 (Vmess)",
+   name: "🇺🇸 America CM (Vmess)",
    type: vmess,
-   server: lsjnvray.aimdd.com,
+   server: lsjncfcm.aimdd.com,
    port: 443,
    uuid: f604d80a-4737-4f0d-e105-d6dcd653dc3b,
    alterId: 64,
    cipher: auto,
    tls: true,
    network: ws,
-   ws-path: /AmericaLosAngelesVN,
-   ws-headers: {Host: lsjnvray.aimdd.com}
+   ws-path: /AmericaLosAngelesVNCM,
+   ws-headers: {Host: lsjncfcm.aimdd.com}
+   # tls: true
+   # skip-cert-verify: true
+  }
+
+- {
+   name: "🇺🇸 America CU (Vmess)",
+   type: vmess,
+   server: lsjncfcu.aimdd.com,
+   port: 443,
+   uuid: db091727-77ff-45a9-b48c-352143903765,
+   alterId: 64,
+   cipher: auto,
+   tls: true,
+   network: ws,
+   ws-path: /AmericaLosAngelesVNCU,
+   ws-headers: {Host: lsjncfcu.aimdd.com}
    # tls: true
    # skip-cert-verify: true
   }
