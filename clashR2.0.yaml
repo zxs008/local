@@ -112,17 +112,33 @@ proxies:
   }
 
 - {
-   name: "🇺🇸 America 443 (Vmess)",
+   name: "🇺🇸 America CM (Vmess)",
    type: vmess,
-   server: lsjnvray.aimdd.com,
+   server: lsjncfcm.aimdd.com,
    port: 443,
    uuid: f604d80a-4737-4f0d-e105-d6dcd653dc3b,
    alterId: 64,
    cipher: auto,
    tls: true,
    network: ws,
-   ws-path: /AmericaLosAngelesVN,
-   ws-headers: {Host: lsjnvray.aimdd.com}
+   ws-path: /AmericaLosAngelesVNCM,
+   ws-headers: {Host: lsjncfcm.aimdd.com}
+   # tls: true
+   # skip-cert-verify: true
+  }
+
+- {
+   name: "🇺🇸 America CU (Vmess)",
+   type: vmess,
+   server: lsjncfcu.aimdd.com,
+   port: 443,
+   uuid: db091727-77ff-45a9-b48c-352143903765,
+   alterId: 64,
+   cipher: auto,
+   tls: true,
+   network: ws,
+   ws-path: /AmericaLosAngelesVNCU,
+   ws-headers: {Host: lsjncfcu.aimdd.com}
    # tls: true
    # skip-cert-verify: true
   }
