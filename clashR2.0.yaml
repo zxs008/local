@@ -73,14 +73,14 @@ proxies:
    name: "🇯🇵 JapanN CM (Vmess)",
    type: vmess,
    server: dbncfcm.aimdd.com,
-   port: 443,
-   uuid: e7632537-11cc-4100-bf42-6de88fffb19f,
+   port: 2095,
+   uuid: d4137db8-1505-4dc8-d3fe-60028040fdce,
    alterId: 64,
    cipher: auto,
-   tls: true,
+   tls: false,
    network: ws,
-   ws-path: /JapanOsakaVNCM,
-   ws-headers: {Host: dbncfcm.aimdd.com}
+   ws-path: /JapanOsakaCF,
+   # ws-headers: {Host: dbncfcm.aimdd.com}false
    # tls: true
    # skip-cert-verify: true
   }
@@ -89,14 +89,14 @@ proxies:
    name: "🇯🇵 JapanN CU (Vmess)",
    type: vmess,
    server: dbncfcu.aimdd.com,
-   port: 443,
-   uuid: b9c301ec-4770-4d5d-b118-ce58523289d6,
+   port: 2095,
+   uuid: d4137db8-1505-4dc8-d3fe-60028040fdce,
    alterId: 64,
    cipher: auto,
-   tls: true,
+   tls: false,
    network: ws,
-   ws-path: /JapanOsakaVNCU,
-   ws-headers: {Host: dbncfcu.aimdd.com}
+   ws-path: /JapanOsakaCF,
+   # ws-headers: {Host: dbncfcu.aimdd.com}
    # udp: true
    # skip-cert-verify: true
   }
@@ -115,14 +115,14 @@ proxies:
    name: "🇺🇸 America CM (Vmess)",
    type: vmess,
    server: lsjncfcm.aimdd.com,
-   port: 443,
-   uuid: f604d80a-4737-4f0d-e105-d6dcd653dc3b,
+   port: 2095,
+   uuid: 2266af62-bcdb-4fc7-c1e5-05ba7831c2fa,
    alterId: 64,
    cipher: auto,
-   tls: true,
+   tls: false,
    network: ws,
-   ws-path: /AmericaLosAngelesVNCM,
-   ws-headers: {Host: lsjncfcm.aimdd.com}
+   ws-path: /AmericaLosAngelesCF,
+   # ws-headers: {Host: lsjncfcm.aimdd.com}
    # tls: true
    # skip-cert-verify: true
   }
@@ -131,14 +131,14 @@ proxies:
    name: "🇺🇸 America CU (Vmess)",
    type: vmess,
    server: lsjncfcu.aimdd.com,
-   port: 443,
-   uuid: db091727-77ff-45a9-b48c-352143903765,
+   port: 2095,
+   uuid: 2266af62-bcdb-4fc7-c1e5-05ba7831c2fa,
    alterId: 64,
    cipher: auto,
-   tls: true,
+   tls: false,
    network: ws,
-   ws-path: /AmericaLosAngelesVNCU,
-   ws-headers: {Host: lsjncfcu.aimdd.com}
+   ws-path: /AmericaLosAngelesCF,
+   # ws-headers: {Host: lsjncfcu.aimdd.com}
    # tls: true
    # skip-cert-verify: true
   }
@@ -194,8 +194,8 @@ proxy-groups:
   proxies:
     - "全球选择"
     - "CHIN节点选择"
-    - "🇯🇵 JapanN CF (Vmess)"
-    - "🇯🇵 JapanN 443 (Vmess)"
+    - "🇯🇵 JapanN CM (Vmess)"
+    - "🇯🇵 JapanN CU (Vmess)"
     - "🇯🇵 JapanN (Trojan)"
 
 #代理节点选择
@@ -205,7 +205,8 @@ proxy-groups:
     - "全球选择"
     - "CHIN节点选择"
     - "节点选择"
-    - "🇺🇸 America 443 (Vmess)"
+    - "🇺🇸 America CM (Vmess)"
+    - "🇺🇸 America CU (Vmess)"
     - "🇺🇸 America (Trojan)"
     - "🇺🇸 America CN2 443 (Vmess)"
     - "🇺🇸 America CN2 (Trojan)"
