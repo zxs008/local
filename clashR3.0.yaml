@@ -90,7 +90,7 @@ proxies:
    uuid: d4137db8-1505-4dc8-d3fe-60028040fdce,
    alterId: 64,
    cipher: auto,
-   tls: false,
+   # tls: false,
    network: ws,
    ws-path: /JapanOsakaCF,
    # ws-headers: {Host: dbncfcm.aimdd.com}false
@@ -106,7 +106,7 @@ proxies:
    uuid: d4137db8-1505-4dc8-d3fe-60028040fdce,
    alterId: 64,
    cipher: auto,
-   tls: false,
+   # tls: false,
    network: ws,
    ws-path: /JapanOsakaCF,
    # ws-headers: {Host: dbncfcu.aimdd.com}
@@ -145,7 +145,7 @@ proxies:
    uuid: 2266af62-bcdb-4fc7-c1e5-05ba7831c2fa,
    alterId: 64,
    cipher: auto,
-   tls: false,
+   # tls: false,
    network: ws,
    ws-path: /AmericaLosAngelesCF,
    # ws-headers: {Host: lsjncfcm.aimdd.com}
@@ -161,7 +161,7 @@ proxies:
    uuid: 2266af62-bcdb-4fc7-c1e5-05ba7831c2fa,
    alterId: 64,
    cipher: auto,
-   tls: false,
+   # tls: false,
    network: ws,
    ws-path: /AmericaLosAngelesCF,
    # ws-headers: {Host: lsjncfcu.aimdd.com}
