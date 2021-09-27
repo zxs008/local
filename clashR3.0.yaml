@@ -461,6 +461,18 @@ rules:
   - DOMAIN-KEYWORD,youtube,google节点选择
   - DOMAIN-SUFFIX,youtube.com,google节点选择
   - DOMAIN,youtubei.googleapis.com,google节点选择
+  - DOMAIN-KEYWORD,youtube,google节点选择
+  - DOMAIN,youtubei.googleapis.com,google节点选择
+  - DOMAIN,yt3.ggpht.com,google节点选择
+  - DOMAIN-SUFFIX,googlevideo.com,google节点选择
+  - DOMAIN-SUFFIX,gvt2.com,google节点选择
+  - DOMAIN-SUFFIX,youtu.be,google节点选择
+  - DOMAIN-SUFFIX,youtube.com,google节点选择
+  - DOMAIN-SUFFIX,ytimg.com,google节点选择
+  - PROCESS-NAME,com.google.android.apps.youtube.music,google节点选择
+  - PROCESS-NAME,com.google.android.youtube.tvmusicroot,google节点选择
+  - PROCESS-NAME,com.vanced.android.apps.youtube.music,google节点选择
+  
   - DOMAIN-SUFFIX,gvt0.com,google节点选择 #Google Play
   - DOMAIN-SUFFIX,gvt1.com,google节点选择 #Google Play
   - DOMAIN-SUFFIX,gvt3.com,google节点选择 #Google Play
