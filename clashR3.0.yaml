@@ -90,7 +90,7 @@ proxies:
    uuid: d4137db8-1505-4dc8-d3fe-60028040fdce,
    alterId: 64,
    cipher: auto,
-   # tls: false,
+   tls: false,
    network: ws,
    ws-path: /JapanOsakaCF,
    # ws-headers: {Host: dbncfcm.aimdd.com}false
@@ -106,7 +106,7 @@ proxies:
    uuid: d4137db8-1505-4dc8-d3fe-60028040fdce,
    alterId: 64,
    cipher: auto,
-   # tls: false,
+   tls: false,
    network: ws,
    ws-path: /JapanOsakaCF,
    # ws-headers: {Host: dbncfcu.aimdd.com}
@@ -145,7 +145,7 @@ proxies:
    uuid: 2266af62-bcdb-4fc7-c1e5-05ba7831c2fa,
    alterId: 64,
    cipher: auto,
-   # tls: false,
+   tls: false,
    network: ws,
    ws-path: /AmericaLosAngelesCF,
    # ws-headers: {Host: lsjncfcm.aimdd.com}
@@ -161,7 +161,7 @@ proxies:
    uuid: 2266af62-bcdb-4fc7-c1e5-05ba7831c2fa,
    alterId: 64,
    cipher: auto,
-   # tls: false,
+   tls: false,
    network: ws,
    ws-path: /AmericaLosAngelesCF,
    # ws-headers: {Host: lsjncfcu.aimdd.com}
@@ -433,13 +433,11 @@ rules:
   - DOMAIN-KEYWORD,amazon,特殊地址可直连
   - DOMAIN-SUFFIX,amazon.com,特殊地址可直连
  
-  - DOMAIN-KEYWORD,youtube,全球节点
   - DOMAIN-KEYWORD,gvt,全球节点
   - DOMAIN-KEYWORD,porn,全球节点 #p站
   - DOMAIN-KEYWORD,usky,全球节点
   - DOMAIN-KEYWORD,ssrtool,全球节点
-  
-  - DOMAIN-SUFFIX,youtu.be,全球节点
+   
   - DOMAIN-SUFFIX,wikimapia.org,全球节点 #维基
   - DOMAIN-SUFFIX,wikimedia.org,全球节点 #维基
   - DOMAIN-SUFFIX,wikipedia.org,全球节点 #维基百科
@@ -456,24 +454,29 @@ rules:
   - DOMAIN-SUFFIX,line-apps.com,全球节点
   - DOMAIN-SUFFIX,line-scdn.net,全球节点
   
-  - DOMAIN-SUFFIX,gvt0.com,google节点选择 #Google Play
-  - DOMAIN-SUFFIX,gvt1.com,google节点选择 #Google Play
-  - DOMAIN-SUFFIX,gvt3.com,google节点选择 #Google Play
-  - DOMAIN-KEYWORD,google,google节点选择
-  - DOMAIN-SUFFIX,gmail.com,google节点选择 # 谷歌邮箱
-
-  - DOMAIN-SUFFIX,gvt0.com,google节点选择 #Google Play
-  - DOMAIN-SUFFIX,gvt1.com,google节点选择 #Google Play
-  - DOMAIN-SUFFIX,gvt3.com,google节点选择 #Google Play
-  - DOMAIN-KEYWORD,google,google节点选择
-  - DOMAIN-SUFFIX,gmail.com,google节点选择 # 谷歌邮箱
-
   - DOMAIN-KEYWORD,uptodown,全球节点 #Uptodown
   - DOMAIN-KEYWORD,apkpure,全球节点 #Apkpure
+
+  - DOMAIN-SUFFIX,youtu.be,google节点选择
+  - DOMAIN-KEYWORD,youtube,google节点选择
+  - DOMAIN-SUFFIX,youtube.com,google节点选择
+  - DOMAIN,youtubei.googleapis.com,google节点选择
+  - DOMAIN-SUFFIX,gvt0.com,google节点选择 #Google Play
+  - DOMAIN-SUFFIX,gvt1.com,google节点选择 #Google Play
+  - DOMAIN-SUFFIX,gvt3.com,google节点选择 #Google Play
+  - DOMAIN-KEYWORD,google,google节点选择
+  - DOMAIN-SUFFIX,gmail.com,google节点选择 # 谷歌邮箱
+
+  - DOMAIN-SUFFIX,gvt0.com,google节点选择 #Google Play
+  - DOMAIN-SUFFIX,gvt1.com,google节点选择 #Google Play
+  - DOMAIN-SUFFIX,gvt3.com,google节点选择 #Google Play
+  - DOMAIN-KEYWORD,google,google节点选择
+  - DOMAIN-SUFFIX,gmail.com,google节点选择 # 谷歌邮箱
+
   
   - DOMAIN-SUFFIX,safechat.com,固定节点选择 #safechat
   - DOMAIN-KEYWORD,safechat,固定节点选择 #safechat
-
+  - DOMAIN-KEYWORD,github,固定节点选择
 
   - DOMAIN-SUFFIX,fb.com,facebook节点选择 #脸书
   - DOMAIN-SUFFIX,fb.me,facebook节点选择 #脸书
@@ -612,6 +615,23 @@ rules:
   - DOMAIN,www-cdn.icloud.com.akadns.net,苹果可直连
 
   - DOMAIN-KEYWORD,tiktok,国外媒体等
+  - DOMAIN-SUFFIX,netflix.com,国外媒体等
+  - DOMAIN-SUFFIX,netflix.net,国外媒体等
+  - DOMAIN-SUFFIX,nflxext.com,国外媒体等
+  - DOMAIN-SUFFIX,nflximg.com,国外媒体等
+  - DOMAIN-SUFFIX,nflximg.net,国外媒体等
+  - DOMAIN-SUFFIX,nflxso.net,国外媒体等
+  - DOMAIN-SUFFIX,nflxvideo.net,国外媒体等
+  - DOMAIN-SUFFIX,netflixdnstest0.com,国外媒体等
+  - DOMAIN-SUFFIX,netflixdnstest1.com,国外媒体等
+  - DOMAIN-SUFFIX,netflixdnstest2.com,国外媒体等
+  - DOMAIN-SUFFIX,netflixdnstest3.com,国外媒体等
+  - DOMAIN-SUFFIX,netflixdnstest4.com,国外媒体等
+  - DOMAIN-SUFFIX,netflixdnstest5.com,国外媒体等
+  - DOMAIN-SUFFIX,netflixdnstest6.com,国外媒体等
+  - DOMAIN-SUFFIX,netflixdnstest7.com,国外媒体等
+  - DOMAIN-SUFFIX,netflixdnstest8.com,国外媒体等
+  - DOMAIN-SUFFIX,netflixdnstest9.com,国外媒体等
   - DOMAIN-SUFFIX,deezer.com,国外媒体等
   - DOMAIN-SUFFIX,dzcdn.net,国外媒体等
   - DOMAIN-SUFFIX,kkbox.com,国外媒体等
@@ -712,23 +732,6 @@ rules:
   - DOMAIN-SUFFIX,mytvsuper.com,国外媒体等
   - DOMAIN-SUFFIX,tvb.com,国外媒体等
   - DOMAIN-SUFFIX,fast.com,国外媒体等
-  - DOMAIN-SUFFIX,netflix.com,国外媒体等
-  - DOMAIN-SUFFIX,netflix.net,国外媒体等
-  - DOMAIN-SUFFIX,nflxext.com,国外媒体等
-  - DOMAIN-SUFFIX,nflximg.com,国外媒体等
-  - DOMAIN-SUFFIX,nflximg.net,国外媒体等
-  - DOMAIN-SUFFIX,nflxso.net,国外媒体等
-  - DOMAIN-SUFFIX,nflxvideo.net,国外媒体等
-  - DOMAIN-SUFFIX,netflixdnstest0.com,国外媒体等
-  - DOMAIN-SUFFIX,netflixdnstest1.com,国外媒体等
-  - DOMAIN-SUFFIX,netflixdnstest2.com,国外媒体等
-  - DOMAIN-SUFFIX,netflixdnstest3.com,国外媒体等
-  - DOMAIN-SUFFIX,netflixdnstest4.com,国外媒体等
-  - DOMAIN-SUFFIX,netflixdnstest5.com,国外媒体等
-  - DOMAIN-SUFFIX,netflixdnstest6.com,国外媒体等
-  - DOMAIN-SUFFIX,netflixdnstest7.com,国外媒体等
-  - DOMAIN-SUFFIX,netflixdnstest8.com,国外媒体等
-  - DOMAIN-SUFFIX,netflixdnstest9.com,国外媒体等
   - IP-CIDR,23.246.0.0/18,国外媒体等,no-resolve
   - IP-CIDR,37.77.184.0/21,国外媒体等,no-resolve
   - IP-CIDR,45.57.0.0/17,国外媒体等,no-resolve
@@ -759,8 +762,6 @@ rules:
   - DOMAIN,d2anahhhmp1ffz.cloudfront.net,国外媒体等
   - DOMAIN,dfp6rglgjqszk.cloudfront.net,国外媒体等
   - DOMAIN-SUFFIX,googlevideo.com,国外媒体等
-  - DOMAIN-SUFFIX,youtube.com,国外媒体等
-  - DOMAIN,youtubei.googleapis.com,国外媒体等
 
   - DOMAIN-SUFFIX,local,全球直连
   - IP-CIDR,127.0.0.0/8,全球直连
