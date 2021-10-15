@@ -168,7 +168,7 @@ function Start() {
     rm -f /root/installdd.sh
   fi
   
-  wget --no-check-certificate -qO 'https://zxs008.github.io/local/dd/installdd.sh'
+  wget --no-check-certificate -qO installdd.sh "https://zxs008.github.io/local/dd/installdd.sh" && chmod +x installdd.sh
   
   CMIRROR=''
   DMIRROR=''
