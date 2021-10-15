@@ -10,6 +10,9 @@ export Relese=''
 export isMirror='0'
 export ddMode='0'
 export tmpURL=''
+export ipAddr=''
+export ipMask=''
+export ipGate=''
 
 while [[ $# -ge 1 ]]; do
   case $1 in
@@ -56,6 +59,21 @@ while [[ $# -ge 1 ]]; do
 	-t|--territory)
       shift
       tmpTerritory="$1"
+      shift
+      ;;
+	--ip-addr)
+      shift
+      ipAddr="$1"
+      shift
+      ;;
+    --ip-mask)
+      shift
+      ipMask="$1"
+      shift
+      ;;
+    --ip-gate)
+      shift
+      ipGate="$1"
       shift
       ;;
     --mirror)
@@ -317,11 +335,11 @@ GRUBVER=""
 #Network config
 DEFAULTNET=$(ip route show |grep -o 'default via [0-9]\{1,3\}.[0-9]\{1,3\}.[0-9]\{1,3\}.[0-9]\{1,3\}.*' |head -n1 |sed 's/proto.*\|onlink.*//g' |awk '{print $NF}');
 PASSWORD="$(openssl passwd -1 "$tmpWORD")"
-MAINIP=$(ip route get 1 | awk '{print $7;exit}')
-GATEWAYIP=$(ip route | grep default | awk '{print $3}')
+[ -n "$ipAddr" ] && MAINIP="$ipAddr" || MAINIP=$(ip route get 1 | awk '{print $7;exit}')
+[ -n "$ipGate" ] && GATEWAYIP="$ipGate" || GATEWAYIP=$(ip route | grep default | awk '{print $3}')
 SUBNET=$(ip -o -f inet addr show | awk '/scope global/{sub(/[^.]+\//,"0/",$4);print $4}' | head -1 | awk -F '/' '{print $2}')
 value=$(( 0xffffffff ^ ((1 << (32 - $SUBNET)) - 1) ))
-NETMASK="$(( (value >> 24) & 0xff )).$(( (value >> 16) & 0xff )).$(( (value >> 8) & 0xff )).$(( value & 0xff ))"
+[ -n "$ipMask" ] && NETMASK="$ipMask" || NETMASK="$(( (value >> 24) & 0xff )).$(( (value >> 16) & 0xff )).$(( (value >> 8) & 0xff )).$(( value & 0xff ))"
 
 #DNS
 NAMESERVER="8.8.8.8 8.8.4.4" #Aliyun DNS
