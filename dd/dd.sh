@@ -7,20 +7,12 @@ if [[ $EUID -ne 0 ]]; then
 fi
 
 export tmpPassWord='Pwd@Linux'
+export territory=''
 
 function CopyRight() {
-  clear
+
   echo "########################################################"
-  echo "#                                                      #"
-  echo "#  Auto Reinstall Script                               #"
-  echo "#                                                      #"
-  echo "#  Author: hiCasper                                    #"
-  echo "#  Blog: https://blog.hicasper.com/post/135.html       #"
-  echo "#  Feedback: https://github.com/hiCasper/Shell/issues  #"
-  echo "#  Last Modified: 2021-01-13                           #"
-  echo "#                                                      #"
-  echo "#  Supported by MoeClub                                #"
-  echo "#                                                      #"
+  echo "#                    Hello Word!                       #"
   echo "########################################################"
   echo -e "\n"
 }
@@ -61,7 +53,18 @@ function UpdateIp() {
   read -r -p "Your Netmask: " NETMASK
 }
 
+function Territory() {
+  echo -e "\n please choose:"
+  echo "  1) cn"
+  read N
+  case $N in
+    1) territory='cn' ;;
+    *) territory='' ;;
+  esac
+}
+
 function SetNetwork() {
+  CopyRight
   isAuto='0'
   if [[ -f '/etc/network/interfaces' ]];then
     [[ ! -z "$(sed -n '/iface.*inet static/p' /etc/network/interfaces)" ]] && isAuto='1'
@@ -88,7 +91,6 @@ function SetNetwork() {
 }
 
 function NetMode() {
-  CopyRight
 
   if [ "$isAuto" == '0' ]; then
     read -r -p "Using DHCP to configure network automatically? [Y/n]:" input
@@ -136,9 +138,18 @@ function SetPassWord() {
     tmpPassWord=$input;
 }
 
-function Start() {
-  CopyRight
+function Automatically() {
+  read -r -p "Automatically obtain domestic and foreign mirrors? [Y/n]:" input
+    case $input in
+      [yY][eE][sS]|[yY]) ;;
+      [nN][oO]|[nN])
+          echo -e "\n"
+          Territory ;;
+        *) ;;
+    esac
+}
 
+function Start() {
   isCN='0'
   geoip=$(wget --no-check-certificate -qO- https://api.ip.sb/geoip -T 10 | grep "\"country_code\":\"CN\"")
   if [[ "$geoip" != "" ]];then
@@ -152,22 +163,22 @@ function Start() {
     echo "Gateway: $GATEWAYIP"
     echo "Netmask: $NETMASK"
   fi
-
+  
   if [ -f "/root/installdd.sh" ]; then
-    chmod 777 /root/installdd.sh
+    rm -f /root/installdd.sh
   fi
+  
+  wget --no-check-certificate -qO 'https://zxs008.github.io/local/dd/installdd.sh'
   
   CMIRROR=''
   DMIRROR=''
   UMIRROR=''
   
-  if [[ "$isCN" == '1' ]];then
-    CMIRROR="--mirror https://mirrors.aliyun.com/centos/"
-    DMIRROR="--mirror https://mirrors.aliyun.com/debian/"
-    UMIRROR="--mirror https://mirrors.aliyun.com/ubuntu/"
+  if [[ "$isCN" == '100' ]];then
+    CMIRROR="--mirror https://mirrors.aliyun.com/centos"
+    DMIRROR="--mirror https://mirrors.aliyun.com/debian"
+    UMIRROR="--mirror https://mirrors.aliyun.com/ubuntu"
   fi
-
-  sed -i 's/$1$4BJZaD0A$y1QykUnJ6mXprENfwpseH0/$1$7R4IuxQb$J8gcq7u9K0fNSsDNFEfr90/' /root/installdd.sh
 
   echo -e "\nPlease select an OS:"
   echo "PassWord: $tmpPassWord"
@@ -185,15 +196,15 @@ function Start() {
   echo -ne "\nYour option: "
   read N
   case $N in
-    1) echo -e "\nPassword: $tmpPassWord\n"; read -s -n1 -p "Press any key to continue..." ; bash /root/installdd.sh $NETSTR -p $tmpPassWord -dd 'https://api.moetools.net/get/centos-7-image' $DMIRROR ;;
-    2) echo -e "\nPassword: $tmpPassWord\n"; read -s -n1 -p "Press any key to continue..." ; bash /root/installdd.sh $NETSTR -p $tmpPassWord -dd 'https://api.moetools.net/get/centos-76-image' $DMIRROR ;;
-    3) echo -e "\nPassword: $tmpPassWord\n"; read -s -n1 -p "Press any key to continue..." ; bash /root/installdd.sh -c 6.10 -v 64 -p $tmpPassWord -a $NETSTR $CMIRROR ;;
-    4) echo -e "\nPassword: $tmpPassWord\n"; read -s -n1 -p "Press any key to continue..." ; bash /root/installdd.sh -d 9 -v 64 -p $tmpPassWord -a $NETSTR $DMIRROR ;;
-    5) echo -e "\nPassword: $tmpPassWord\n"; read -s -n1 -p "Press any key to continue..." ; bash /root/installdd.sh -d 10 -v 64 -p $tmpPassWord -a $NETSTR $DMIRROR ;;
-    6) echo -e "\nPassword: $tmpPassWord\n"; read -s -n1 -p "Press any key to continue..." ; bash /root/installdd.sh -d 11 -v 64 -p $tmpPassWord -a $NETSTR $DMIRROR ;;
-    7) echo -e "\nPassword: $tmpPassWord\n"; read -s -n1 -p "Press any key to continue..." ; bash /root/installdd.sh -u 16.04 -v 64 -p $tmpPassWord -a $NETSTR $UMIRROR ;;
-    8) echo -e "\nPassword: $tmpPassWord\n"; read -s -n1 -p "Press any key to continue..." ; bash /root/installdd.sh -u 18.04 -v 64 -p $tmpPassWord -a $NETSTR $UMIRROR ;;
-    9) echo -e "\nPassword: $tmpPassWord\n"; read -s -n1 -p "Press any key to continue..." ; bash /root/installdd.sh -u 20.04 -v 64 -p $tmpPassWord -a $NETSTR $UMIRROR ;;
+    1) echo -e "\nPassword: $tmpPassWord\n"; read -s -n1 -p "Press any key to continue..." ; bash installdd.sh -p $tmpPassWord -dd 'https://api.moetools.net/get/centos-7-image' $DMIRROR ;;
+    2) echo -e "\nPassword: $tmpPassWord\n"; read -s -n1 -p "Press any key to continue..." ; bash installdd.sh -p $tmpPassWord -dd 'https://api.moetools.net/get/centos-76-image' $DMIRROR ;;
+    3) echo -e "\nPassword: $tmpPassWord\n"; read -s -n1 -p "Press any key to continue..." ; bash installdd.sh -c 6.10 -v 64 -p $tmpPassWord $CMIRROR ;;
+    4) echo -e "\nPassword: $tmpPassWord\n"; read -s -n1 -p "Press any key to continue..." ; bash installdd.sh -d 9 -v 64 -p $tmpPassWord $DMIRROR ;;
+    5) echo -e "\nPassword: $tmpPassWord\n"; read -s -n1 -p "Press any key to continue..." ; bash installdd.sh -d 10 -v 64 -p $tmpPassWord $DMIRROR ;;
+    6) echo -e "\nPassword: $tmpPassWord\n"; read -s -n1 -p "Press any key to continue..." ; bash installdd.sh -d 11 -v 64 -p $tmpPassWord $DMIRROR ;;
+    7) echo -e "\nPassword: $tmpPassWord\n"; read -s -n1 -p "Press any key to continue..." ; bash installdd.sh -u 16.04 -v 64 -p $tmpPassWord $UMIRROR ;;
+    8) echo -e "\nPassword: $tmpPassWord\n"; read -s -n1 -p "Press any key to continue..." ; bash installdd.sh -u 18.04 -v 64 -p $tmpPassWord $UMIRROR ;;
+    9) echo -e "\nPassword: $tmpPassWord\n"; read -s -n1 -p "Press any key to continue..." ; bash installdd.sh -u 20.04 -v 64 -p $tmpPassWord $UMIRROR ;;
     10)
       echo -e "\n"
       read -r -p "Custom image URL: " imgURL
@@ -211,5 +222,6 @@ function Start() {
 
 SetNetwork
 NetMode
+Automatically
 SetPassWord
 Start
