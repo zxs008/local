@@ -181,31 +181,39 @@ function Start() {
   fi
 
   echo -e "\nPlease select an OS:"
-  echo "PassWord: $tmpPassWord"
-  echo "  1) CentOS 7.9 (DD Image)"
-  echo "  2) CentOS 7.6 (DD Image, ServerSpeeder Avaliable)"
-  echo "  3) CentOS 6"
-  echo "  4) Debian 9"
-  echo "  5) Debian 10"
-  echo "  6) Debian 11"
-  echo "  7) Ubuntu 16.04"
-  echo "  8) Ubuntu 18.04"
-  echo "  9) Ubuntu 20.04"
-  echo "  10) Custom image"
+  echo "  1) Ubuntu 16.04 LTS (Xenial) 用户名：root 密码：$tmpPassWord"
+  echo "  2) Ubuntu 18.04 LTS (Bionic) 用户名：root 密码：$tmpPassWord"
+  echo "  3) Ubuntu 20.04 LTS (Focal) 用户名：root 密码：$tmpPassWord"
+  echo "  11) Debian 9（Stretch） 用户名：root 密码：$tmpPassWord"
+  echo "  12) Debian 10（Buster） 用户名：root 密码：$tmpPassWord"
+  echo "  13) Debian 11（Bullseye）用户名：root 密码：$tmpPassWord"
+  echo "  13) Debian 12（Bookworm）用户名：root 密码：$tmpPassWord"
+  echo "  27) CentOS 6.8 x64 用户名：root 密码：$tmpPassWord"
+  echo "  28) CentOS 6.9 x64 用户名：root 密码：$tmpPassWord"
+  echo "  29) CentOS 7 用户名：root 密码：$tmpPassWord, 要求2G RAM以上才能使用"
+  echo "  31) CentOS 7.6 x64 (DD) 用户名：root 密码：Pwd@CentOS"
+  echo "  32) CentOS 7.7 x64 (DD) 用户名：root 密码：Pwd@CentOS"
+  echo "  33) CentOS 7.8 x64 (DD) 用户名：root 密码：Pwd@CentOS" 
+  echo "  34) CentOS 7.9 x64 (DD) 用户名：root 密码：Pwd@CentOS"  
+  echo "  99) Custom image"
   echo "  0) Exit"
   echo -ne "\nYour option: "
   read N
   case $N in
-    1) echo -e "\nPassword: $tmpPassWord\n"; read -s -n1 -p "Press any key to continue..." ; bash installdd.sh -p $tmpPassWord -dd 'https://api.moetools.net/get/centos-7-image' $DMIRROR ;;
-    2) echo -e "\nPassword: $tmpPassWord\n"; read -s -n1 -p "Press any key to continue..." ; bash installdd.sh -p $tmpPassWord -dd 'https://api.moetools.net/get/centos-76-image' $DMIRROR ;;
-    3) echo -e "\nPassword: $tmpPassWord\n"; read -s -n1 -p "Press any key to continue..." ; bash installdd.sh -c 6.10 -v 64 -p $tmpPassWord $CMIRROR ;;
-    4) echo -e "\nPassword: $tmpPassWord\n"; read -s -n1 -p "Press any key to continue..." ; bash installdd.sh -d 9 -v 64 -p $tmpPassWord $DMIRROR ;;
-    5) echo -e "\nPassword: $tmpPassWord\n"; read -s -n1 -p "Press any key to continue..." ; bash installdd.sh -d 10 -v 64 -p $tmpPassWord $DMIRROR ;;
-    6) echo -e "\nPassword: $tmpPassWord\n"; read -s -n1 -p "Press any key to continue..." ; bash installdd.sh -d 11 -v 64 -p $tmpPassWord $DMIRROR ;;
-    7) echo -e "\nPassword: $tmpPassWord\n"; read -s -n1 -p "Press any key to continue..." ; bash installdd.sh -u 16.04 -v 64 -p $tmpPassWord $UMIRROR ;;
-    8) echo -e "\nPassword: $tmpPassWord\n"; read -s -n1 -p "Press any key to continue..." ; bash installdd.sh -u 18.04 -v 64 -p $tmpPassWord $UMIRROR ;;
-    9) echo -e "\nPassword: $tmpPassWord\n"; read -s -n1 -p "Press any key to continue..." ; bash installdd.sh -u 20.04 -v 64 -p $tmpPassWord $UMIRROR ;;
-    10)
+    1) echo -e "\nPassword: $tmpPassWord\n"; read -s -n1 -p "Press any key to continue..." ; bash installdd.sh -u 16.04 -v 64 -p $tmpPassWord $UMIRROR ;;
+    2) echo -e "\nPassword: $tmpPassWord\n"; read -s -n1 -p "Press any key to continue..." ; bash installdd.sh -u 18.04 -v 64 -p $tmpPassWord $UMIRROR ;;
+    3) echo -e "\nPassword: $tmpPassWord\n"; read -s -n1 -p "Press any key to continue..." ; bash installdd.sh -u 20.04 -v 64 -p $tmpPassWord $UMIRROR ;;
+	11) echo -e "\nPassword: $tmpPassWord\n"; read -s -n1 -p "Press any key to continue..." ; bash installdd.sh -d 9 -v 64 -p $tmpPassWord $DMIRROR ;;
+    12) echo -e "\nPassword: $tmpPassWord\n"; read -s -n1 -p "Press any key to continue..." ; bash installdd.sh -d 10 -v 64 -p $tmpPassWord $DMIRROR ;;
+    13) echo -e "\nPassword: $tmpPassWord\n"; read -s -n1 -p "Press any key to continue..." ; bash installdd.sh -d 11 -v 64 -p $tmpPassWord $DMIRROR ;;
+	27) echo -e "\nPassword: $tmpPassWord\n"; read -s -n1 -p "Press any key to continue..." ; bash installdd.sh -c 6.8 -v 64 -p $tmpPassWord $CMIRROR ;;
+	28) echo -e "\nPassword: $tmpPassWord\n"; read -s -n1 -p "Press any key to continue..." ; bash installdd.sh -c 6.9 -v 64 -p $tmpPassWord $CMIRROR ;;
+	29) echo -e "\nPassword: $tmpPassWord\n"; read -s -n1 -p "Press any key to continue..." ; bash installdd.sh -c 7 -v 64 -p $tmpPassWord $CMIRROR ;;
+	31) echo -e "\nPassword: $tmpPassWord\n"; read -s -n1 -p "Press any key to continue..." ; bash installdd.sh -dd 'https://api.moetools.net/get/centos-76-image' ;;
+	32) echo -e "\nPassword: $tmpPassWord\n"; read -s -n1 -p "Press any key to continue..." ; bash installdd.sh -dd 'https://api.moetools.net/get/centos-77-image' ;;
+	33) echo -e "\nPassword: $tmpPassWord\n"; read -s -n1 -p "Press any key to continue..." ; bash installdd.sh -dd 'https://api.moetools.net/get/centos-78-image' ;;
+	34) echo -e "\nPassword: $tmpPassWord\n"; read -s -n1 -p "Press any key to continue..." ; bash installdd.sh -dd 'https://api.moetools.net/get/centos-79-image' ;; 
+    99)
       echo -e "\n"
       read -r -p "Custom image URL: " imgURL
       echo -e "\n"
