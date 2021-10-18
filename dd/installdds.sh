@@ -135,7 +135,7 @@ fi
 PLATFORM=$(uname -i);
 [[ "$PLATFORM" == "unknown" ]] && PLATFORM=$(uname -m)
 
-#选择镜像函数
+#SelectMirror
 function SelectMirror(){
 	[ $# -ge 3 ] || exit 1
 	Relese="$1"
@@ -183,7 +183,7 @@ function SelectMirror(){
   [ $MirrorStatus -eq 1 ] && echo "$CurMirror" || exit 1
 }
 
-#检查依赖函数
+#CheckDependence
 function CheckDependence(){
 FullDependence='0';
 for BIN_DEP in `echo "$1" |sed 's/,/\n/g'`
@@ -215,7 +215,7 @@ fi
 
 clear
 
-#是否DD系统
+#CheckDD
 if [[ "$ddMode" == '1' ]]; then
 	echo -e "\n\033[36m# Check $tmpURL\033[0m";
 	if [[ -n "$tmpURL" ]]; then
@@ -233,7 +233,7 @@ if [[ "$ddMode" == '1' ]]; then
 	tmpDIST='bullseye';
 fi
 
-#系统平台
+#PLATFORM
 if [[ "$Relese" == "Ubuntu" ]] || [[ "$Relese" == "Debian" ]]; then
 	if [[ "$PLATFORM" == "x86_64" ]] || [[ "$PLATFORM" == "x64" ]] || [[ "$PLATFORM" == "64" ]]; then
 		PLATFORM="amd64"
@@ -242,7 +242,7 @@ if [[ "$Relese" == "Ubuntu" ]] || [[ "$Relese" == "Debian" ]]; then
 	fi
 fi
 
-#判断默认值
+#Default
 if [[ -z "$tmpDIST" ]]; then
   [ "$Relese" == 'Debian' ] && tmpDIST='bullseye' && DIST='bullseye';
   [ "$Relese" == 'Ubuntu' ] && tmpDIST='focal' && DIST='focal';
@@ -254,7 +254,7 @@ fi
 linux_relese=$(echo "$Relese" |sed 's/\ //g' |sed -r 's/(.*)/\L\1/')
 echo -e "\n\033[36m# Check Dependence\033[0m\n"
 
-#检查依赖项
+#CheckDependence
 if [[ "$Relese" == 'Debian' ]] || [[ "$Relese" == 'Ubuntu' ]]; then
 	if [[ "$ddMode" == '1' ]]; then
 		CheckDependence iconv;
@@ -264,7 +264,6 @@ elif [[ "$Relese" == 'CentOS' ]] || [[ "$Relese" == 'Fedora' ]]; then
 	CheckDependence wget,awk,grep,sed,cut,cat,cpio,gzip,find,dirname,basename,file,xz,openssl;
 fi
 
-#安装的版本号
 if [[ -z "$DIST" ]]; then
   if [[ "$Relese" == 'Debian' ]]; then
     SpikCheckDIST='0'
@@ -314,7 +313,6 @@ if [[ -z "$DIST" ]]; then
   fi
 fi
 
-#网络安装检查版本号是否存在/正确性
 if [[ "$SpikCheckDIST" == '0' ]]; then
 	echo -e "\n\033[36mCheck DIST\033[0m";
 	DistsList="$(wget --no-check-certificate -qO- "$LinuxMirror/dists/" |grep -o 'href=.*/"' |cut -d'"' -f2 |sed '/-\|old\|Debian\|experimental\|stable\|test\|sid\|devel/d' |grep '^[^/]' |sed -n '1h;1!H;$g;s/\n//g;s/\//\;/g;$p')";
@@ -421,7 +419,7 @@ elif [ -f /etc/network/interfaces ]; then
 	fi
 fi
 
-#输入IP,网关等信息
+#输入ip,gateway,netmask
 echo  -e "\n\033[36m# Network config\033[0m"
 echo "hostname: $(hostname)";
 echo "proto: $PROTO"
@@ -431,7 +429,7 @@ echo "netmask: $NETMASK";
 echo "nameserver: $NAMESERVER";
 [[ "$NOIPV6" != "" ]] && echo "IPv6 is not supported";
 
-#下载img
+#Downloadingimg
 echo -e "\n[\033[33m$Relese\033[0m] [\033[33m$DIST\033[0m] [\033[33m$PLATFORM\033[0m] Downloading..."
 [[ -d /boot/netboot ]] && rm -rf /boot/netboot
 mkdir /boot/netboot && cd /boot/netboot
@@ -525,37 +523,24 @@ if [[ "$linux_relese" == 'centos' ]] || [[ "$linux_relese" == 'fedora' ]]; then
 #platform x86, AMD64, or Intel EM64T
 # Firewall configuration
 firewall --enabled --ssh
-
-# install
-install
-
 url --url="$InstallURL"
-
 # Root password
 rootpw --iscrypted "$PASSWORD"
-
 # System authorization information
 authselect --useshadow --passalgo sha512
-#auth --useshadow --passalgo=sha512
-
-# Disable system configuratio
+# Disable system configuration
 firstboot --disable
 lang en_US
 keyboard us
-
 # SELinux configuration
 selinux --disabled
 logging --level=info
-
 # Reboot after installation
 reboot
 text
-
-# unsupported_hardware vnc
-unsupported_hardware
-vnc
+#unsupported_hardware
+#vnc
 skipx
-
 # System timezone
 timezone --isUtc Asia/Shanghai
 network --bootproto=static --ip=$MAINIP --netmask=$NETMASK --gateway=$GATEWAYIP --nameserver=$NAMESERVER --hostname=$(hostname) --onboot=on
@@ -587,14 +572,12 @@ EOF
 		[[ "$DIST" =~ ^7.* ]] && sed -i "/^authselect.*/c\auth --useshadow --passalgo=sha512" /tmp/boot/ks.cfg;
 	fi
 else
-    
-
-    cat >/tmp/boot/preseed.cfg<<EOF
+	
+	
+	cat >/tmp/boot/preseed.cfg<<EOF
 # Preseeding only locale sets language, country and locale.
-
 d-i debian-installer/locale string en_US.UTF-8
 d-i console-setup/layoutcode string us
-
 # Keyboard selection.
 d-i keyboard-configuration/xkb-keymap string us
 
@@ -628,14 +611,12 @@ d-i user-setup/encrypt-home boolean false
 
 #Clock and time zone setup
 d-i clock-setup/utc boolean true
-d-i time/zone string US/Eastern
-#d-i time/zone string Asia/Shanghai
+d-i time/zone string Asia/Shanghai
 d-i clock-setup/ntp-server string ntp.aliyun.com
 d-i clock-setup/ntp boolean true
 
 d-i preseed/early_command string anna-install libfuse2-udeb fuse-udeb ntfs-3g-udeb libcrypto1.1-udeb libpcre2-8-0-udeb libssl1.1-udeb libuuid1-udeb zlib1g-udeb wget-udeb
 d-i partman/early_command string [[ -n "\$(blkid -t TYPE='vfat' -o device)" ]] && umount "\$(blkid -t TYPE='vfat' -o device)"; \
-
 debconf-set partman-auto/disk "\$(list-devices disk |head -n1)"; \
 wget -qO- '$DDURL' |gunzip -dc |/bin/dd of=\$(list-devices disk |head -n1); \
 mount.ntfs-3g \$(list-devices partition |head -n1) /mnt; \
@@ -647,10 +628,7 @@ umount /media || true; \
 
 d-i partman/mount_style select uuid
 d-i partman-auto/init_automatically_partition select Guided - use entire disk
-
-# partman-auto  ////
 d-i partman-auto/choose_recipe select All files in one partition (recommended for new users)
-
 d-i partman-auto/method string regular
 d-i partman-lvm/device_remove_lvm boolean true
 d-i partman-md/device_remove_md boolean true
@@ -672,16 +650,16 @@ d-i pkgsel/upgrade select none
 popularity-contest popularity-contest/participate boolean false
 
 d-i grub-installer/only_debian boolean true
+
 d-i grub-installer/bootdev  string default
 
 # Avoid that last message about the install being complete.
 d-i finish-install/reboot_in_progress note
 d-i debian-installer/exit/reboot boolean true
 
-# Verbose output and no boot splash screen.  ////
+# Verbose output and no boot splash screen.
 d-i debian-installer/quiet boolean false
 d-i debian-installer/splash boolean false
-
 d-i preseed/late_command string	\
 sed -ri 's/^#?PermitRootLogin.*/PermitRootLogin yes/g' /target/etc/ssh/sshd_config; \
 sed -ri 's/^#?PasswordAuthentication.*/PasswordAuthentication yes/g' /target/etc/ssh/sshd_config; \
