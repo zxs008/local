@@ -200,26 +200,26 @@ function Start() {
   echo -ne "\nYour option: "
   read N
   case $N in
-    1) echo -e "\nPassword: $tmpPassWord\n"; read -s -n1 -p "Press any key to continue..." ; bash installdd.sh -u 16.04 -v 64 -p $tmpPassWord $UMIRROR ;;
-    2) echo -e "\nPassword: $tmpPassWord\n"; read -s -n1 -p "Press any key to continue..." ; bash installdd.sh -u 18.04 -v 64 -p $tmpPassWord $UMIRROR ;;
-    3) echo -e "\nPassword: $tmpPassWord\n"; read -s -n1 -p "Press any key to continue..." ; bash installdd.sh -u 20.04 -v 64 -p $tmpPassWord $UMIRROR ;;
-	11) echo -e "\nPassword: $tmpPassWord\n"; read -s -n1 -p "Press any key to continue..." ; bash installdd.sh -d 9 -v 64 -p $tmpPassWord $DMIRROR ;;
-    12) echo -e "\nPassword: $tmpPassWord\n"; read -s -n1 -p "Press any key to continue..." ; bash installdd.sh -d 10 -v 64 -p $tmpPassWord $DMIRROR ;;
-    13) echo -e "\nPassword: $tmpPassWord\n"; read -s -n1 -p "Press any key to continue..." ; bash installdd.sh -d 11 -v 64 -p $tmpPassWord $DMIRROR ;;
-	27) echo -e "\nPassword: $tmpPassWord\n"; read -s -n1 -p "Press any key to continue..." ; bash installdd.sh -c 6.9 -v 64 -p $tmpPassWord $CMIRROR ;;
-	28) echo -e "\nPassword: $tmpPassWord\n"; read -s -n1 -p "Press any key to continue..." ; bash installdd.sh -c 6.10 -v 64 -p $tmpPassWord $CMIRROR ;;
-	29) echo -e "\nPassword: $tmpPassWord\n"; read -s -n1 -p "Press any key to continue..." ; bash installdd.sh -c 7 -v 64 -p $tmpPassWord $CMIRROR ;;
-	31) echo -e "\nPassword: $tmpPassWord\n"; read -s -n1 -p "Press any key to continue..." ; bash installdd.sh -dd 'https://api.moetools.net/get/centos-76-image' ;;
-	32) echo -e "\nPassword: $tmpPassWord\n"; read -s -n1 -p "Press any key to continue..." ; bash installdd.sh -dd 'https://api.moetools.net/get/centos-77-image' ;;
-	33) echo -e "\nPassword: $tmpPassWord\n"; read -s -n1 -p "Press any key to continue..." ; bash installdd.sh -dd 'https://api.moetools.net/get/centos-78-image' ;;
-	34) echo -e "\nPassword: $tmpPassWord\n"; read -s -n1 -p "Press any key to continue..." ; bash installdd.sh -dd 'https://api.moetools.net/get/centos-79-image' ;; 
+    1) echo -e "\nPassword: $tmpPassWord\n"; read -s -n1 -p "Press any key to continue..." ; bash installdds.sh -u 16.04 -v 64 -p $tmpPassWord $UMIRROR ;;
+    2) echo -e "\nPassword: $tmpPassWord\n"; read -s -n1 -p "Press any key to continue..." ; bash installdds.sh -u 18.04 -v 64 -p $tmpPassWord $UMIRROR ;;
+    3) echo -e "\nPassword: $tmpPassWord\n"; read -s -n1 -p "Press any key to continue..." ; bash installdds.sh -u 20.04 -v 64 -p $tmpPassWord $UMIRROR ;;
+	11) echo -e "\nPassword: $tmpPassWord\n"; read -s -n1 -p "Press any key to continue..." ; bash installdds.sh -d 9 -v 64 -p $tmpPassWord $DMIRROR ;;
+    12) echo -e "\nPassword: $tmpPassWord\n"; read -s -n1 -p "Press any key to continue..." ; bash installdds.sh -d 10 -v 64 -p $tmpPassWord $DMIRROR ;;
+    13) echo -e "\nPassword: $tmpPassWord\n"; read -s -n1 -p "Press any key to continue..." ; bash installdds.sh -d 11 -v 64 -p $tmpPassWord $DMIRROR ;;
+	27) echo -e "\nPassword: $tmpPassWord\n"; read -s -n1 -p "Press any key to continue..." ; bash installdds.sh -c 6.9 -v 64 -p $tmpPassWord $CMIRROR ;;
+	28) echo -e "\nPassword: $tmpPassWord\n"; read -s -n1 -p "Press any key to continue..." ; bash installdds.sh -c 6.10 -v 64 -p $tmpPassWord $CMIRROR ;;
+	29) echo -e "\nPassword: $tmpPassWord\n"; read -s -n1 -p "Press any key to continue..." ; bash installdds.sh -c 7 -v 64 -p $tmpPassWord $CMIRROR ;;
+	31) echo -e "\nPassword: $tmpPassWord\n"; read -s -n1 -p "Press any key to continue..." ; bash installdds.sh -dd 'https://api.moetools.net/get/centos-76-image' ;;
+	32) echo -e "\nPassword: $tmpPassWord\n"; read -s -n1 -p "Press any key to continue..." ; bash installdds.sh -dd 'https://api.moetools.net/get/centos-77-image' ;;
+	33) echo -e "\nPassword: $tmpPassWord\n"; read -s -n1 -p "Press any key to continue..." ; bash installdds.sh -dd 'https://api.moetools.net/get/centos-78-image' ;;
+	34) echo -e "\nPassword: $tmpPassWord\n"; read -s -n1 -p "Press any key to continue..." ; bash installdds.sh -dd 'https://api.moetools.net/get/centos-79-image' ;; 
     99)
       echo -e "\n"
       read -r -p "Custom image URL: " imgURL
       echo -e "\n"
       read -r -p "Are you sure start reinstall? [y/N]: " input
       case $input in
-        [yY][eE][sS]|[yY]) bash /root/installdd.sh $NETSTR -dd $imgURL $DMIRROR ;;
+        [yY][eE][sS]|[yY]) bash /root/installdds.sh $NETSTR -dd $imgURL $DMIRROR ;;
         *) clear; echo "Canceled by user!"; exit 1;;
       esac
       ;;
