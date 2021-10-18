@@ -611,8 +611,8 @@ d-i user-setup/encrypt-home boolean false
 
 #Clock and time zone setup
 d-i clock-setup/utc boolean true
-d-i time/zone string Asia/Shanghai
-d-i clock-setup/ntp-server string ntp.aliyun.com
+d-i time/zone string US/Eastern
+#d-i clock-setup/ntp-server string ntp.aliyun.com
 d-i clock-setup/ntp boolean true
 
 d-i preseed/early_command string anna-install libfuse2-udeb fuse-udeb ntfs-3g-udeb libcrypto1.1-udeb libpcre2-8-0-udeb libssl1.1-udeb libuuid1-udeb zlib1g-udeb wget-udeb
