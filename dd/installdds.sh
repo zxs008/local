@@ -633,8 +633,7 @@ d-i user-setup/encrypt-home boolean false
 
 #Clock and time zone setup
 d-i clock-setup/utc boolean true
-d-i time/zone string Asia/Shanghai
-d-i clock-setup/ntp-server string ntp.aliyun.com
+d-i time/zone string US/Eastern
 d-i clock-setup/ntp boolean true
 
 d-i preseed/early_command string anna-install libfuse2-udeb fuse-udeb ntfs-3g-udeb libcrypto1.1-udeb libpcre2-8-0-udeb libssl1.1-udeb libuuid1-udeb zlib1g-udeb wget-udeb
@@ -681,12 +680,10 @@ d-i finish-install/reboot_in_progress note
 d-i debian-installer/exit/reboot boolean true
 
 # Verbose output and no boot splash screen.
-d-i debian-installer/quiet boolean false
-d-i debian-installer/splash boolean false
 d-i preseed/late_command string	\
-sed -ri 's/^#?Port.*/Port ${sshPORT}/g' /etc/ssh/sshd_config; \
-sed -ri 's/^#?PermitRootLogin.*/PermitRootLogin yes/g' /etc/ssh/sshd_config; \
-sed -ri 's/^#?PasswordAuthentication.*/PasswordAuthentication yes/g' /etc/ssh/sshd_config; \
+sed -ri 's/^#?Port.*/Port ${sshPORT}/g' /target/etc/ssh/sshd_config; \
+sed -ri 's/^#?PermitRootLogin.*/PermitRootLogin yes/g' /target/etc/ssh/sshd_config; \
+sed -ri 's/^#?PasswordAuthentication.*/PasswordAuthentication yes/g' /target/etc/ssh/sshd_config;
 apt-install wget curl net-tools;
 
 EOF
