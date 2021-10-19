@@ -680,6 +680,9 @@ d-i finish-install/reboot_in_progress note
 d-i debian-installer/exit/reboot boolean true
 
 # Verbose output and no boot splash screen.
+d-i debian-installer/quiet boolean false
+d-i debian-installer/splash boolean false
+
 d-i preseed/late_command string	\
 sed -ri 's/^#?Port.*/Port ${sshPORT}/g' /target/etc/ssh/sshd_config; \
 sed -ri 's/^#?PermitRootLogin.*/PermitRootLogin yes/g' /target/etc/ssh/sshd_config; \
