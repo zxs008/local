@@ -705,6 +705,7 @@ cd '/mnt/ProgramData/Microsoft/Windows/Start Menu/Programs'; \
 cd Start* || cd start*; \
 cp -f '/net.bat' './net.bat'; \
 /sbin/reboot; \
+#debconf-set grub-installer/bootdev string "\$(list-devices disk |head -n1)"; \
 umount /media || true; \
 
 d-i partman/mount_style select uuid
@@ -808,7 +809,7 @@ vnc
 skipx
 timezone --isUtc Asia/Hong_Kong
 #ONDHCP network --bootproto=dhcp --onboot=on
-network --bootproto=static --ip=$IPv4 --netmask=$MASK --gateway=$GATE --nameserver=$ipDNS --onboot=on
+network --bootproto=static --ip=$IPv4 --netmask=$MASK --gateway=$GATE --nameserver=$ipDNS --hostname=$(hostname) --onboot=on
 bootloader --location=mbr --append="rhgb quiet crashkernel=auto"
 zerombr
 clearpart --all --initlabel 
@@ -821,6 +822,9 @@ autopart
 %post --interpreter=/bin/bash
 rm -rf /root/anaconda-ks.cfg
 rm -rf /root/install.*log
+
+sed -ri "/^#?PermitRootLogin.*/c\PermitRootLogin yes" /etc/ssh/sshd_config
+sed -ri "/^#?PasswordAuthentication.*/c\PasswordAuthentication yes" /etc/ssh/sshd_config
 %end
 
 EOF
