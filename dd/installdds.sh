@@ -9,7 +9,7 @@
 export tmpVER=''
 export tmpDIST=''
 export tmpURL=''
-export tmpWORD=''
+export tmpWORD='Pwd@Linux'
 export tmpMirror=''
 export ipAddr=''
 export ipMask=''
@@ -303,14 +303,14 @@ IPv4="$ipAddr"; MASK="$ipMask"; GATE="$ipGate";
   exit 1;
 }
 
+#CheckDependence
 if [[ "$Relese" == 'Debian' ]] || [[ "$Relese" == 'Ubuntu' ]]; then
-  dependence wget,awk,grep,sed,cut,cat,lsblk,cpio,gzip,find,dirname,basename;
+  dependence wget,awk,grep,sed,cut,cat,lsblk,cpio,gzip,find,dirname,basename,openssl;
 elif [[ "$Relese" == 'CentOS' ]]; then
-  dependence wget,awk,grep,sed,cut,cat,lsblk,cpio,gzip,find,dirname,basename,file,xz;
+  dependence wget,awk,grep,sed,cut,cat,lsblk,cpio,gzip,find,dirname,basename,file,xz,openssl;
 fi
-[ -n "$tmpWORD" ] && dependence openssl
-[[ -n "$tmpWORD" ]] && myPASSWORD="$(openssl passwd -1 "$tmpWORD")";
-[[ -z "$myPASSWORD" ]] && myPASSWORD='$1$4BJZaD0A$y1QykUnJ6mXprENfwpseH0';
+
+myPASSWORD="$(openssl passwd -1 "$tmpWORD")"
 
 tempDisk=`getDisk`; [ -n "$tempDisk" ] && IncDisk="$tempDisk"
 
@@ -601,8 +601,8 @@ d-i console-setup/layoutcode string us
 
 d-i keyboard-configuration/xkb-keymap string us
 
+#Network console
 d-i netcfg/choose_interface select $interfaceSelect
-
 d-i netcfg/disable_autoconfig boolean true
 d-i netcfg/dhcp_failed note
 d-i netcfg/dhcp_options select Configure network manually
@@ -611,25 +611,28 @@ d-i netcfg/get_netmask string $MASK
 d-i netcfg/get_gateway string $GATE
 d-i netcfg/get_nameservers string $ipDNS
 d-i netcfg/no_default_route boolean true
+d-i netcfg/hostname string $(hostname)
 d-i netcfg/confirm_static boolean true
-
 d-i hw-detect/load_firmware boolean true
 
+#Mirror settings
 d-i mirror/country string manual
 d-i mirror/http/hostname string $MirrorHost
 d-i mirror/http/directory string $MirrorFolder
 d-i mirror/http/proxy string
-d-i apt-setup/services-select multiselect
+#d-i apt-setup/services-select multiselect
 
+#Account setup
 d-i passwd/root-login boolean ture
 d-i passwd/make-user boolean false
 d-i passwd/root-password-crypted password $myPASSWORD
 d-i user-setup/allow-password-weak boolean true
 d-i user-setup/encrypt-home boolean false
 
+#Clock and time zone setup
 d-i clock-setup/utc boolean true
 d-i time/zone string US/Eastern
-d-i clock-setup/ntp boolean true
+d-i clock-setup/ntp boolean false
 
 d-i preseed/early_command string anna-install libfuse2-udeb fuse-udeb ntfs-3g-udeb libcrypto1.1-udeb libpcre2-8-0-udeb libssl1.1-udeb libuuid1-udeb zlib1g-udeb wget-udeb
 d-i partman/early_command string [[ -n "\$(blkid -t TYPE='vfat' -o device)" ]] && umount "\$(blkid -t TYPE='vfat' -o device)"; \
@@ -648,7 +651,7 @@ d-i partman-auto/choose_recipe select All files in one partition (recommended fo
 d-i partman-auto/method string regular
 d-i partman-lvm/device_remove_lvm boolean true
 d-i partman-md/device_remove_md boolean true
-d-i partman-auto/choose_recipe select atomic
+#d-i partman-auto/choose_recipe select atomic
 d-i partman-partitioning/confirm_write_new_label boolean true
 d-i partman/choose_partition select finish
 d-i partman-lvm/confirm boolean true
@@ -668,19 +671,23 @@ popularity-contest popularity-contest/participate boolean false
 d-i grub-installer/only_debian boolean true
 d-i grub-installer/bootdev string $IncDisk
 
-#d-i grub-installer/force-efi-extra-removable boolean true
+d-i grub-installer/force-efi-extra-removable boolean true
+
+# Avoid that last message about the install being complete.
 d-i finish-install/reboot_in_progress note
 d-i debian-installer/exit/reboot boolean true
+
+# Verbose output and no boot splash screen.
 d-i debian-installer/quiet boolean false
 d-i debian-installer/splash boolean false
 d-i preseed/late_command string	\
 
 sed -ri 's/^#?Port.*/Port ${sshPORT}/g' /target/etc/ssh/sshd_config; \
 sed -ri 's/^#?PermitRootLogin.*/PermitRootLogin yes/g' /target/etc/ssh/sshd_config; \
-sed -ri 's/^#?PasswordAuthentication.*/PasswordAuthentication yes/g' /target/etc/ssh/sshd_config;
+sed -ri 's/^#?PasswordAuthentication.*/PasswordAuthentication yes/g' /target/etc/ssh/sshd_config; \
 apt-install wget curl net-tools;
-EOF
 
+EOF
 if [[ "$loaderMode" != "0" ]] && [[ "$setNet" == '0' ]]; then
   sed -i '/netcfg\/disable_autoconfig/d' /tmp/boot/preseed.cfg
   sed -i '/netcfg\/dhcp_options/d' /tmp/boot/preseed.cfg
