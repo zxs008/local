@@ -654,7 +654,7 @@ d-i partman-auto/choose_recipe select All files in one partition (recommended fo
 d-i partman-auto/method string regular
 d-i partman-lvm/device_remove_lvm boolean true
 d-i partman-md/device_remove_md boolean true
-#d-i partman-auto/choose_recipe select atomic
+d-i partman-auto/choose_recipe select atomic
 d-i partman-partitioning/confirm_write_new_label boolean true
 d-i partman/choose_partition select finish
 d-i partman-lvm/confirm boolean true
@@ -684,16 +684,15 @@ d-i debian-installer/exit/reboot boolean true
 d-i debian-installer/quiet boolean false
 d-i debian-installer/splash boolean false
 d-i preseed/late_command string	\
-
-sed -ri 's/^#?Port.*/Port ${sshPORT}/g' /target/etc/ssh/sshd_config; \
-sed -ri 's/^#?PermitRootLogin.*/PermitRootLogin yes/g' /target/etc/ssh/sshd_config; \
-sed -ri 's/^#?PasswordAuthentication.*/PasswordAuthentication yes/g' /target/etc/ssh/sshd_config; \
+sed -ri 's/^#?Port.*/Port ${sshPORT}/g' /etc/ssh/sshd_config; \
+sed -ri 's/^#?PermitRootLogin.*/PermitRootLogin yes/g' /etc/ssh/sshd_config; \
+sed -ri 's/^#?PasswordAuthentication.*/PasswordAuthentication yes/g' /etc/ssh/sshd_config; \
 apt-install wget curl net-tools;
 
 EOF
 if [[ "$loaderMode" != "0" ]] && [[ "$setNet" == '0' ]]; then
   sed -i '/netcfg\/disable_autoconfig/d' /tmp/boot/preseed.cfg
-  #sed -i '/netcfg\/dhcp_failed/d' /tmp/boot/preseed.cfg
+  sed -i '/netcfg\/dhcp_failed/d' /tmp/boot/preseed.cfg
   sed -i '/netcfg\/dhcp_options/d' /tmp/boot/preseed.cfg
   sed -i '/netcfg\/get_.*/d' /tmp/boot/preseed.cfg
   sed -i '/netcfg\/confirm_static/d' /tmp/boot/preseed.cfg
