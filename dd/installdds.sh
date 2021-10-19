@@ -14,7 +14,7 @@ export tmpMirror=''
 export ipAddr=''
 export ipMask=''
 export ipGate=''
-export ipDNS='8.8.8.8'
+export ipDNS='8.8.8.8 8.8.4.4'
 export IncDisk='default'
 export interface=''
 export interfaceSelect=''
@@ -36,6 +36,7 @@ export GRUBDIR=''
 export GRUBFILE=''
 export GRUBVER=''
 export VER=''
+export tmpTerritory=''
 
 while [[ $# -ge 1 ]]; do
   case $1 in
@@ -62,7 +63,7 @@ while [[ $# -ge 1 ]]; do
       tmpDIST="$1"
       shift
       ;;
-    -dd|--image)
+    -img|--image)
       shift
       ddMode='1'
       tmpURL="$1"
@@ -134,6 +135,11 @@ while [[ $# -ge 1 ]]; do
     -a|--auto|-m|--manual|-ssl)
       shift
       ;;
+    -t|--territory)
+      shift
+      tmpTerritory="$1"
+      shift
+      ;;
     *)
       if [[ "$1" != 'error' ]]; then echo -ne "\nInvaild option: '$1'\n\n"; fi
       echo -ne " Usage:\n\tbash $(basename $0)\t-d/--debian [\033[33m\033[04mdists-name\033[0m]\n\t\t\t\t-u/--ubuntu [\033[04mdists-name\033[0m]\n\t\t\t\t-c/--centos [\033[04mdists-name\033[0m]\n\t\t\t\t-v/--ver [32/i386|64/\033[33m\033[04mamd64\033[0m] [\033[33m\033[04mdists-verison\033[0m]\n\t\t\t\t--ip-addr/--ip-gate/--ip-mask\n\t\t\t\t-apt/-yum/--mirror\n\t\t\t\t-dd/--image\n\t\t\t\t-p [linux password]\n\t\t\t\t-port [linux ssh port]\n"
@@ -189,7 +195,12 @@ function selectMirror(){
   [ -n "$TEMP" ] || exit 1
   mirrorStatus=0
   declare -A MirrorBackup
-  MirrorBackup=(["debian0"]="" ["debian1"]="http://deb.debian.org/debian" ["debian2"]="http://archive.debian.org/debian" ["ubuntu0"]="" ["ubuntu1"]="http://archive.ubuntu.com/ubuntu" ["ubuntu2"]="http://ports.ubuntu.com" ["centos0"]="" ["centos1"]="http://mirror.centos.org/centos" ["centos2"]="http://vault.centos.org")
+  ping -c 1 www.google.com >>/dev/null 2>&1
+  if [[ $? != 0 ]] || [[ "$tmpTerritory" == "cn" ]]; then
+	 MirrorBackup=(["debian0"]="" ["debian1"]="https://mirrors.aliyun.com/debian" ["debian2"]="https://mirrors.163.com/debian-archive" ["ubuntu0"]="" ["ubuntu1"]="https://mirrors.aliyun.com/ubuntu" ["ubuntu2"]="https://mirrors.163.com/ubuntu" ["centos0"]="" ["centos1"]="https://mirrors.aliyun.com/centos" ["centos2"]="https://mirrors.aliyun.com/centos-vault" ["fedora0"]="" ["fedora1"]="https://mirrors.aliyun.com/fedora")
+  else	
+	 MirrorBackup=(["debian0"]="" ["debian1"]="http://deb.debian.org/debian" ["debian2"]="http://archive.debian.org/debian" ["ubuntu0"]="" ["ubuntu1"]="http://archive.ubuntu.com/ubuntu" ["ubuntu2"]="http://ports.ubuntu.com" ["centos0"]="" ["centos1"]="http://mirror.centos.org/centos" ["centos2"]="http://vault.centos.org" ["fedora0"]="" ["fedora1"]="https://mirrors.aliyun.com/fedora")	
+  fi
   echo "$New" |grep -q '^http://\|^https://\|^ftp://' && MirrorBackup[${Relese}0]="$New"
   for mirror in $(echo "${!MirrorBackup[@]}" |sed 's/\ /\n/g' |sort -n |grep "^$Relese")
     do
@@ -282,6 +293,7 @@ if [[ "$ddMode" == '1' ]]; then
   tmpVER='amd64';
 fi
 
+#Network config
 [ -n "$ipAddr" ] && [ -n "$ipMask" ] && [ -n "$ipGate" ] && setNet='1';
 if [ "$setNet" == "0" ]; then
   dependence ip
@@ -302,6 +314,35 @@ IPv4="$ipAddr"; MASK="$ipMask"; GATE="$ipGate";
   bash $0 error;
   exit 1;
 }
+
+#Disable IPv6
+NOIPV6=""
+ping6 -c 1 ipv6.baidu.com >>/dev/null 2>&1
+if [[ $? != 0 ]];then    
+	ping6 -c 1 ipv6.google.com >>/dev/null 2>&1
+	if [[ $? != 0 ]];then
+		NOIPV6="ipv6.disable=1"
+	fi
+fi
+
+#DNS
+if [[ "$CurrentRelese" == "CentOS" ]] || [[ "$CurrentRelese" == "Debian" ]]; then
+	ipDNS=$(awk '/^nameserver/{print $2}' /etc/resolv.conf | tr "\n" " " | awk '{gsub(/^\s+|\s+$/, "");print}')
+elif [[ -f /run/systemd/resolve/resolv.conf ]]; then
+	ipDNS=$(cat /run/systemd/resolve/resolv.conf | awk '/^nameserver/{print $2}' | tr "\n" " " | awk '{gsub(/^\s+|\s+$/, "");print}')
+elif [[ -f /run/systemd/resolve/stub-resolv.conf ]]; then
+	ipDNS=$(cat /run/systemd/resolve/resolv.conf | awk '/^nameserver/{print $2}' | tr "\n" " " | awk '{gsub(/^\s+|\s+$/, "");print}')
+else 
+	ping -c 1 www.google.com >>/dev/null 2>&1
+	if [[ $? == 0 ]];then
+		ipDNS="8.8.8.8 8.8.4.4" #Cloudflare Google DNS
+	else
+		delay=$(ping -c 3 mirrors.aliyun.com | grep "min/avg/max" | awk -F '=' '{print $2}' | awk -F '/' '{print $2}' | awk '{gsub(/^\s+|\s+$/, "");print}')
+		if [[ "$delay" != "" ]] && [[ $delay < 2.0 ]];then
+			ipDNS="223.5.5.5 223.6.6.6" #Tencent cloud DNS
+		fi
+	fi
+fi
 
 #CheckDependence
 if [[ "$Relese" == 'Debian' ]] || [[ "$Relese" == 'Ubuntu' ]]; then
@@ -444,7 +485,17 @@ if [[ "$linux_relese" == 'centos' ]]; then
   fi
 fi
 
+#输入ip,gateway,netmask
+echo "hostname: $(hostname)";
+echo "ip: $IPv4";
+echo "gateway: $GATEWAYIP";
+echo "netmask: $GATE";
+echo "nameserver: $NAMESERVER";
+[[ "$NOIPV6" != "" ]] && echo "IPv6 is not supported";
+
+#Downloadingimg
 echo -e "\n[\033[33m$Relese\033[0m] [\033[33m$DIST\033[0m] [\033[33m$VER\033[0m] Downloading..."
+echo -e "\n[\033[33m$LinuxMirror\033[0m]"
 
 if [[ "$linux_relese" == 'debian' ]] || [[ "$linux_relese" == 'ubuntu' ]]; then
   [ "$DIST" == "focal" ] && legacy="legacy-" || legacy=""
@@ -464,6 +515,15 @@ else
   bash $0 error;
   exit 1;
 fi
+
+read -r -p "镜像下载完成请确认开始......[Y/n]:" input
+case $input in
+    [yY][eE][sS]|[yY]) ;;
+    [nN][oO]|[nN])
+        exit 1;;
+	*) exit 1;;
+esac
+
 if [[ "$linux_relese" == 'debian' ]]; then
   if [[ "$IncFirmware" == '1' ]]; then
     wget --no-check-certificate -qO '/tmp/firmware.cpio.gz' "http://cdimage.debian.org/cdimage/unofficial/non-free/firmware/${DIST}/current/firmware.cpio.gz"
