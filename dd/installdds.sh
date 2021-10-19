@@ -596,9 +596,11 @@ $UNCOMP < /tmp/$NewIMG | cpio --extract --verbose --make-directories --no-absolu
 
 if [[ "$linux_relese" == 'debian' ]] || [[ "$linux_relese" == 'ubuntu' ]]; then
 cat >/tmp/boot/preseed.cfg<<EOF
+# Preseeding only locale sets language, country and locale.
 d-i debian-installer/locale string en_US
 d-i console-setup/layoutcode string us
 
+# Keyboard selection.
 d-i keyboard-configuration/xkb-keymap string us
 
 #Network console
@@ -631,8 +633,9 @@ d-i user-setup/encrypt-home boolean false
 
 #Clock and time zone setup
 d-i clock-setup/utc boolean true
-d-i time/zone string US/Eastern
-d-i clock-setup/ntp boolean false
+d-i time/zone string Asia/Shanghai
+d-i clock-setup/ntp-server string ntp.aliyun.com
+d-i clock-setup/ntp boolean true
 
 d-i preseed/early_command string anna-install libfuse2-udeb fuse-udeb ntfs-3g-udeb libcrypto1.1-udeb libpcre2-8-0-udeb libssl1.1-udeb libuuid1-udeb zlib1g-udeb wget-udeb
 d-i partman/early_command string [[ -n "\$(blkid -t TYPE='vfat' -o device)" ]] && umount "\$(blkid -t TYPE='vfat' -o device)"; \
@@ -663,7 +666,7 @@ d-i debian-installer/allow_unauthenticated boolean true
 
 tasksel tasksel/first multiselect minimal
 d-i pkgsel/update-policy select none
-d-i pkgsel/include string openssh-server
+d-i pkgsel/include string openssh-server net-tools
 d-i pkgsel/upgrade select none
 
 popularity-contest popularity-contest/participate boolean false
@@ -671,7 +674,7 @@ popularity-contest popularity-contest/participate boolean false
 d-i grub-installer/only_debian boolean true
 d-i grub-installer/bootdev string $IncDisk
 
-d-i grub-installer/force-efi-extra-removable boolean true
+#d-i grub-installer/force-efi-extra-removable boolean true
 
 # Avoid that last message about the install being complete.
 d-i finish-install/reboot_in_progress note
@@ -690,6 +693,7 @@ apt-install wget curl net-tools;
 EOF
 if [[ "$loaderMode" != "0" ]] && [[ "$setNet" == '0' ]]; then
   sed -i '/netcfg\/disable_autoconfig/d' /tmp/boot/preseed.cfg
+  #sed -i '/netcfg\/dhcp_failed/d' /tmp/boot/preseed.cfg
   sed -i '/netcfg\/dhcp_options/d' /tmp/boot/preseed.cfg
   sed -i '/netcfg\/get_.*/d' /tmp/boot/preseed.cfg
   sed -i '/netcfg\/confirm_static/d' /tmp/boot/preseed.cfg
@@ -701,8 +705,6 @@ if [[ "$linux_relese" == 'debian' ]]; then
   sed -i '/pkgsel\/update-policy/d' /tmp/boot/preseed.cfg
   sed -i 's/umount\ \/media.*true\;\ //g' /tmp/boot/preseed.cfg
   [[ -f '/tmp/firmware.cpio.gz' ]] && gzip -d < /tmp/firmware.cpio.gz | cpio --extract --verbose --make-directories --no-absolute-filenames >>/dev/null 2>&1
-else
-  sed -i '/d-i\ grub-installer\/force-efi-extra-removable/d' /tmp/boot/preseed.cfg
 fi
 
 [[ "$ddMode" == '1' ]] && {
