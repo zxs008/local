@@ -209,10 +209,10 @@ function Start() {
 	27) echo -e "\nPassword: $tmpPassWord\n"; read -s -n1 -p "Press any key to continue..." ; bash installdds.sh -c 6.9 -v 64 -p $tmpPassWord $CMIRROR ;;
 	28) echo -e "\nPassword: $tmpPassWord\n"; read -s -n1 -p "Press any key to continue..." ; bash installdds.sh -c 6.10 -v 64 -p $tmpPassWord $CMIRROR ;;
 	29) echo -e "\nPassword: $tmpPassWord\n"; read -s -n1 -p "Press any key to continue..." ; bash installdds.sh -c 7 -v 64 -p $tmpPassWord $CMIRROR ;;
-	31) echo -e "\nPassword: $tmpPassWord\n"; read -s -n1 -p "Press any key to continue..." ; bash installdds.sh -dd 'https://api.moetools.net/get/centos-76-image' ;;
-	32) echo -e "\nPassword: $tmpPassWord\n"; read -s -n1 -p "Press any key to continue..." ; bash installdds.sh -dd 'https://api.moetools.net/get/centos-77-image' ;;
-	33) echo -e "\nPassword: $tmpPassWord\n"; read -s -n1 -p "Press any key to continue..." ; bash installdds.sh -dd 'https://api.moetools.net/get/centos-78-image' ;;
-	34) echo -e "\nPassword: $tmpPassWord\n"; read -s -n1 -p "Press any key to continue..." ; bash installdds.sh -dd 'https://api.moetools.net/get/centos-79-image' ;; 
+	31) echo -e "\nPassword: $tmpPassWord\n"; read -s -n1 -p "Press any key to continue..." ; bash installdds.sh -img 'https://api.moetools.net/get/centos-76-image' ;;
+	32) echo -e "\nPassword: $tmpPassWord\n"; read -s -n1 -p "Press any key to continue..." ; bash installdds.sh -img 'https://api.moetools.net/get/centos-77-image' ;;
+	33) echo -e "\nPassword: $tmpPassWord\n"; read -s -n1 -p "Press any key to continue..." ; bash installdds.sh -img 'https://api.moetools.net/get/centos-78-image' ;;
+	34) echo -e "\nPassword: $tmpPassWord\n"; read -s -n1 -p "Press any key to continue..." ; bash installdds.sh -img 'https://api.moetools.net/get/centos-79-image' ;; 
     99)
       echo -e "\n"
       read -r -p "Custom image URL: " imgURL
