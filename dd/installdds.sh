@@ -488,9 +488,9 @@ fi
 #输入ip,gateway,netmask
 echo "hostname: $(hostname)";
 echo "ip: $IPv4";
-echo "gateway: $GATEWAYIP";
-echo "netmask: $GATE";
-echo "nameserver: $NAMESERVER";
+echo "gateway: $GATE";
+echo "netmask: $MASK";
+echo "nameserver: $ipDNS";
 [[ "$NOIPV6" != "" ]] && echo "IPv6 is not supported";
 
 #Downloadingimg
