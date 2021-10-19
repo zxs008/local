@@ -181,7 +181,7 @@ function Start() {
   fi
 
   echo -e "\nPlease select an OS:"
-  echo "  1) Ubuntu 16.04 LTS (Xenial) 用户名：root 密码：$tmpPassWord"
+  echo "  1) Ubuntu 16.04 LTS (Xenial) 异常 用户名：root 密码：$tmpPassWord"
   echo "  2) Ubuntu 18.04 LTS (Bionic) 用户名：root 密码：$tmpPassWord"
   echo "  3) Ubuntu 20.04 LTS (Focal) 用户名：root 密码：$tmpPassWord"
   echo "  11) Debian 9（Stretch） 用户名：root 密码：$tmpPassWord"
