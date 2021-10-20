@@ -63,35 +63,7 @@ function Territory() {
   esac
 }
 
-function SetNetwork() {
-  CopyRight
-  isAuto='0'
-  if [[ -f '/etc/network/interfaces' ]];then
-    [[ ! -z "$(sed -n '/iface.*inet static/p' /etc/network/interfaces)" ]] && isAuto='1'
-    [[ -d /etc/network/interfaces.d ]] && {
-      cfgNum="$(find /etc/network/interfaces.d -name '*.cfg' |wc -l)" || cfgNum='0'
-      [[ "$cfgNum" -ne '0' ]] && {
-        for netConfig in `ls -1 /etc/network/interfaces.d/*.cfg`
-        do
-          [[ ! -z "$(cat $netConfig | sed -n '/iface.*inet static/p')" ]] && isAuto='1'
-        done
-      }
-    }
-  fi
-
-  if [[ -d '/etc/sysconfig/network-scripts' ]];then
-    cfgNum="$(find /etc/network/interfaces.d -name '*.cfg' |wc -l)" || cfgNum='0'
-    [[ "$cfgNum" -ne '0' ]] && {
-      for netConfig in `ls -1 /etc/sysconfig/network-scripts/ifcfg-* | grep -v 'lo$' | grep -v ':[0-9]\{1,\}'`
-      do
-        [[ ! -z "$(cat $netConfig | sed -n '/BOOTPROTO.*[sS][tT][aA][tT][iI][cC]/p')" ]] && isAuto='1'
-      done
-    }
-  fi
-}
-
 function NetMode() {
-
   if [ "$isAuto" == '0' ]; then
     read -r -p "Using DHCP to configure network automatically? [Y/n]:" input
     case $input in
@@ -229,7 +201,7 @@ function Start() {
   esac
 }
 
-SetNetwork
+CopyRight
 NetMode
 Automatically
 SetPassWord
