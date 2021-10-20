@@ -63,7 +63,7 @@ while [[ $# -ge 1 ]]; do
       tmpDIST="$1"
       shift
       ;;
-    -img|--image)
+    -dd|--image)
       shift
       ddMode='1'
       tmpURL="$1"
