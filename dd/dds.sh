@@ -164,7 +164,7 @@ function Start() {
   echo "  28) CentOS 6.10 x64 用户名：root 密码：$tmpPassWord"
   echo "  29) CentOS 7 用户名：root 密码：$tmpPassWord, 要求2G RAM以上才能使用"
   echo "  31) CentOS 7.6 x64 (DD) 用户名：root 密码：Pwd@CentOS"
-  echo "  32) CentOS 7.7 x64 (DD) 用户名：root 密码：Pwd@CentOS"
+  echo "  32) CentOS 7.7 x64 (DD) 失效 用户名：root 密码：Pwd@CentOS"
   echo "  33) CentOS 7.8 x64 (DD) 用户名：root 密码：Pwd@CentOS" 
   echo "  34) CentOS 7.9 x64 (DD) 用户名：root 密码：Pwd@CentOS"  
   echo "  99) Custom image"
