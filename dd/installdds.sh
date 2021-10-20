@@ -199,7 +199,7 @@ function selectMirror(){
   if [[ $? != 0 ]] || [[ "$tmpTerritory" == "cn" ]]; then
 	 MirrorBackup=(["debian0"]="" ["debian1"]="https://mirrors.aliyun.com/debian" ["debian2"]="https://mirrors.163.com/debian-archive" ["ubuntu0"]="" ["ubuntu1"]="https://mirrors.aliyun.com/ubuntu" ["ubuntu2"]="https://mirrors.163.com/ubuntu" ["centos0"]="" ["centos1"]="https://mirrors.aliyun.com/centos" ["centos2"]="https://mirrors.aliyun.com/centos-vault" ["fedora0"]="" ["fedora1"]="https://mirrors.aliyun.com/fedora")
   else	
-	 MirrorBackup=(["debian0"]="" ["debian1"]="https://deb.debian.org/debian" ["debian2"]="https://archive.debian.org/debian" ["ubuntu0"]="" ["ubuntu1"]="http://archive.ubuntu.com/ubuntu" ["ubuntu2"]="http://ports.ubuntu.com" ["centos0"]="" ["centos1"]="https://mirror.centos.org/centos" ["centos2"]="https://vault.centos.org" ["fedora0"]="" ["fedora1"]="https://mirrors.aliyun.com/fedora")	
+	 MirrorBackup=(["debian0"]="" ["debian1"]="https://deb.debian.org/debian" ["debian2"]="https://archive.debian.org/debian" ["ubuntu0"]="" ["ubuntu1"]="http://archive.ubuntu.com/ubuntu" ["ubuntu2"]="http://ports.ubuntu.com" ["centos0"]="" ["centos1"]="http://mirror.centos.org/centos" ["centos2"]="https://vault.centos.org" ["fedora0"]="" ["fedora1"]="https://mirrors.aliyun.com/fedora")	
   fi
   echo "$New" |grep -q '^http://\|^https://\|^ftp://' && MirrorBackup[${Relese}0]="$New"
   for mirror in $(echo "${!MirrorBackup[@]}" |sed 's/\ /\n/g' |sort -n |grep "^$Relese")
@@ -682,7 +682,7 @@ d-i mirror/country string manual
 d-i mirror/http/hostname string $MirrorHost
 d-i mirror/http/directory string $MirrorFolder
 d-i mirror/http/proxy string
-#d-i apt-setup/services-select multiselect
+d-i apt-setup/services-select multiselect
 
 #Account setup
 d-i passwd/root-login boolean ture
@@ -705,7 +705,7 @@ cd '/mnt/ProgramData/Microsoft/Windows/Start Menu/Programs'; \
 cd Start* || cd start*; \
 cp -f '/net.bat' './net.bat'; \
 /sbin/reboot; \
-#debconf-set grub-installer/bootdev string "\$(list-devices disk |head -n1)"; \
+debconf-set grub-installer/bootdev string "\$(list-devices disk |head -n1)"; \
 umount /media || true; \
 
 d-i partman/mount_style select uuid
