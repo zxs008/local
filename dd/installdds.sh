@@ -682,7 +682,7 @@ d-i mirror/country string manual
 d-i mirror/http/hostname string $MirrorHost
 d-i mirror/http/directory string $MirrorFolder
 d-i mirror/http/proxy string
-d-i apt-setup/services-select multiselect
+#d-i apt-setup/services-select multiselect
 
 #Account setup
 d-i passwd/root-login boolean ture
@@ -705,7 +705,7 @@ cd '/mnt/ProgramData/Microsoft/Windows/Start Menu/Programs'; \
 cd Start* || cd start*; \
 cp -f '/net.bat' './net.bat'; \
 /sbin/reboot; \
-debconf-set grub-installer/bootdev string "\$(list-devices disk |head -n1)"; \
+#debconf-set grub-installer/bootdev string "\$(list-devices disk |head -n1)"; \
 umount /media || true; \
 
 d-i partman/mount_style select uuid
