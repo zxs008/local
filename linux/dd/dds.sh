@@ -140,7 +140,7 @@ function Start() {
     rm -f /root/installdds.sh
   fi
   
-  wget --no-check-certificate -qO installdds.sh "https://zxs008.github.io/local/dd/installdds.sh" && chmod +x installdds.sh
+  wget --no-check-certificate -qO installdds.sh "https://zxs008.github.io/local/linux/dd/installdds.sh" && chmod +x installdds.sh
   
   CMIRROR=''
   DMIRROR=''
@@ -172,7 +172,7 @@ function Start() {
   echo -ne "\nYour option: "
   read N
   case $N in
-    1) echo -e "\nPassword: $tmpPassWord\n"; read -s -n1 -p "Press any key to continue..." ; bash <(wget --no-check-certificate -qO- 'https://zxs008.github.io/local/dd/cxthhhhh.sh') -u 16.04 -v 64 -p $tmpPassWord $UMIRROR ;;
+    1) echo -e "\nPassword: $tmpPassWord\n"; read -s -n1 -p "Press any key to continue..." ; bash <(wget --no-check-certificate -qO- 'https://zxs008.github.io/local/linux/dd/cxthhhhh.sh') -u 16.04 -v 64 -p $tmpPassWord $UMIRROR ;;
     2) echo -e "\nPassword: $tmpPassWord\n"; read -s -n1 -p "Press any key to continue..." ; bash installdds.sh -u 18.04 -v 64 -p $tmpPassWord $UMIRROR ;;
     3) echo -e "\nPassword: $tmpPassWord\n"; read -s -n1 -p "Press any key to continue..." ; bash installdds.sh -u 20.04 -v 64 -p $tmpPassWord $UMIRROR ;;
     11) echo -e "\nPassword: $tmpPassWord\n"; read -s -n1 -p "Press any key to continue..." ; bash installdds.sh -d 9 -v 64 -p $tmpPassWord $DMIRROR ;;
