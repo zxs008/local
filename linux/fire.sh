@@ -76,6 +76,13 @@ firewalld_reload() {
     fi
 }
 
+firewalld_list() {
+    firewall-cmd --list-all
+	if [[ $# == 0 ]]; then
+        before_show_menu_firewalld
+    fi
+}
+
 firewalld_list_ports() {
     firewall-cmd --list-ports
 	if [[ $# == 0 ]]; then
@@ -227,10 +234,11 @@ show_menu_firewalld() {
 ————————————————
   ${green}11.${plain} 查看端口
   ${green}12.${plain} 查看单个端口
-  ${green}13.${plain} 开启端口
-  ${green}14.${plain} 关闭端口
-  ${green}15.${plain} 开启IP+端口
-  ${green}16.${plain} 关闭IP+端口
+  ${green}13.${plain} 查看规则
+  ${green}14.${plain} 开启端口
+  ${green}15.${plain} 关闭端口
+  ${green}16.${plain} 开启IP+端口
+  ${green}17.${plain} 关闭IP+端口
 ————————————————
  "
     echo && read -p "请输入选择 [0-14]: " num
@@ -258,13 +266,15 @@ show_menu_firewalld() {
         ;;
 		12) firewalld_list_port
         ;;
-		13) firewalld_openport
+		13) firewalld_list
+		;;
+		14) firewalld_openport
         ;;
-		14) firewalld_closeport
+		15) firewalld_closeport
         ;;
-		15) firewalld_openipport
+		16) firewalld_openipport
         ;;
-		16) firewalld_closeipport
+		17) firewalld_closeipport
         ;;
         *) echo -e "${red}请输入正确的数字 [0-14]${plain}"
         ;;
