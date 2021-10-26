@@ -164,8 +164,7 @@ firewalld_closeport() {
         before_show_menu_firewalld
     fi
 }
-firewall-cmd --zone=public --source address="23.94.36.197" --add-port=53/tcp --permanent
-firewall-cmd --permanent --add-rich-rule="rule family="ipv4" source address="23.94.36.197" port protocol="tcp" port="53" accept"
+
 firewalld_openipport() {
     echo && echo -n -e "请输入端口: " && read port
 	if [[ -z "${port}" ]]; then
