@@ -275,11 +275,12 @@ function lowMem(){
 }
 
 if [[ "$loaderMode" == "0" ]]; then
-  Grub=`getGrub "/boot"`
-  [ -z "$Grub" ] && echo -ne "Error! Not Found grub.\n" && exit 1;
-  GRUBDIR=`echo "$Grub" |cut -d':' -f1`
-  GRUBFILE=`echo "$Grub" |cut -d':' -f2`
-  GRUBVER=`echo "$Grub" |cut -d':' -f3`
+  [[ -f '/boot/grub/grub.cfg' ]] && GRUBVER='0' && GRUBDIR='/boot/grub' && GRUBFILE='grub.cfg';
+  [[ -z "$GRUBDIR" ]] && [[ -f '/boot/grub2/grub.cfg' ]] && GRUBVER='0' && GRUBDIR='/boot/grub2' && GRUBFILE='grub.cfg';
+  [[ -z "$GRUBDIR" ]] && [[ -f '/boot/grub/grub.conf' ]] && GRUBVER='1' && GRUBDIR='/boot/grub' && GRUBFILE='grub.conf';
+  [ -z "$GRUBDIR" -o -z "$GRUBFILE" ] && echo -ne "Error! \nNot Found grub.\n" && exit 1;
+else
+  tmpINS='auto'
 fi
 
 [ -n "$Relese" ] || Relese='Debian'
