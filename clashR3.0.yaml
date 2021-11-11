@@ -489,6 +489,7 @@ rules:
   - DOMAIN-SUFFIX,safechat.com,固定节点选择 #safechat
   - DOMAIN-KEYWORD,safechat,固定节点选择 #safechat
   - DOMAIN-KEYWORD,github,固定节点选择
+  - DOMAIN-KEYWORD,freenom,固定节点选择
 
   - DOMAIN-SUFFIX,fb.com,facebook节点选择 #脸书
   - DOMAIN-SUFFIX,fb.me,facebook节点选择 #脸书
