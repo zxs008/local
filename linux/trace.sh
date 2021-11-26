@@ -20,7 +20,10 @@ unInstall() {
 
 pingIp() {   
    cd /BestTrace
-   ./besttrace -q1 -g cn $1
+   if [[ $arch == "x86_64" || $arch == "x64" || $arch == "amd64" ]]; then
+    ./besttrace -q1 -g cn $1
+   elif [[ $arch == "aarch64" || $arch == "arm64" ]]; then
+    ./besttracearm -q1 -g cn $1
    Before_ShowMenu
 }
 
@@ -30,6 +33,9 @@ Before_ShowMenu(){
 }
 
 ShowMenu(){
+
+  arch=$(arch)
+  
   echo -e "
   ${green}0.${plain} 退出脚本
   ————————————————
