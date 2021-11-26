@@ -4,11 +4,12 @@ red='\033[0;31m'
 green='\033[0;32m'
 yellow='\033[0;33m'
 plain='\033[0m'
+arch=$(arch)
 
 install() {   
    [[ -d /BestTrace ]] && rm -rf /BestTrace
    mkdir /BestTrace && cd /BestTrace
-   wget https://cdn.ipip.net/17mon/besttrace4linux.zip && unzip besttrace4linux.zip && chmod +x besttrace
+   wget https://cdn.ipip.net/17mon/besttrace4linux.zip && unzip besttrace4linux.zip && chmod +x besttrace && chmod +x besttracearm
 
    Before_ShowMenu
 }
@@ -20,10 +21,13 @@ unInstall() {
 
 pingIp() {   
    cd /BestTrace
+   
    if [[ $arch == "x86_64" || $arch == "x64" || $arch == "amd64" ]]; then
     ./besttrace -q1 -g cn $1
    elif [[ $arch == "aarch64" || $arch == "arm64" ]]; then
     ./besttracearm -q1 -g cn $1
+   fi
+   
    Before_ShowMenu
 }
 
@@ -34,8 +38,6 @@ Before_ShowMenu(){
 
 ShowMenu(){
 
-  arch=$(arch)
-  
   echo -e "
   ${green}0.${plain} 退出脚本
   ————————————————
