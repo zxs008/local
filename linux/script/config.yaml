@@ -10,3 +10,91 @@ site:
   brand: "nz_site_title"
   cookiename: "nezha-dashboard" #浏览器 Cookie 字段名，可不改
   theme: "default"
+  customcode: "<style>\r\n/* 屏幕适配 */\r\n@media only screen and (min-width: 1200px)
+    {\r\n    .ui.container {\r\n    width: 80% !important;\r\n}\r\n}\r\n\r\n@media
+    only screen and (max-width: 767px) {\r\n    .ui.card>.content>.header:not(.ui),
+    .ui.cards>.card>.content>.header:not(.ui) {\r\n        margin-top: 0.4em !important;\r\n
+    \   }\r\n}\r\n\r\n/* 整体图标 */\r\ni.icon {\r\n    color: #000;\r\n    width: 1.2em
+    !important;\r\n}\r\n\r\n/* 背景图片 */\r\nbody {\r\n    content: \" \" !important;\r\n
+    \   background: fixed !important;\r\n    z-index: -1 !important;\r\n    top: 0
+    !important;\r\n    right: 0 !important;\r\n    bottom: 0 !important;\r\n    left:
+    0 !important;\r\n    background-position: top !important;\r\n    background-repeat:
+    no-repeat !important;\r\n    background-size: cover !important;\r\n    background-image:
+    url(https://gitee.com/darki/img/raw/master/1631081013043.webp) !important;\r\n
+    \   font-family: Arial,Helvetica,sans-serif !important;\r\n}\r\n\r\n/* 导航栏 */\r\n.ui.large.menu
+    {\r\n    border: 0 !important;\r\n    border-radius: 0px !important;\r\n    background-color:
+    rgba(255, 255, 255, 55%) !important;\r\n}\r\n\r\n/* 首页按钮 */\r\n.ui.menu .active.item
+    {\r\n    background-color: transparent !important;\r\n}\r\n\r\n/* 导航栏下拉框 */\r\n.ui.dropdown
+    .menu {\r\n    border: 0 !important;\r\n    border-radius: 0 !important;\r\n    background-color:
+    rgba(255, 255, 255, 80%) !important;\r\n}\r\n\r\n/* 登陆按钮 */\r\n.nezha-primary-btn
+    {\r\n    background-color: transparent !important;\r\n    color: #000 !important;\r\n}\r\n\r\n/*
+    大卡片 */\r\n#app .ui.fluid.accordion {\r\n    background-color: #fbfbfb26 !important;\r\n
+    \   border-radius: 0.4rem !important;\r\n}\r\n\r\n/* 小卡片 */\r\n.ui.four.cards>.card
+    {\r\n    border-radius: 0.6rem !important;\r\n    background-color: #fafafaa3
+    !important;\r\n}\r\n\r\n.status.cards .wide.column {\r\n    padding-top: 0 !important;\r\n
+    \   padding-bottom: 0 !important;\r\n    height: 3.3rem !important;\r\n}\r\n\r\n.status.cards
+    .three.wide.column {\r\n    padding-right: 0rem !important;\r\n}\r\n\r\n.status.cards
+    .wide.column:nth-child(1) {\r\n    margin-top: 2rem !important;\r\n}\r\n\r\n.status.cards
+    .wide.column:nth-child(2) {\r\n    margin-top: 2rem !important;\r\n}\r\n\r\n.status.cards
+    .description {\r\n    padding-bottom: 0 !important;\r\n}\r\n\r\n/* 小鸡名 */\r\n.status.cards
+    .flag {\r\n    margin-right: 0.5rem !important;\r\n}\r\n\r\n/* 弹出卡片图标 */\r\n.status.cards
+    .header > .info.icon {\r\n    margin-right: 0 !important;\r\n}\r\n\r\n.nezha-secondary-font
+    {\r\n    color: #21ba45 !important;\r\n}\r\n\r\n/* 进度条 */\r\n.ui.progress {\r\n
+    \   border-radius: 50rem !important;\r\n}\r\n\r\n.ui.progress .bar {\r\n    min-width:
+    1.8em !important;\r\n    border-radius: 15px !important;\r\n    line-height: 1.65em
+    !important;\r\n}\r\n\r\n.ui.fine.progress> .bar {\r\n    background-color: #21ba45
+    !important;\r\n}\r\n\r\n.ui.progress> .bar {\r\n    background-color: #000 !important;\r\n}\r\n\r\n.ui.progress.fine
+    .bar {\r\n    background-color: #21ba45 !important;\r\n}\r\n\r\n.ui.progress.warning
+    .bar {\r\n    background-color: #ff9800 !important;\r\n}\r\n\r\n.ui.progress.error
+    .bar {\r\n    background-color: #e41e10 !important;\r\n}\r\n\r\n.ui.progress.offline
+    .bar {\r\n    background-color: #000 !important;\r\n}\r\n\r\n/* 上传下载 */\r\n.status.cards
+    .outline.icon {\r\n    margin-right: 1px !important;\r\n}\r\n\r\ni.arrow.alternate.circle.down.outline.icon
+    {\r\n    color: #21ba45 !important;\r\n}\r\n\r\ni.arrow.alternate.circle.up.outline.icon
+    {\r\n    color: red !important;\r\n}\r\n\r\n/* 弹出卡片小箭头 */\r\n.ui.right.center.popup
+    {\r\n    margin: -3px 0 0 0.914286em !important;\r\n    -webkit-transform-origin:
+    left 50% !important;\r\n    transform-origin: left 50% !important;\r\n}\r\n\r\n.ui.bottom.left.popup
+    {\r\n    margin-left: 1px !important;\r\n    margin-top: 3px !important;\r\n}\r\n\r\n.ui.top.left.popup
+    {\r\n    margin-left: 0 !important;\r\n    margin-bottom: 10px !important;\r\n}\r\n\r\n.ui.top.right.popup
+    {\r\n    margin-right: 0 !important;\r\n    margin-bottom: 8px !important;\r\n}\r\n\r\n.ui.left.center.popup
+    {\r\n    margin: -3px .91428571em 0 0 !important;\r\n    -webkit-transform-origin:
+    right 50% !important;\r\n    transform-origin: right 50% !important;\r\n}\r\n\r\n.ui.right.center.popup:before,\r\n.ui.left.center.popup:before
+    {\r\n    border: 0px solid #fafafaeb !important;\r\n    background: #fafafaeb
+    !important;\r\n}\r\n\r\n.ui.top.popup:before {\r\n    border-color: #fafafaeb
+    transparent transparent !important;\r\n}\r\n\r\n.ui.popup:before {\r\n    border-color:
+    #fafafaeb transparent transparent !important;\r\n}\r\n\r\n.ui.bottom.left.popup:before
+    {\r\n    border-radius: 0 !important;\r\n    border: 1px solid transparent !important;\r\n
+    \   border-color: #fafafaeb transparent transparent !important;\r\n    background:
+    #fafafaeb !important;\r\n    -webkit-box-shadow: 0px 0px 0 0 #fafafaeb !important;\r\n
+    \   box-shadow: 0px 0px 0 0 #fafafaeb !important;\r\n    -webkit-tap-highlight-color:
+    rgba(0,0,0,0) !important;\r\n}\r\n\r\n.ui.bottom.right.popup:before {\r\n    border-radius:
+    0 !important;\r\n    border: 1px solid transparent !important;\r\n    border-color:
+    #fafafaeb transparent transparent !important;\r\n    background: #fafafaeb !important\r\n
+    \   -webkit-box-shadow: 0px 0px 0 0 #fafafaeb !important;\r\n    box-shadow: 0px
+    0px 0 0 #fafafaeb !important;\r\n    -webkit-tap-highlight-color: rgba(0,0,0,0)
+    !important;\r\n}\r\n\r\n.ui.top.left.popup:before {\r\n    border-radius: 0 !important;\r\n
+    \   border: 1px solid transparent !important;\r\n    border-color: #fafafaeb transparent
+    transparent !important;\r\n    background: #fafafaeb !important;\r\n    -webkit-box-shadow:
+    0px 0px 0 0 #fafafaeb !important;\r\n    box-shadow: 0px 0px 0 0 #fafafaeb !important;\r\n
+    \   -webkit-tap-highlight-color: rgba(0,0,0,0) !important;\r\n}\r\n\r\n.ui.top.right.popup:before
+    {\r\n    border-radius: 0 !important;\r\n    border: 1px solid transparent !important;\r\n
+    \   border-color: #fafafaeb transparent transparent !important;\r\n    background:
+    #fafafaeb !important;\r\n    -webkit-box-shadow: 0px 0px 0 0 #fafafaeb !important;\r\n
+    \   box-shadow: 0px 0px 0 0 #fafafaeb !important;\r\n    -webkit-tap-highlight-color:
+    rgba(0,0,0,0) !important;\r\n}\r\n\r\n.ui.left.center.popup:before {\r\n    border-radius:
+    0 !important;\r\n    border: 1px solid transparent !important;\r\n    border-color:
+    #fafafaeb transparent transparent !important;\r\n    background: #fafafaeb !important;\r\n
+    \   -webkit-box-shadow: 0px 0px 0 0 #fafafaeb !important;\r\n    box-shadow: 0px
+    0px 0 0 #fafafaeb !important;\r\n    -webkit-tap-highlight-color: rgba(0,0,0,0)
+    !important;\r\n}\r\n\r\n/* 弹出卡片 */\r\n.status.cards .ui.content.popup {\r\n    min-width:
+    20rem !important;\r\n    line-height: 2rem !important;\r\n    border-radius: 5px
+    !important;\r\n    border: 1px solid transparent !important;\r\n    background-color:
+    #fafafaeb !important;\r\n    font-family: Arial,Helvetica,sans-serif !important;\r\n}\r\n\r\n.ui.content
+    {\r\n    margin: 0 !important;\r\n    padding: 1em !important;\r\n}\r\n\r\n/*
+    服务页 */\r\n.ui.table {\r\n    background: RGB(225,225,225,0.6) !important;\r\n}\r\n\r\n.ui.table
+    thead th {\r\n    background: transparent !important;\r\n}\r\n\r\n/* 服务页进度条 */\r\n.service-status
+    .good {\r\n    background-color: #21ba45 !important;\r\n}\r\n\r\n.service-status
+    .danger {\r\n    background-color: red !important;\r\n}\r\n\r\n.service-status
+    .warning {\r\n    background-color: orange !important;\r\n}\r\n\r\n/* 版权 */\r\n.ui.inverted.segment,
+    .ui.primary.inverted.segment {\r\n    color: #000 !important;\r\n    font-weight:
+    bold !important;\r\n    background-color: #fafafaa3 !important;\r\n}\r\n</style>\r\n\r\n<!--Logo和版权-->\r\n<script>\r\nwindow.onload
+    = function(){\r\nvar avatar=document.querySelector(\".item img\")\r\nvar footer=document.querySelector(\"div.is-size-7\")\r\nfooter.innerHTML=\"愤怒的小鸟\"\r\nfooter.style.visibility=\"visible\"\r\navatar.src=\"https://ii.do/favicon.ico\"\r\navatar.style.visibility=\"visible\"\r\n}\r\n</script>"
