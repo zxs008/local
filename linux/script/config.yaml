@@ -97,4 +97,4 @@ site:
     .warning {\r\n    background-color: orange !important;\r\n}\r\n\r\n/* 版权 */\r\n.ui.inverted.segment,
     .ui.primary.inverted.segment {\r\n    color: #000 !important;\r\n    font-weight:
     bold !important;\r\n    background-color: #fafafaa3 !important;\r\n}\r\n</style>\r\n\r\n<!--Logo和版权-->\r\n<script>\r\nwindow.onload
-    = function(){\r\nvar avatar=document.querySelector(\".item img\")\r\nvar footer=document.querySelector(\"div.is-size-7\")\r\nfooter.innerHTML=\"愤怒的小鸟\"\r\nfooter.style.visibility=\"visible\"\r\navatar.src=\"https://ii.do/favicon.ico\"\r\navatar.style.visibility=\"visible\"\r\n}\r\n</script>"
+    = function(){\r\nvar avatar=document.querySelector(\".item img\")\r\nvar footer=document.querySelector(\"div.is-size-7\")\r\navatar.src=\"https://ii.do/favicon.ico\"\r\navatar.style.visibility=\"visible\"\r\n}\r\n</script>"
