@@ -97,4 +97,9 @@ site:
     .warning {\r\n    background-color: orange !important;\r\n}\r\n\r\n/* 版权 */\r\n.ui.inverted.segment,
     .ui.primary.inverted.segment {\r\n    color: #000 !important;\r\n    font-weight:
     bold !important;\r\n    background-color: #fafafaa3 !important;\r\n}\r\n</style>\r\n\r\n<!--Logo和版权-->\r\n<script>\r\nwindow.onload
-    = function(){\r\nvar avatar=document.querySelector(\".item img\")\r\nvar footer=document.querySelector(\"div.is-size-7\")\r\n}\r\n</script>"
+    = function(){\r\nvar avatar=document.querySelector(\".item img\")\r\nvar footer=document.querySelector(\"div.is-size-7\")\r\n}\r\n</script>\r\n\r\n<style
+    type=\"text/css\">img{border:0px;} #hao{position:fixed!important;position:absolute;right:0;bottom:0;top:expression(offsetParent.scrollTop+offsetParent.clientHeight-150);cursor:pointer;}</style><div
+    id=\"hao\" style=\"width:138px;height:138px;z-index:9999;text-align:right\"><div><a
+    href=\"#\" target=\"_blank\"> <img src=\"https://z3.ax1x.com/2021/11/18/Io6XIH.gif\"
+    width=\"138px\" height=\"138px\"></a></div></div></footer><?php doAction('index_footer');
+    ?></div><div class=\"pjax_loading\"></div><div class=\"pjax_loading1\"></div></div>"
