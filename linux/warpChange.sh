@@ -83,7 +83,7 @@ show_menu() {
         exit 0
         ;;
     1)
-        bash <( curl -fsSL https://zxs008.github.com/local/linux/warp.sh ) menu
+        bash <( curl -fsSL https://zxs008.github.io/local/linux/warp.sh ) menu
         ;;
     2)
         show_menu_change
