@@ -62,10 +62,10 @@ proxies:
 - {
    name: "🇰🇷 KoreaN (Trojan)",
    type: trojan,
-   server: ccnxray.aimdd.com,
+   server: ccnray.aimdd.com,
    port: 443,
    password: cc..1234,
-   sni: ccnxray.aimdd.com, 
+   sni: ccnray.aimdd.com, 
    skip-cert-verify: false
   }
 
