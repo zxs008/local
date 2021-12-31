@@ -82,7 +82,8 @@ crontab_service() {
         fi
       touch /var/spool/cron/crontabs/root
       echo "@reboot sudo bash /docker/server/${documentName}.sh" >> /var/spool/cron/crontabs/root
-    
+      crontab -u root /var/spool/cron/crontabs/root
+      
     if [[ $# == 0 ]]; then
         show_menu
     fi
