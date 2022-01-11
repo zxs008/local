@@ -445,10 +445,6 @@ rules:
   - DOMAIN-SUFFIX,wikiwand.com,全球节点  #维基
   - DOMAIN-SUFFIX,v2ray.com,全球节点
 
-  - DOMAIN-KEYWORD,ads-pixiv.com,全球节点
-  - DOMAIN-KEYWORD,pixiv,全球节点 #p 漫画
-  - DOMAIN-KEYWORD,pximg,全球节点 #p 漫画
-
   - DOMAIN-SUFFIX,gstatic.com,全球节点
   - DOMAIN-SUFFIX,line.me,全球节点
   - DOMAIN-SUFFIX,line-apps.com,全球节点
@@ -456,6 +452,10 @@ rules:
   
   - DOMAIN-KEYWORD,uptodown,全球节点 #Uptodown
   - DOMAIN-KEYWORD,apkpure,全球节点 #Apkpure
+
+  - DOMAIN-KEYWORD,github,全球节点
+  - DOMAIN-KEYWORD,freenom,全球节点
+  - DOMAIN-KEYWORD,hostloc,全球节点 #全球主机
 
   - DOMAIN-SUFFIX,youtu.be,google节点选择
   - DOMAIN-KEYWORD,youtube,google节点选择
@@ -488,8 +488,9 @@ rules:
   
   - DOMAIN-SUFFIX,safechat.com,固定节点选择 #safechat
   - DOMAIN-KEYWORD,safechat,固定节点选择 #safechat
-  - DOMAIN-KEYWORD,github,固定节点选择
-  - DOMAIN-KEYWORD,freenom,固定节点选择
+  - DOMAIN-KEYWORD,ads-pixiv.com,全球节点
+  - DOMAIN-KEYWORD,pixiv,全球节点 #p 漫画
+  - DOMAIN-KEYWORD,pximg,全球节点 #p 漫画
 
   - DOMAIN-SUFFIX,fb.com,facebook节点选择 #脸书
   - DOMAIN-SUFFIX,fb.me,facebook节点选择 #脸书
