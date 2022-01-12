@@ -480,7 +480,7 @@ Install_Bt(){
 
 	wget -O /etc/init.d/bt ${downloads_Url}/kxbt/bt6.init -T 10
 	wget -O /www/server/panel/install/public.sh ${download_Url}/install/public.sh -T 10
-	wget -O panel.zip http://zmapi.hm8848.com/local/panel6-update.zip -T 10
+	wget -O panel.zip http://zmapi.hm8848.com/local/panel6.zip -T 10
 
 	if [ -f "${setup_path}/server/panel/data/default.db" ];then
 		if [ -d "/${setup_path}/server/panel/old_data" ];then
