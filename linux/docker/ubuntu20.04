@@ -1,0 +1,11 @@
+sleep 10;
+sudo docker exec ubuntu20.04-1 /etc/init.d/bt restart 
+sudo docker exec ubuntu20.04-1 /etc/init.d/nginx start
+sudo docker exec ubuntu20.04-1 /etc/init.d/nginx restart
+sudo docker exec ubuntu20.04-1 /etc/init.d/mysqld start
+sudo docker exec ubuntu20.04-1 /etc/init.d/mysqld restart
+sudo docker exec ubuntu20.04-1 systemctl start nezha-agent.service
+sudo docker exec ubuntu20.04-1 systemctl start status-client.service
+sudo docker exec ubuntu20.04-1 systemctl start v2-ui
+sudo docker exec ubuntu20.04-1 service cron start
+sudo docker exec ubuntu20.04-1 ufw reload
