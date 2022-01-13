@@ -46,7 +46,7 @@ proxies:
 - {
    name: "🇰🇷 KoreaN 443 (Vmess)",
    type: vmess,
-   server: ccnvray.aimdd.com,
+   server: ccnray.aimdd.com,
    port: 443,
    uuid: 4e79da35-a842-4571-9300-89003db65a68,
    alterId: 64,
@@ -54,7 +54,7 @@ proxies:
    tls: true,
    network: ws,
    ws-path: /KoreaChuncheonVN,
-   ws-headers: {Host: ccnvray.aimdd.com}
+   ws-headers: {Host: ccnray.aimdd.com}
    # tls: true
    # skip-cert-verify: true
   }
@@ -73,13 +73,13 @@ proxies:
    name: "🇯🇵 JapanN CM (Vmess)",
    type: vmess,
    server: dbncfcm.aimdd.com,
-   port: 2095,
-   uuid: d4137db8-1505-4dc8-d3fe-60028040fdce,
+   port: 443,
+   uuid: e7632537-11cc-4100-bf42-6de88fffb19f,
    alterId: 64,
    cipher: auto,
-   tls: false,
+   tls: true,
    network: ws,
-   ws-path: /JapanOsakaCF,
+   ws-path: /JapanOsakaVNCM,
    # ws-headers: {Host: dbncfcm.aimdd.com}false
    # tls: true
    # skip-cert-verify: true
@@ -89,13 +89,13 @@ proxies:
    name: "🇯🇵 JapanN CU (Vmess)",
    type: vmess,
    server: dbncfcu.aimdd.com,
-   port: 2095,
-   uuid: d4137db8-1505-4dc8-d3fe-60028040fdce,
+   port: 443,
+   uuid: b9c301ec-4770-4d5d-b118-ce58523289d6,
    alterId: 64,
    cipher: auto,
-   tls: false,
+   tls: true,
    network: ws,
-   ws-path: /JapanOsakaCF,
+   ws-path: /JapanOsakaVNCU,
    # ws-headers: {Host: dbncfcu.aimdd.com}
    # udp: true
    # skip-cert-verify: true
@@ -115,13 +115,13 @@ proxies:
    name: "🇺🇸 America CM (Vmess)",
    type: vmess,
    server: lsjncfcm.aimdd.com,
-   port: 2095,
+   port: 443,
    uuid: 2266af62-bcdb-4fc7-c1e5-05ba7831c2fa,
    alterId: 64,
    cipher: auto,
-   # tls: false,
+   tls: true,
    network: ws,
-   ws-path: /AmericaLosAngelesCF,
+   ws-path: /AmericaLosAngelesVNCM,
    # ws-headers: {Host: lsjncfcm.aimdd.com}
    # tls: true
    # skip-cert-verify: true
@@ -131,13 +131,13 @@ proxies:
    name: "🇺🇸 America CU (Vmess)",
    type: vmess,
    server: lsjncfcu.aimdd.com,
-   port: 2095,
+   port: 443,
    uuid: 2266af62-bcdb-4fc7-c1e5-05ba7831c2fa,
    alterId: 64,
    cipher: auto,
-   # tls: false,
+   tls: true,
    network: ws,
-   ws-path: /AmericaLosAngelesCF,
+   ws-path: /AmericaLosAngelesVNCU,
    # ws-headers: {Host: lsjncfcu.aimdd.com}
    # tls: true
    # skip-cert-verify: true
