@@ -470,9 +470,9 @@ ufw_closeipport() {
 }
 
 ufw_closeping() {
-   sed -i 's/-A ufw-before-input -p icmp --icmp-type destination-unreachable -j ACCEPT/-A ufw-before-input -p icmp --icmp-type destination-unreachable -j DROP/g' /etc/ufw/before.rules
-   sed -i 's/-A ufw-before-input -p icmp --icmp-type time-exceeded -j ACCEPT/-A ufw-before-input -p icmp --icmp-type time-exceeded -j DROP/g' /etc/ufw/before.rules
-   sed -i 's/-A ufw-before-input -p icmp --icmp-type parameter-problem -j ACCEPT/-A ufw-before-input -p icmp --icmp-type parameter-problem -j DROP/g' /etc/ufw/before.rules
+   #sed -i 's/-A ufw-before-input -p icmp --icmp-type destination-unreachable -j ACCEPT/-A ufw-before-input -p icmp --icmp-type destination-unreachable -j DROP/g' /etc/ufw/before.rules
+   #sed -i 's/-A ufw-before-input -p icmp --icmp-type time-exceeded -j ACCEPT/-A ufw-before-input -p icmp --icmp-type time-exceeded -j DROP/g' /etc/ufw/before.rules
+   #sed -i 's/-A ufw-before-input -p icmp --icmp-type parameter-problem -j ACCEPT/-A ufw-before-input -p icmp --icmp-type parameter-problem -j DROP/g' /etc/ufw/before.rules
    sed -i 's/-A ufw-before-input -p icmp --icmp-type echo-request -j ACCEPT/-A ufw-before-input -p icmp --icmp-type echo-request DROP/g' /etc/ufw/before.rules
 
    sudo ufw reload
@@ -483,9 +483,9 @@ ufw_closeping() {
 }
 
 ufw_openping() {
-   sed -i 's/-A ufw-before-input -p icmp --icmp-type destination-unreachable -j DROP/-A ufw-before-input -p icmp --icmp-type destination-unreachable -j ACCEPT/g' /etc/ufw/before.rules
-   sed -i 's/-A ufw-before-input -p icmp --icmp-type time-exceeded -j DROP/-A ufw-before-input -p icmp --icmp-type time-exceeded -j ACCEPT/g' /etc/ufw/before.rules
-   sed -i 's/-A ufw-before-input -p icmp --icmp-type parameter-problem -j DROP/-A ufw-before-input -p icmp --icmp-type parameter-problem -j ACCEPT/g' /etc/ufw/before.rules
+   #sed -i 's/-A ufw-before-input -p icmp --icmp-type destination-unreachable -j DROP/-A ufw-before-input -p icmp --icmp-type destination-unreachable -j ACCEPT/g' /etc/ufw/before.rules
+   #sed -i 's/-A ufw-before-input -p icmp --icmp-type time-exceeded -j DROP/-A ufw-before-input -p icmp --icmp-type time-exceeded -j ACCEPT/g' /etc/ufw/before.rules
+   #sed -i 's/-A ufw-before-input -p icmp --icmp-type parameter-problem -j DROP/-A ufw-before-input -p icmp --icmp-type parameter-problem -j ACCEPT/g' /etc/ufw/before.rules
    sed -i 's/-A ufw-before-input -p icmp --icmp-type echo-request -j DROP/-A ufw-before-input -p icmp --icmp-type echo-request -j ACCEPT/g' /etc/ufw/before.rules
 
    sudo ufw reload
