@@ -62,7 +62,7 @@ firewalld_start() {
 }
 
 firewalld_stop() {
-    systemctl systemctl stop firewalld.service
+    systemctl stop firewalld.service
 	systemctl disable firewalld.service
 	if [[ $# == 0 ]]; then
         before_show_menu_firewalld
@@ -282,7 +282,7 @@ show_menu_firewalld() {
 }
 
 ufw_install() {
-    yum -y install ufw
+    apt -y install ufw
 	if [[ $# == 0 ]]; then
         show_menu_ufw
     fi
@@ -292,7 +292,7 @@ ufw_uninstall() {
     systemctl disable firewalld.service
     systemctl stop firewalld.service
     systemctl mask firewalld.service
-	yum -y remove firewalld.service
+    apt -y remove firewalld.service
 	if [[ $# == 0 ]]; then
         show_menu_ufw
     fi
@@ -469,6 +469,31 @@ ufw_closeipport() {
     fi
 }
 
+ufw_closeping() {
+   sed -i 's/-A ufw-before-input -p icmp --icmp-type destination-unreachable -j ACCEPT/-A ufw-before-input -p icmp --icmp-type destination-unreachable -j DROP/g' /etc/ufw/before.rules
+   sed -i 's/-A ufw-before-input -p icmp --icmp-type time-exceeded -j ACCEPT/-A ufw-before-input -p icmp --icmp-type time-exceeded -j DROP/g' /etc/ufw/before.rules
+   sed -i 's/-A ufw-before-input -p icmp --icmp-type parameter-problem -j ACCEPT/-A ufw-before-input -p icmp --icmp-type parameter-problem -j DROP/g' /etc/ufw/before.rules
+   sed -i 's/-A ufw-before-input -p icmp --icmp-type echo-request -j ACCEPT/-A ufw-before-input -p icmp --icmp-type echo-request DROP/g' /etc/ufw/before.rules
+
+   sudo ufw reload
+   
+   if [[ $# == 0 ]]; then
+        show_menu_ufw
+   fi
+}
+
+ufw_openping() {
+   sed -i 's/-A ufw-before-input -p icmp --icmp-type destination-unreachable -j DROP/-A ufw-before-input -p icmp --icmp-type destination-unreachable -j ACCEPT/g' /etc/ufw/before.rules
+   sed -i 's/-A ufw-before-input -p icmp --icmp-type time-exceeded -j DROP/-A ufw-before-input -p icmp --icmp-type time-exceeded -j ACCEPT/g' /etc/ufw/before.rules
+   sed -i 's/-A ufw-before-input -p icmp --icmp-type parameter-problem -j DROP/-A ufw-before-input -p icmp --icmp-type parameter-problem -j ACCEPT/g' /etc/ufw/before.rules
+   sed -i 's/-A ufw-before-input -p icmp --icmp-type echo-request -j DROP/-A ufw-before-input -p icmp --icmp-type echo-request -j ACCEPT/g' /etc/ufw/before.rules
+
+   sudo ufw reload
+   
+   if [[ $# == 0 ]]; then
+        show_menu_ufw
+   fi
+}
 
 show_menu_ufw() {
   echo -e "
@@ -491,6 +516,8 @@ show_menu_ufw() {
   ${green}14.${plain} 拒绝端口
   ${green}15.${plain} 开启端口+IP
   ${green}16.${plain} 拒绝端口+IP
+  ${green}17.${plain} 开启ping
+  ${green}18.${plain} 关闭ping
 ————————————————
  "
     echo && read -p "请输入选择 [0-14]: " num
@@ -506,7 +533,7 @@ show_menu_ufw() {
         ;;
 		4) ufw_uninitiated
         ;;
-        5) ufw_status
+          5) ufw_status
         ;;
 		6) ufw_start
         ;;
@@ -527,6 +554,10 @@ show_menu_ufw() {
 		15) ufw_openipport
         ;;
 		16) ufw_rejectipport
+        ;;
+          17) ufw_openping
+        ;;
+          18) ufw_closeping
         ;;
         *) echo -e "${red}请输入正确的数字${plain}"
         ;;
