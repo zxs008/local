@@ -213,6 +213,36 @@ firewalld_closeipport() {
     fi
 }
 
+firewalld_openping() {
+    grep "net.ipv4.icmp_echo_ignore_all" /etc/sysctl.conf >/dev/null
+    if [ $? -eq 0 ]; then
+      sed -i 's/net.ipv4.icmp_echo_ignore_all = 1/net.ipv4.icmp_echo_ignore_all = 0/g' /etc/sysctl.conf
+    else
+      echo -e "net.ipv4.icmp_echo_ignore_all = 0" >> /etc/sysctl.conf
+    fi
+    
+    sysctl -p
+    
+    if [[ $# == 0 ]]; then
+        before_show_menu_firewalld
+    fi
+}
+
+firewalld_closeping() {
+    grep "net.ipv4.icmp_echo_ignore_all" /etc/sysctl.conf >/dev/null
+    if [ $? -eq 0 ]; then
+      sed -i 's/net.ipv4.icmp_echo_ignore_all = 0/net.ipv4.icmp_echo_ignore_all = 1/g' /etc/sysctl.conf
+    else
+      echo "net.ipv4.icmp_echo_ignore_all = 1" >> /etc/sysctl.conf
+    fi
+    
+    sysctl -p
+    
+    if [[ $# == 0 ]]; then
+        before_show_menu_firewalld
+    fi
+}
+
 before_show_menu_firewalld() {
     echo && echo -n -e "${yellow}按回车返回主菜单: ${plain}" && read temp
     show_menu_firewalld
@@ -239,6 +269,8 @@ show_menu_firewalld() {
   ${green}15.${plain} 关闭端口
   ${green}16.${plain} 开启IP+端口
   ${green}17.${plain} 关闭IP+端口
+  ${green}18.${plain} 开启ping
+  ${green}19.${plain} 关闭ping
 ————————————————
  "
     echo && read -p "请输入选择 [0-14]: " num
@@ -254,7 +286,7 @@ show_menu_firewalld() {
         ;;
 		4) firewalld_uninitiated
         ;;
-        5) firewalld_status
+          5) firewalld_status
         ;;
 		6) firewalld_start
         ;;
@@ -275,6 +307,10 @@ show_menu_firewalld() {
 		16) firewalld_openipport
         ;;
 		17) firewalld_closeipport
+        ;;
+          18) firewalld_openping
+        ;;
+		19) firewalld_closeping
         ;;
         *) echo -e "${red}请输入正确的数字 [0-14]${plain}"
         ;;
