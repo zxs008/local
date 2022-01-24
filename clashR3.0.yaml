@@ -46,7 +46,7 @@ proxies:
 - {
    name: "🇰🇷 KoreaN 443 (Vmess)",
    type: vmess,
-   server: ccnvray.aimdd.com,
+   server: ccnxray.aimdd.com,
    port: 443,
    uuid: 4e79da35-a842-4571-9300-89003db65a68,
    alterId: 64,
@@ -54,7 +54,7 @@ proxies:
    tls: true,
    network: ws,
    ws-path: /KoreaChuncheonVN,
-   ws-headers: {Host: ccnvray.aimdd.com}
+   ws-headers: {Host: ccnxray.aimdd.com}
    # tls: true
    # skip-cert-verify: true
   }
