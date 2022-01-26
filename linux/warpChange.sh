@@ -9,6 +9,8 @@ function MediaUnlockTest() {
 while true
 do
     result=$(curl -${1} --user-agent "${UA_Browser}" -fsL --write-out %{http_code} --output /dev/null --max-time 10 "https://www.netflix.com/title/81215567" 2>&1)
+    IPV4=$(curl -s${1}m8 https://api64.ipify.org?format=json)
+    echo -e "${IPV4}"
     if [[ "$result" == "404" ]];then
         echo -e "Originals Only, Changing IP..."
         systemctl restart wg-quick@wgcf
@@ -20,7 +22,7 @@ do
         sleep 3
 	
     elif  [[ "$result" == "200" ]];then
-		region=`tr [:lower:] [:upper:] <<< $(curl ${1} --user-agent "${UA_Browser}" -fs --max-time 10 --write-out %{redirect_url} --output /dev/null "https://www.netflix.com/title/80018499" | cut -d '/' -f4 | cut -d '-' -f1)` ;
+		region=`tr [:lower:] [:upper:] <<< $(curl -${1} --user-agent "${UA_Browser}" -fs --max-time 10 --write-out %{redirect_url} --output /dev/null "https://www.netflix.com/title/80018499" | cut -d '/' -f4 | cut -d '-' -f1)` ;
 		if [[ ! "$region" ]];then
 			region="US";
 		fi
