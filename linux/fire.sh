@@ -221,6 +221,13 @@ firewalld_openping() {
       echo -e "net.ipv4.icmp_echo_ignore_all = 0" >> /etc/sysctl.conf
     fi
     
+    grep "net.ipv6.icmp_echo_ignore_all" /etc/sysctl.conf >/dev/null
+    if [ $? -eq 0 ]; then
+      sed -i 's/net.ipv6.icmp_echo_ignore_all = 1/net.ipv6.icmp_echo_ignore_all = 0/g' /etc/sysctl.conf
+    else
+      echo -e "net.ipv6.icmp_echo_ignore_all = 0" >> /etc/sysctl.conf
+    fi
+    
     sysctl -p
     
     if [[ $# == 0 ]]; then
@@ -234,6 +241,13 @@ firewalld_closeping() {
       sed -i 's/net.ipv4.icmp_echo_ignore_all = 0/net.ipv4.icmp_echo_ignore_all = 1/g' /etc/sysctl.conf
     else
       echo "net.ipv4.icmp_echo_ignore_all = 1" >> /etc/sysctl.conf
+    fi
+    
+    grep "net.ipv6.icmp_echo_ignore_all" /etc/sysctl.conf >/dev/null
+    if [ $? -eq 0 ]; then
+      sed -i 's/net.ipv6.icmp_echo_ignore_all = 0/net.ipv6.icmp_echo_ignore_all = 1/g' /etc/sysctl.conf
+    else
+      echo "net.ipv6.icmp_echo_ignore_all = 1" >> /etc/sysctl.conf
     fi
     
     sysctl -p
