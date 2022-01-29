@@ -510,7 +510,12 @@ ufw_closeping() {
    #sed -i 's/-A ufw-before-input -p icmp --icmp-type time-exceeded -j ACCEPT/-A ufw-before-input -p icmp --icmp-type time-exceeded -j DROP/g' /etc/ufw/before.rules
    #sed -i 's/-A ufw-before-input -p icmp --icmp-type parameter-problem -j ACCEPT/-A ufw-before-input -p icmp --icmp-type parameter-problem -j DROP/g' /etc/ufw/before.rules
    sed -i 's/-A ufw-before-input -p icmp --icmp-type echo-request -j ACCEPT/-A ufw-before-input -p icmp --icmp-type echo-request -j DROP/g' /etc/ufw/before.rules
-
+   if [ -f "/etc/ufw/before6.rules" ];then
+     grep "ufw6-before-input -p icmpv6 --icmpv6-type echo-request" /etc/ufw/before6.rules >/dev/null
+     if [ $? -eq 0 ]; then
+       sed -i 's/-A ufw6-before-input -p icmpv6 --icmpv6-type echo-request -j ACCEPT/-A ufw6-before-input -p icmpv6 --icmpv6-type echo-request -j DROP/g' /etc/ufw/before6.rules
+     fi
+   fi
    sudo ufw reload
    
    if [[ $# == 0 ]]; then
@@ -524,6 +529,13 @@ ufw_openping() {
    #sed -i 's/-A ufw-before-input -p icmp --icmp-type parameter-problem -j DROP/-A ufw-before-input -p icmp --icmp-type parameter-problem -j ACCEPT/g' /etc/ufw/before.rules
    sed -i 's/-A ufw-before-input -p icmp --icmp-type echo-request -j DROP/-A ufw-before-input -p icmp --icmp-type echo-request -j ACCEPT/g' /etc/ufw/before.rules
 
+   if [ -f "/etc/ufw/before6.rules" ];then
+     grep "ufw6-before-input -p icmpv6 --icmpv6-type echo-request" /etc/ufw/before6.rules >/dev/null
+     if [ $? -eq 0 ]; then
+       sed -i 's/-A ufw6-before-input -p icmpv6 --icmpv6-type echo-request -j DROP/-A ufw6-before-input -p icmpv6 --icmpv6-type echo-request -j ACCEPT/g' /etc/ufw/before6.rules
+     fi
+   fi
+   
    sudo ufw reload
    
    if [[ $# == 0 ]]; then
