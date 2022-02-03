@@ -269,10 +269,10 @@ proxy-groups:
     - "全球选择"
     - "CHIN节点选择"
     - "节点选择"
-    - "sg SingaporeNat CM (Vmess)"
-    - "sg SingaporeNat CU (Vmess)"
-    - "hk HongKongNat CM (Vmess)"
-    - "hk HongKongNat CU (Vmess)"
+    - "🇸🇬 SingaporeNat CM (Vmess)"
+    - "🇸🇬 SingaporeNat CU (Vmess)"
+    - "🇭🇰 HongKongNat CM (Vmess)"
+    - "🇭🇰 HongKongNat CU (Vmess)"
 
 #代理节点选择
 - name: "Us节点选择"
