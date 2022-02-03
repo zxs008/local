@@ -112,7 +112,7 @@ proxies:
   }
 
 - {
-   name: "sg SingaporeNat CM (Vmess)",
+   name: "🇸🇬 SingaporeNat CM (Vmess)",
    type: vmess,
    server: natsgcfcm.aimdd.com,
    port: 443,
@@ -128,7 +128,7 @@ proxies:
   }
 
 - {
-   name: "sg SingaporeNat CU (Vmess)",
+   name: "🇸🇬 SingaporeNat CU (Vmess)",
    type: vmess,
    server: natsgcfcu.aimdd.com,
    port: 443,
@@ -144,7 +144,7 @@ proxies:
   }
 
 - {
-   name: "hk HongKongNat CM (Vmess)",
+   name: "🇭🇰 HongKongNat CM (Vmess)",
    type: vmess,
    server: nathkcfcm.aimdd.com,
    port: 443,
@@ -160,7 +160,7 @@ proxies:
   }
 
 - {
-   name: "hk HongKongNat CU (Vmess)",
+   name: "🇭🇰 HongKongNat CU (Vmess)",
    type: vmess,
    server: nathkcfcu.aimdd.com,
    port: 443,
