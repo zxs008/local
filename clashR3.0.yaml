@@ -138,6 +138,70 @@ proxies:
   }
 
 - {
+   name: "🇸🇬 SingaporeNat CM (Vmess)",
+   type: vmess,
+   server: natsgcfcm.aimdd.com,
+   port: 443,
+   uuid: 8cf59a6a-3cb6-4a1a-f95b-56c785df48be,
+   alterId: 64,
+   cipher: auto,
+   tls: true,
+   network: ws,
+   ws-path: /WebNatSGCM,
+   # ws-headers: {Host: dbncfcm.aimdd.com}false
+   # tls: true
+   # skip-cert-verify: true
+  }
+
+- {
+   name: "🇸🇬 SingaporeNat CU (Vmess)",
+   type: vmess,
+   server: natsgcfcu.aimdd.com,
+   port: 443,
+   uuid: 258533db-b7ce-47e2-aad9-688f9a74b17e,
+   alterId: 64,
+   cipher: auto,
+   tls: true,
+   network: ws,
+   ws-path: /WebNatSGCU,
+   # ws-headers: {Host: dbncfcu.aimdd.com}
+   # udp: true
+   # skip-cert-verify: true
+  }
+
+- {
+   name: "🇭🇰 HongKongNat CM (Vmess)",
+   type: vmess,
+   server: nathkcfcm.aimdd.com,
+   port: 443,
+   uuid: 77f2940e-df02-47f6-e521-eefa0194c04d,
+   alterId: 64,
+   cipher: auto,
+   tls: true,
+   network: ws,
+   ws-path: /WebNatHKCM,
+   # ws-headers: {Host: dbncfcm.aimdd.com}false
+   # tls: true
+   # skip-cert-verify: true
+  }
+
+- {
+   name: "🇭🇰 HongKongNat CU (Vmess)",
+   type: vmess,
+   server: nathkcfcu.aimdd.com,
+   port: 443,
+   uuid: 98f4fa5c-96d8-4ba2-a10d-1a09db2d1a45,
+   alterId: 64,
+   cipher: auto,
+   tls: true,
+   network: ws,
+   ws-path: /WebNatHKCU,
+   # ws-headers: {Host: dbncfcu.aimdd.com}
+   # udp: true
+   # skip-cert-verify: true
+  }
+
+- {
    name: "🇺🇸 America CM (Vmess)",
    type: vmess,
    server: lsjncfcm.aimdd.com,
@@ -231,6 +295,45 @@ proxies:
    skip-cert-verify: false
   }
 
+- {
+   name: "🇭🇰 Az HongKong (Vmess)",
+   type: vmess,
+   server: azhk.aimdd.com,
+   port: 443,
+   uuid: bad6518d-607a-41b0-d567-28f6f46655af,
+   alterId: 64,
+   cipher: auto,
+   tls: true,
+   network: ws,
+   ws-path: /HongKongVN,
+   ws-headers: {Host: azhk.aimdd.com}
+   # tls: true
+   # skip-cert-verify: true
+  }
+
+- {
+   name: 🇭🇰 Az HongKong (Vless),
+   type: vless,
+   server: azhk.aimdd.com,
+   port: 443, 
+   uuid: 11f1cb05-4d03-4791-be7a-c75d48b6d91c,
+   cipher: auto,
+   network: http,
+   tls: true,
+   flow: xtls-rprx-direct,
+   skip-cert-verify: true
+  }
+
+- {
+   name: "🇭🇰 Az HongKong (Trojan)",
+   type: trojan,
+   server: azhk.aimdd.com,
+   port: 443,
+   password: cc..1234,
+   sni: azhk.aimdd.com, 
+   skip-cert-verify: false
+  }
+
 proxy-groups:
 # 代理节点选择
 - name: "CHIN节点选择"
@@ -240,7 +343,9 @@ proxy-groups:
     - "🇰🇷 KoreaN 443 (Vmess)"
     - "🇰🇷 KoreaN 443 (Vless)"
     - "🇰🇷 KoreaN (Trojan)"
-    
+    - "🇭🇰 Az HongKong (Vmess)"
+    - "🇭🇰 Az HongKong (Vless)"
+    - "🇭🇰 Az HongKong (Trojan)"  
 
 #代理节点选择
 - name: "节点选择"
@@ -253,6 +358,18 @@ proxy-groups:
     - "🇯🇵 JapanN 443 (Vless)"
     - "🇯🇵 JapanN (Trojan)"
 
+#Nat节点选择
+- name: "Nat节点选择"
+  type: select
+  proxies:
+    - "全球选择"
+    - "CHIN节点选择"
+    - "节点选择"
+    - "🇸🇬 SingaporeNat CM (Vmess)"
+    - "🇸🇬 SingaporeNat CU (Vmess)"
+    - "🇭🇰 HongKongNat CM (Vmess)"
+    - "🇭🇰 HongKongNat CU (Vmess)"
+
 #代理节点选择
 - name: "Us节点选择"
   type: select
@@ -260,6 +377,7 @@ proxy-groups:
     - "全球选择"
     - "CHIN节点选择"
     - "节点选择"
+    - "Nat节点选择"
     - "🇺🇸 America CM (Vmess)"
     - "🇺🇸 America CU (Vmess)"
     - "🇺🇸 America 443 (Vless)"
@@ -274,6 +392,7 @@ proxy-groups:
   proxies:
     - "CHIN节点选择"
     - "节点选择"
+    - "Nat节点选择"
     - "Us节点选择"
     - "全球选择"
     - "全球全局"
@@ -284,6 +403,7 @@ proxy-groups:
   proxies:
     - "CHIN节点选择"
     - "节点选择"
+    - "Nat节点选择"
     - "Us节点选择"
     - "全球选择"
     - "全球全局"
@@ -294,6 +414,7 @@ proxy-groups:
   proxies:
     - "CHIN节点选择"
     - "节点选择"
+    - "Nat节点选择"
     - "Us节点选择"
     - "全球选择"
     - "全球全局"
@@ -304,6 +425,7 @@ proxy-groups:
   proxies:
     - "CHIN节点选择"
     - "节点选择"
+    - "Nat节点选择"
     - "Us节点选择"
     - "全球选择"
     - "全球全局"
@@ -314,6 +436,7 @@ proxy-groups:
   proxies:
     - "CHIN节点选择"
     - "节点选择"
+    - "Nat节点选择"
     - "Us节点选择"
     - "全球选择"
     - "全球全局"
@@ -324,6 +447,7 @@ proxy-groups:
   proxies:
     - "CHIN节点选择"
     - "节点选择"
+    - "Nat节点选择"
     - "Us节点选择"
     - "全球选择"
     - "全球全局"
@@ -334,6 +458,7 @@ proxy-groups:
   proxies:
     - "CHIN节点选择"
     - "节点选择"
+    - "Nat节点选择"
     - "Us节点选择"
     - "全球选择"
     - "全球全局"
@@ -390,6 +515,7 @@ proxy-groups:
   proxies:   
     - "CHIN节点选择"
     - "节点选择"
+    - "Nat节点选择"
     - "Us节点选择"
 # 全局选择
 - name: "全球选择"
