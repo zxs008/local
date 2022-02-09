@@ -69,7 +69,8 @@ proxies:
    network: http,
    tls: true,
    flow: xtls-rprx-direct,
-   skip-cert-verify: true
+   servername: ccnxray.aimdd.com,
+   skip-cert-verify: false
   }
 
 - {
@@ -124,7 +125,8 @@ proxies:
   network: http,
   tls: true,
   flow: xtls-rprx-direct,
-  skip-cert-verify: true
+  servername: dbnxray.aimdd.com,
+  skip-cert-verify: false
   }
 
 - {
@@ -243,7 +245,8 @@ proxies:
   network: http,
   tls: true,
   flow: xtls-rprx-direct,
-  skip-cert-verify: true
+  servername: lsjnxray.aimdd.com,
+  skip-cert-verify: false
   }
 
 - {
@@ -282,7 +285,8 @@ proxies:
   network: http,
   tls: true,
   flow: xtls-rprx-direct,
-  skip-cert-verify: true
+  servername: usxray.salir.cl,
+  skip-cert-verify: false
   }
 
 - {
@@ -321,7 +325,8 @@ proxies:
    network: http,
    tls: true,
    flow: xtls-rprx-direct,
-   skip-cert-verify: true
+   servername: azhk.aimdd.com,
+   skip-cert-verify: false
   }
 
 - {
