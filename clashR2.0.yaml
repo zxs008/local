@@ -243,6 +243,32 @@ proxies:
    skip-cert-verify: false
   }
 
+- {
+   name: "🇭🇰 Az HongKong (Vmess)",
+   type: vmess,
+   server: azhk.aimdd.com,
+   port: 443,
+   uuid: bad6518d-607a-41b0-d567-28f6f46655af,
+   alterId: 64,
+   cipher: auto,
+   tls: true,
+   network: ws,
+   ws-path: /HongKongVN,
+   ws-headers: {Host: azhk.aimdd.com}
+   # tls: true
+   # skip-cert-verify: true
+  }
+
+- {
+   name: "🇭🇰 Az HongKong (Trojan)",
+   type: trojan,
+   server: azhk.aimdd.com,
+   port: 443,
+   password: cc..1234,
+   sni: azhk.aimdd.com, 
+   skip-cert-verify: false
+  }
+
 proxy-groups:
 # 代理节点选择
 - name: "CHIN节点选择"
@@ -251,6 +277,8 @@ proxy-groups:
     - "全球选择"
     - "🇰🇷 KoreaN 443 (Vmess)"
     - "🇰🇷 KoreaN (Trojan)"
+    - "🇭🇰 Az HongKong (Vmess)"
+    - "🇭🇰 Az HongKong (Trojan)"
 
 #代理节点选择
 - name: "节点选择"
