@@ -483,6 +483,7 @@ proxy-groups:
 
 #规则
 rules:
+  - DOMAIN-SUFFIX,nter.aimdd.com,CHIN节点选择
   - DOMAIN-SUFFIX,hm8848.com,全球拦截
 
   - DOMAIN-SUFFIX,translate.google.cn,特殊地址可直连
