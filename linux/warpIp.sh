@@ -10,7 +10,7 @@ function MediaUnlockTest() {
 echo -e " ${Font_SkyBlue}** 正在测试IPv${ip},${area}地区解锁情况${Font_Suffix} 设定时间为${time}"
 while true
 do
-    timeData=$(date "+%Y-%m-%d %H:%M:%S")
+    timeData=$(TZ=UTC-8 date "+%Y-%m-%d %H:%M:%S")
     echo -e "${timeData}"
     result=$(curl -${ip} --user-agent "${UA_Browser}" -fsL --write-out %{http_code} --output /dev/null --max-time 10 "https://www.netflix.com/title/81215567" 2>&1)
     IPV4=$(curl -s${ip}m8 https://api64.ipify.org?format=json)
