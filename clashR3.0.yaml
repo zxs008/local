@@ -84,16 +84,32 @@ proxies:
   }
 
 - {
+   name: "🇯🇵 JapanN (Vmess)",
+   type: vmess,
+   server: dbnxray.aimdd.com,
+   port: 443,
+   uuid: e7632537-11cc-4100-bf42-6de88fffb19f,
+   alterId: 64,
+   cipher: auto,
+   tls: true,
+   network: ws,
+   ws-path: /JapanOsakaVN,
+   # ws-headers: {Host: dbncfcm.aimdd.com}false
+   # tls: true
+   # skip-cert-verify: true
+  }
+
+- {
    name: "🇯🇵 JapanN CM (Vmess)",
    type: vmess,
    server: dbncfcm.aimdd.com,
-   port: 2095,
-   uuid: d4137db8-1505-4dc8-d3fe-60028040fdce,
+   port: 443,
+   uuid: e7632537-11cc-4100-bf42-6de88fffb19f,
    alterId: 64,
    cipher: auto,
    tls: false,
    network: ws,
-   ws-path: /JapanOsakaCF,
+   ws-path: /JapanOsakaVN,
    # ws-headers: {Host: dbncfcm.aimdd.com}false
    # tls: true
    # skip-cert-verify: true
@@ -103,13 +119,13 @@ proxies:
    name: "🇯🇵 JapanN CU (Vmess)",
    type: vmess,
    server: dbncfcu.aimdd.com,
-   port: 2095,
-   uuid: d4137db8-1505-4dc8-d3fe-60028040fdce,
+   port: 443,
+   uuid: e7632537-11cc-4100-bf42-6de88fffb19f,
    alterId: 64,
    cipher: auto,
    tls: false,
    network: ws,
-   ws-path: /JapanOsakaCF,
+   ws-path: /JapanOsakaVN,
    # ws-headers: {Host: dbncfcu.aimdd.com}
    # udp: true
    # skip-cert-verify: true
@@ -149,7 +165,7 @@ proxies:
    cipher: auto,
    tls: true,
    network: ws,
-   ws-path: /WebNatSGCM,
+   ws-path: /WebNatSG,
    # ws-headers: {Host: dbncfcm.aimdd.com}false
    # tls: true
    # skip-cert-verify: true
@@ -160,12 +176,12 @@ proxies:
    type: vmess,
    server: natsgcfcu.aimdd.com,
    port: 443,
-   uuid: 258533db-b7ce-47e2-aad9-688f9a74b17e,
+   uuid: 8cf59a6a-3cb6-4a1a-f95b-56c785df48be,
    alterId: 64,
    cipher: auto,
    tls: true,
    network: ws,
-   ws-path: /WebNatSGCU,
+   ws-path: /WebNatSG,
    # ws-headers: {Host: dbncfcu.aimdd.com}
    # udp: true
    # skip-cert-verify: true
@@ -192,28 +208,45 @@ proxies:
    type: vmess,
    server: nathkcfcu.aimdd.com,
    port: 443,
-   uuid: 98f4fa5c-96d8-4ba2-a10d-1a09db2d1a45,
+   uuid: 77f2940e-df02-47f6-e521-eefa0194c04d,
    alterId: 64,
    cipher: auto,
    tls: true,
    network: ws,
-   ws-path: /WebNatHKCU,
+   ws-path: /WebNatHK,
    # ws-headers: {Host: dbncfcu.aimdd.com}
    # udp: true
    # skip-cert-verify: true
   }
 
 - {
+   name: "🇺🇸 America (Vmess)",
+   type: vmess,
+   server: lsjnxray.aimdd.com,
+   port: 443,
+   uuid: 2266af62-bcdb-4fc7-c1e5-05ba7831c2fa,
+   alterId: 64,
+   cipher: auto,
+   tls: true,
+   network: ws,
+   ws-path: /AmericaLosAngelesVN,
+   # ws-headers: {Host: lsjncfcm.aimdd.com}
+   # tls: true
+   # skip-cert-verify: true
+  }
+
+
+- {
    name: "🇺🇸 America CM (Vmess)",
    type: vmess,
    server: lsjncfcm.aimdd.com,
-   port: 2095,
+   port: 443,
    uuid: 2266af62-bcdb-4fc7-c1e5-05ba7831c2fa,
    alterId: 64,
    cipher: auto,
    tls: false,
    network: ws,
-   ws-path: /AmericaLosAngelesCF,
+   ws-path: /AmericaLosAngelesVN,
    # ws-headers: {Host: lsjncfcm.aimdd.com}
    # tls: true
    # skip-cert-verify: true
@@ -223,13 +256,13 @@ proxies:
    name: "🇺🇸 America CU (Vmess)",
    type: vmess,
    server: lsjncfcu.aimdd.com,
-   port: 2095,
+   port: 443,
    uuid: 2266af62-bcdb-4fc7-c1e5-05ba7831c2fa,
    alterId: 64,
    cipher: auto,
    tls: false,
    network: ws,
-   ws-path: /AmericaLosAngelesCF,
+   ws-path: /AmericaLosAngelesVN,
    # ws-headers: {Host: lsjncfcu.aimdd.com}
    # tls: true
    # skip-cert-verify: true
@@ -358,6 +391,7 @@ proxy-groups:
   proxies:
     - "全球选择"
     - "CHIN节点选择"
+    - "🇯🇵 JapanN (Vmess)"
     - "🇯🇵 JapanN CM (Vmess)"
     - "🇯🇵 JapanN CU (Vmess)"
     - "🇯🇵 JapanN 443 (Vless)"
@@ -383,6 +417,7 @@ proxy-groups:
     - "CHIN节点选择"
     - "节点选择"
     - "Nat节点选择"
+    - "🇺🇸 America (Vmess)"
     - "🇺🇸 America CM (Vmess)"
     - "🇺🇸 America CU (Vmess)"
     - "🇺🇸 America 443 (Vless)"
