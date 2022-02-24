@@ -156,6 +156,38 @@ proxies:
   }
 
 - {
+   name: "🇭🇰 Az -> 🇸🇬 SingaporeNat (Vmess)", 
+   type: vmess,
+   server: azhk.aimdd.com,
+   port: 443,
+   uuid: 8cf59a6a-3cb6-4a1a-f95b-56c785df48be,
+   alterId: 64,
+   cipher: auto,
+   tls: true,
+   network: ws,
+   ws-path: /WebNatSG,
+   ws-headers: {Host: azhk.aimdd.com}
+   # tls: true
+   # skip-cert-verify: true
+  }
+
+- {
+   name: "🇰🇷 Orcc -> 🇸🇬 SingaporeNat (Vmess)",
+   type: vmess,
+   server: ccnxray.aimdd.com,
+   port: 443,
+   uuid: 8cf59a6a-3cb6-4a1a-f95b-56c785df48be,
+   alterId: 64,
+   cipher: auto,
+   tls: true,
+   network: ws,
+   ws-path: /WebNatSG,
+   ws-headers: {Host: ccnxray.aimdd.com}
+   # tls: true
+   # skip-cert-verify: true
+  }
+
+- {
    name: "🇸🇬 SingaporeNat CM (Vmess)",
    type: vmess,
    server: natsgcfcm.aimdd.com,
@@ -184,6 +216,38 @@ proxies:
    ws-path: /WebNatSG,
    # ws-headers: {Host: dbncfcu.aimdd.com}
    # udp: true
+   # skip-cert-verify: true
+  }
+
+- {
+   name: "🇭🇰 Az -> 🇭🇰 HongKongNat (Vmess)",
+   type: vmess,
+   server: azhk.aimdd.com,
+   port: 443,
+   uuid: 77f2940e-df02-47f6-e521-eefa0194c04d,
+   alterId: 64,
+   cipher: auto,
+   tls: true,
+   network: ws,
+   ws-path: /WebNatHK,
+   ws-headers: {Host: azhk.aimdd.com}
+   # tls: true
+   # skip-cert-verify: true
+  }
+
+- {
+   name: "🇰🇷 Orcc -> 🇭🇰 HongKongNat (Vmess)",
+   type: vmess,
+   server: ccnxray.aimdd.com,
+   port: 443,
+   uuid: 77f2940e-df02-47f6-e521-eefa0194c04d,
+   alterId: 64,
+   cipher: auto,
+   tls: true,
+   network: ws,
+   ws-path: /WebNatHK,
+   ws-headers: {Host: ccnxray.aimdd.com}
+   # tls: true
    # skip-cert-verify: true
   }
 
@@ -404,6 +468,10 @@ proxy-groups:
     - "全球选择"
     - "CHIN节点选择"
     - "节点选择"
+    - "🇭🇰 Az -> 🇸🇬 SingaporeNat (Vmess)"
+    - "🇰🇷 Orcc -> 🇸🇬 SingaporeNat (Vmess)"
+    - "🇭🇰 Az -> 🇭🇰 HongKongNat (Vmess)"
+    - "🇰🇷 Orcc -> 🇭🇰 HongKongNat (Vmess)"
     - "🇸🇬 SingaporeNat CM (Vmess)"
     - "🇸🇬 SingaporeNat CU (Vmess)"
     - "🇭🇰 HongKongNat CM (Vmess)"
