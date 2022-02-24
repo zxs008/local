@@ -644,13 +644,6 @@ rules:
   - DOMAIN-SUFFIX,gvt3.com,google节点选择 #Google Play
   - DOMAIN-KEYWORD,google,google节点选择
   - DOMAIN-SUFFIX,gmail.com,google节点选择 # 谷歌邮箱
-
-  - DOMAIN-SUFFIX,gvt0.com,google节点选择 #Google Play
-  - DOMAIN-SUFFIX,gvt1.com,google节点选择 #Google Play
-  - DOMAIN-SUFFIX,gvt3.com,google节点选择 #Google Play
-  - DOMAIN-KEYWORD,google,google节点选择
-  - DOMAIN-SUFFIX,gmail.com,google节点选择 # 谷歌邮箱
-
   
   - DOMAIN-SUFFIX,safechat.com,固定节点选择 #safechat
   - DOMAIN-KEYWORD,safechat,固定节点选择 #safechat
