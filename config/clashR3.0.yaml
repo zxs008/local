@@ -107,7 +107,7 @@ proxies:
    uuid: e7632537-11cc-4100-bf42-6de88fffb19f,
    alterId: 64,
    cipher: auto,
-   tls: false,
+   tls: true,
    network: ws,
    ws-path: /JapanOsakaVN,
    # ws-headers: {Host: dbncfcm.aimdd.com}false
@@ -123,7 +123,7 @@ proxies:
    uuid: e7632537-11cc-4100-bf42-6de88fffb19f,
    alterId: 64,
    cipher: auto,
-   tls: false,
+   tls: true,
    network: ws,
    ws-path: /JapanOsakaVN,
    # ws-headers: {Host: dbncfcu.aimdd.com}
@@ -261,7 +261,7 @@ proxies:
    cipher: auto,
    tls: true,
    network: ws,
-   ws-path: /WebNatHKCM,
+   ws-path: /WebNatHK,
    # ws-headers: {Host: dbncfcm.aimdd.com}false
    # tls: true
    # skip-cert-verify: true
