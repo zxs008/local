@@ -44,7 +44,7 @@ dns:
 proxies:
 
 - {
-   name: "🇰🇷 KoreaN 443 (Vmess)",
+   name: "🇰🇷 KoreaN (Vmess)",
    type: vmess,
    server: ccnxray.aimdd.com,
    port: 443,
@@ -60,13 +60,13 @@ proxies:
   }
 
 - {
-   name: 🇰🇷 KoreaN 443 (Vless),
+   name: 🇰🇷 KoreaN (Vless),
    type: vless,
    server: ccnxray.aimdd.com,
    port: 443, 
    uuid: 11f1cb05-4d03-4791-be7a-c75d48b6d91c,
    cipher: auto,
-   network: http,
+   network: tcp,
    tls: true,
    flow: xtls-rprx-direct,
    servername: ccnxray.aimdd.com,
@@ -132,13 +132,13 @@ proxies:
   }
 
 - {
-  name: 🇯🇵 JapanN 443 (Vless),
+  name: 🇯🇵 JapanN (Vless),
   type: vless,
   server: dbnxray.aimdd.com,
   port: 443, 
   uuid: 56f13c3f-2756-4ded-f473-bdbed9cd514f,
   cipher: auto,
-  network: http,
+  network: tcp,
   tls: true,
   flow: xtls-rprx-direct,
   servername: dbnxray.aimdd.com,
@@ -220,73 +220,9 @@ proxies:
   }
 
 - {
-   name: "🇭🇰 Az -> 🇭🇰 HongKongNat (Vmess)",
-   type: vmess,
-   server: azhk.aimdd.com,
-   port: 443,
-   uuid: 77f2940e-df02-47f6-e521-eefa0194c04d,
-   alterId: 64,
-   cipher: auto,
-   tls: true,
-   network: ws,
-   ws-path: /WebNatHK,
-   ws-headers: {Host: azhk.aimdd.com}
-   # tls: true
-   # skip-cert-verify: true
-  }
-
-- {
-   name: "🇰🇷 Orcc -> 🇭🇰 HongKongNat (Vmess)",
-   type: vmess,
-   server: ccnxray.aimdd.com,
-   port: 443,
-   uuid: 77f2940e-df02-47f6-e521-eefa0194c04d,
-   alterId: 64,
-   cipher: auto,
-   tls: true,
-   network: ws,
-   ws-path: /WebNatHK,
-   ws-headers: {Host: ccnxray.aimdd.com}
-   # tls: true
-   # skip-cert-verify: true
-  }
-
-- {
-   name: "🇭🇰 HongKongNat CM (Vmess)",
-   type: vmess,
-   server: nathkcfcm.aimdd.com,
-   port: 443,
-   uuid: 77f2940e-df02-47f6-e521-eefa0194c04d,
-   alterId: 64,
-   cipher: auto,
-   tls: true,
-   network: ws,
-   ws-path: /WebNatHK,
-   # ws-headers: {Host: dbncfcm.aimdd.com}false
-   # tls: true
-   # skip-cert-verify: true
-  }
-
-- {
-   name: "🇭🇰 HongKongNat CU (Vmess)",
-   type: vmess,
-   server: nathkcfcu.aimdd.com,
-   port: 443,
-   uuid: 77f2940e-df02-47f6-e521-eefa0194c04d,
-   alterId: 64,
-   cipher: auto,
-   tls: true,
-   network: ws,
-   ws-path: /WebNatHK,
-   # ws-headers: {Host: dbncfcu.aimdd.com}
-   # udp: true
-   # skip-cert-verify: true
-  }
-
-- {
    name: "🇺🇸 America (Vmess)",
    type: vmess,
-   server: lsjnxray.aimdd.com,
+   server: lsjprxray.aimdd.com,
    port: 443,
    uuid: 2266af62-bcdb-4fc7-c1e5-05ba7831c2fa,
    alterId: 64,
@@ -294,7 +230,7 @@ proxies:
    tls: true,
    network: ws,
    ws-path: /AmericaLosAngelesVN,
-   # ws-headers: {Host: lsjncfcm.aimdd.com}
+   # ws-headers: {Host: lsjprcfcm.aimdd.com}
    # tls: true
    # skip-cert-verify: true
   }
@@ -303,7 +239,7 @@ proxies:
 - {
    name: "🇺🇸 America CM (Vmess)",
    type: vmess,
-   server: lsjncfcm.aimdd.com,
+   server: lsjprcfcm.aimdd.com,
    port: 443,
    uuid: 2266af62-bcdb-4fc7-c1e5-05ba7831c2fa,
    alterId: 64,
@@ -311,7 +247,7 @@ proxies:
    tls: false,
    network: ws,
    ws-path: /AmericaLosAngelesVN,
-   # ws-headers: {Host: lsjncfcm.aimdd.com}
+   # ws-headers: {Host: lsjprcfcm.aimdd.com}
    # tls: true
    # skip-cert-verify: true
   }
@@ -319,7 +255,7 @@ proxies:
 - {
    name: "🇺🇸 America CU (Vmess)",
    type: vmess,
-   server: lsjncfcu.aimdd.com,
+   server: lsjprcfcu.aimdd.com,
    port: 443,
    uuid: 2266af62-bcdb-4fc7-c1e5-05ba7831c2fa,
    alterId: 64,
@@ -327,32 +263,32 @@ proxies:
    tls: false,
    network: ws,
    ws-path: /AmericaLosAngelesVN,
-   # ws-headers: {Host: lsjncfcu.aimdd.com}
+   # ws-headers: {Host: lsjprcfcu.aimdd.com}
    # tls: true
    # skip-cert-verify: true
   }
 
 - {
-  name: 🇺🇸 America 443 (Vless),
+  name: 🇺🇸 America (Vless),
   type: vless,
-  server: lsjnxray.aimdd.com,
+  server: lsjprxray.aimdd.com,
   port: 443, 
   uuid: 0e4766aa-16d1-496e-d991-3b4b0021179f,
   cipher: auto,
   network: http,
   tls: true,
   flow: xtls-rprx-direct,
-  servername: lsjnxray.aimdd.com,
+  servername: lsjprxray.aimdd.com,
   skip-cert-verify: false
   }
 
 - {
    name: "🇺🇸 America (Trojan)",
    type: trojan,
-   server: lsjnxray.aimdd.com,
+   server: lsjprxray.aimdd.com,
    port: 443,
    password: cc..1234,
-   sni: lsjnxray.aimdd.com, 
+   sni: lsjprxray.aimdd.com, 
    skip-cert-verify: false
   }
 
@@ -419,7 +355,7 @@ proxies:
    port: 443, 
    uuid: 11f1cb05-4d03-4791-be7a-c75d48b6d91c,
    cipher: auto,
-   network: http,
+   network: tcp,
    tls: true,
    flow: xtls-rprx-direct,
    servername: azhk.aimdd.com,
@@ -470,12 +406,8 @@ proxy-groups:
     - "节点选择"
     - "🇭🇰 Az -> 🇸🇬 SingaporeNat (Vmess)"
     - "🇰🇷 Orcc -> 🇸🇬 SingaporeNat (Vmess)"
-    - "🇭🇰 Az -> 🇭🇰 HongKongNat (Vmess)"
-    - "🇰🇷 Orcc -> 🇭🇰 HongKongNat (Vmess)"
     - "🇸🇬 SingaporeNat CM (Vmess)"
     - "🇸🇬 SingaporeNat CU (Vmess)"
-    - "🇭🇰 HongKongNat CM (Vmess)"
-    - "🇭🇰 HongKongNat CU (Vmess)"
 
 #代理节点选择
 - name: "Us节点选择"
