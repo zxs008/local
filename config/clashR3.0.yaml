@@ -293,7 +293,7 @@ proxies:
   }
 
 - {
-   name: "🇺🇸 America CN2 443 (Vmess)",
+   name: "🇺🇸 America CN2 (Vmess)",
    type: vmess,
    server: usvray.salir.cl,
    port: 443,
@@ -309,7 +309,7 @@ proxies:
   }
 
 - {
-  name: 🇺🇸 America CN2 443 (Vless),
+  name: 🇺🇸 America CN2 (Vless),
   type: vless,
   server: usxray.salir.cl,
   port: 443, 
@@ -378,8 +378,8 @@ proxy-groups:
   type: select
   proxies:
     - "全球选择"
-    - "🇰🇷 KoreaN 443 (Vmess)"
-    - "🇰🇷 KoreaN 443 (Vless)"
+    - "🇰🇷 KoreaN (Vmess)"
+    - "🇰🇷 KoreaN (Vless)"
     - "🇰🇷 KoreaN (Trojan)"
     - "🇭🇰 Az HongKong (Vmess)"
     - "🇭🇰 Az HongKong (Vless)"
@@ -394,7 +394,7 @@ proxy-groups:
     - "🇯🇵 JapanN (Vmess)"
     - "🇯🇵 JapanN CM (Vmess)"
     - "🇯🇵 JapanN CU (Vmess)"
-    - "🇯🇵 JapanN 443 (Vless)"
+    - "🇯🇵 JapanN (Vless)"
     - "🇯🇵 JapanN (Trojan)"
 
 #Nat节点选择
@@ -420,10 +420,10 @@ proxy-groups:
     - "🇺🇸 America (Vmess)"
     - "🇺🇸 America CM (Vmess)"
     - "🇺🇸 America CU (Vmess)"
-    - "🇺🇸 America 443 (Vless)"
+    - "🇺🇸 America (Vless)"
     - "🇺🇸 America (Trojan)"
-    - "🇺🇸 America CN2 443 (Vmess)"
-    - "🇺🇸 America CN2 443 (Vless)"
+    - "🇺🇸 America CN2 (Vmess)"
+    - "🇺🇸 America CN2 (Vless)"
     - "🇺🇸 America CN2 (Trojan)"
     
 # 代理节点选择
@@ -593,6 +593,7 @@ proxy-groups:
 
 #规则
 rules:
+  - DOMAIN-SUFFIX,nter.aimdd.com,CHIN节点选择
   - DOMAIN-SUFFIX,hm8848.com,全球拦截
 
   - DOMAIN-SUFFIX,translate.google.cn,特殊地址可直连
