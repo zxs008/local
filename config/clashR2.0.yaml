@@ -250,7 +250,7 @@ proxies:
   }
 
 - {
-   name: "🇺🇸 America CN2 443 (Vmess)",
+   name: "🇺🇸 America CN2 (Vmess)",
    type: vmess,
    server: usvray.salir.cl,
    port: 443,
@@ -307,7 +307,7 @@ proxy-groups:
   type: select
   proxies:
     - "全球选择"
-    - "🇰🇷 KoreaN 443 (Vmess)"
+    - "🇰🇷 KoreaN (Vmess)"
     - "🇰🇷 KoreaN (Trojan)"
     - "🇭🇰 Az HongKong (Vmess)"
     - "🇭🇰 Az HongKong (Trojan)"
@@ -347,7 +347,7 @@ proxy-groups:
     - "🇺🇸 America CM (Vmess)"
     - "🇺🇸 America CU (Vmess)"
     - "🇺🇸 America (Trojan)"
-    - "🇺🇸 America CN2 443 (Vmess)"
+    - "🇺🇸 America CN2 (Vmess)"
     - "🇺🇸 America CN2 (Trojan)"
     
 # 代理节点选择
