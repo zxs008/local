@@ -428,7 +428,62 @@ proxy-groups:
     - "全球全局"
     - "全球节点" 
 
-- name: "固定节点选择"
+- name: "github节点选择" 
+  type: select
+  proxies:
+    - "CHIN节点选择"
+    - "节点选择"
+    - "Nat节点选择"
+    - "Us节点选择"
+    - "全球选择"
+    - "全球全局"
+    - "全球节点" 
+
+- name: "hostloc节点选择" 
+  type: select
+  proxies:
+    - "CHIN节点选择"
+    - "节点选择"
+    - "Nat节点选择"
+    - "Us节点选择"
+    - "全球选择"
+    - "全球全局"
+    - "全球节点" 
+
+- name: "wiki节点选择" 
+  type: select
+  proxies:
+    - "CHIN节点选择"
+    - "节点选择"
+    - "Nat节点选择"
+    - "Us节点选择"
+    - "全球选择"
+    - "全球全局"
+    - "全球节点" 
+
+- name: "uptodown节点选择"   
+  type: select
+  proxies:
+    - "CHIN节点选择"
+    - "节点选择"
+    - "Nat节点选择"
+    - "Us节点选择"
+    - "全球选择"
+    - "全球全局"
+    - "全球节点" 
+
+- name: "pixiv节点选择" 
+  type: select
+  proxies:
+    - "CHIN节点选择"
+    - "节点选择"
+    - "Nat节点选择"
+    - "Us节点选择"
+    - "全球选择"
+    - "全球全局"
+    - "全球节点" 
+
+- name: "safechat节点选择"
   type: select
   proxies:
     - "CHIN节点选择"
@@ -522,7 +577,6 @@ proxy-groups:
 #规则
 rules:
   - DOMAIN-SUFFIX,nter.aimdd.com,CHIN节点选择
-  - DOMAIN-SUFFIX,hm8848.com,全球拦截
 
   - DOMAIN-SUFFIX,translate.google.cn,特殊地址可直连
   - DOMAIN-KEYWORD,amazon,特殊地址可直连
@@ -532,26 +586,22 @@ rules:
   - DOMAIN-KEYWORD,porn,全球节点 #p站
   - DOMAIN-KEYWORD,usky,全球节点
   - DOMAIN-KEYWORD,ssrtool,全球节点
-  
-  - DOMAIN-SUFFIX,wikimapia.org,全球节点 #维基
-  - DOMAIN-SUFFIX,wikimedia.org,全球节点 #维基
-  - DOMAIN-SUFFIX,wikipedia.org,全球节点 #维基百科
-  - DOMAIN-SUFFIX,wikiquote.org,全球节点 #维基
-  - DOMAIN-SUFFIX,wikiwand.com,全球节点  #维基
   - DOMAIN-SUFFIX,v2ray.com,全球节点
-
-  - DOMAIN-KEYWORD,uptodown,全球节点 #Uptodown
-  - DOMAIN-KEYWORD,apkpure,全球节点 #Apkpure
-
-  - DOMAIN-KEYWORD,github,全球节点
   - DOMAIN-KEYWORD,freenom,全球节点
-  - DOMAIN-KEYWORD,hostloc,全球节点 #全球主机
-
-  - DOMAIN-SUFFIX,gstatic.com,全球节点
-  - DOMAIN-SUFFIX,line.me,全球节点
-  - DOMAIN-SUFFIX,line-apps.com,全球节点
-  - DOMAIN-SUFFIX,line-scdn.net,全球节点
   
+  - DOMAIN-KEYWORD,github,github节点选择
+
+  - DOMAIN-KEYWORD,hostloc,hostloc节点选择 #全球主机
+
+  - DOMAIN-SUFFIX,wikimapia.org,wiki节点选择 #维基
+  - DOMAIN-SUFFIX,wikimedia.org,wiki节点选择 #维基
+  - DOMAIN-SUFFIX,wikipedia.org,wiki节点选择 #维基百科
+  - DOMAIN-SUFFIX,wikiquote.org,wiki节点选择 #维基
+  - DOMAIN-SUFFIX,wikiwand.com,wiki节点选择  #维基
+
+  - DOMAIN-KEYWORD,uptodown,uptodown节点选择 #Uptodown
+  - DOMAIN-KEYWORD,apkpure,uptodown节点选择 #Apkpure
+
   - DOMAIN-SUFFIX,youtu.be,google节点选择
   - DOMAIN-KEYWORD,youtube,google节点选择
   - DOMAIN-SUFFIX,youtube.com,google节点选择
@@ -574,11 +624,12 @@ rules:
   - DOMAIN-KEYWORD,google,google节点选择
   - DOMAIN-SUFFIX,gmail.com,google节点选择 # 谷歌邮箱
   
-  - DOMAIN-SUFFIX,safechat.com,固定节点选择 #safechat
-  - DOMAIN-KEYWORD,safechat,固定节点选择 #safechat
-  - DOMAIN-KEYWORD,ads-pixiv.com,固定节点选择
-  - DOMAIN-KEYWORD,pixiv,固定节点选择 #p 漫画
-  - DOMAIN-KEYWORD,pximg,固定节点选择 #p 漫画
+  - DOMAIN-SUFFIX,safechat.com,safechat节点选择 #safechat
+  - DOMAIN-KEYWORD,safechat,safechat节点选择 #safechat
+  - DOMAIN-KEYWORD,ads-pixiv.com,safechat节点选择
+
+  - DOMAIN-KEYWORD,pixiv,pixiv节点选择 #p 漫画
+  - DOMAIN-KEYWORD,pximg,pixiv节点选择 #p 漫画
 
   - DOMAIN-SUFFIX,fb.com,facebook节点选择 #脸书
   - DOMAIN-SUFFIX,fb.me,facebook节点选择 #脸书
