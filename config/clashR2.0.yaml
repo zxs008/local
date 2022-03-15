@@ -405,8 +405,8 @@ proxy-groups:
     - "全球选择"
     - "全球全局"
     - "全球节点"
- 
-- name: "固定节点选择"
+
+- name: "tiktok节点选择"
   type: select
   proxies:
     - "CHIN节点选择"
@@ -415,9 +415,20 @@ proxy-groups:
     - "Us节点选择"
     - "全球选择"
     - "全球全局"
-    - "全球节点"
-# 国外媒体等 
-- name: "国外媒体等"
+    - "全球节点" 
+
+- name: "netflix节点选择" 
+  type: select
+  proxies:
+    - "CHIN节点选择"
+    - "节点选择"
+    - "Nat节点选择"
+    - "Us节点选择"
+    - "全球选择"
+    - "全球全局"
+    - "全球节点" 
+
+- name: "固定节点选择"
   type: select
   proxies:
     - "CHIN节点选择"
@@ -436,6 +447,7 @@ proxy-groups:
     - "全球拦截"
     - "全球全局"
     - "全球节点"
+
 # 微软可直连 
 - name: "微软可直连"
   type: select
@@ -444,6 +456,7 @@ proxy-groups:
     - "全球拦截"
     - "全球全局"
     - "全球节点"
+
 # 苹果可直连 
 - name: "苹果可直连"
   type: select
@@ -452,6 +465,7 @@ proxy-groups:
     - "全球拦截"
     - "全球全局"
     - "全球节点"
+
 # 国内媒体等 
 - name: "国内媒体等"
   type: select
@@ -460,6 +474,7 @@ proxy-groups:
     - "全球拦截"
     - "全球全局"
     - "全球节点" 
+
 # 应用净化等 
 - name: "应用净化"
   type: select
@@ -473,6 +488,7 @@ proxy-groups:
   proxies:
     - "全球选择"
     - "全球节点"
+
 # 全球节点
 - name: "全球节点"
   type: select
@@ -481,22 +497,26 @@ proxy-groups:
     - "节点选择"
     - "Nat节点选择"
     - "Us节点选择"
+
 # 全局选择
 - name: "全球选择"
   type: select
   proxies:
     - "全球直连"
     - "全球拦截"
+
 # 全球拦截 
 - name: "全球拦截"
   type: select
   proxies:
     - "REJECT"
+
 # 全球直连 
 - name: "全球直连"
   type: select
   proxies:
     - "DIRECT"
+
 # 规则选择
 - name: "漏网之鱼"
   type: select
@@ -712,24 +732,26 @@ rules:
   - DOMAIN-SUFFIX,mzstatic.com,苹果可直连
   - DOMAIN,www-cdn.icloud.com.akadns.net,苹果可直连
 
-  - DOMAIN-KEYWORD,tiktok,国外媒体等
-  - DOMAIN-SUFFIX,netflix.com,国外媒体等
-  - DOMAIN-SUFFIX,netflix.net,国外媒体等
-  - DOMAIN-SUFFIX,nflxext.com,国外媒体等
-  - DOMAIN-SUFFIX,nflximg.com,国外媒体等
-  - DOMAIN-SUFFIX,nflximg.net,国外媒体等
-  - DOMAIN-SUFFIX,nflxso.net,国外媒体等
-  - DOMAIN-SUFFIX,nflxvideo.net,国外媒体等
-  - DOMAIN-SUFFIX,netflixdnstest0.com,国外媒体等
-  - DOMAIN-SUFFIX,netflixdnstest1.com,国外媒体等
-  - DOMAIN-SUFFIX,netflixdnstest2.com,国外媒体等
-  - DOMAIN-SUFFIX,netflixdnstest3.com,国外媒体等
-  - DOMAIN-SUFFIX,netflixdnstest4.com,国外媒体等
-  - DOMAIN-SUFFIX,netflixdnstest5.com,国外媒体等
-  - DOMAIN-SUFFIX,netflixdnstest6.com,国外媒体等
-  - DOMAIN-SUFFIX,netflixdnstest7.com,国外媒体等
-  - DOMAIN-SUFFIX,netflixdnstest8.com,国外媒体等
-  - DOMAIN-SUFFIX,netflixdnstest9.com,国外媒体等
+  - DOMAIN-KEYWORD,tiktok,tiktok节点选择
+
+  - DOMAIN-SUFFIX,netflix.com,netflix节点选择
+  - DOMAIN-SUFFIX,netflix.net,netflix节点选择
+  - DOMAIN-SUFFIX,nflxext.com,netflix节点选择
+  - DOMAIN-SUFFIX,nflximg.com,netflix节点选择
+  - DOMAIN-SUFFIX,nflximg.net,netflix节点选择
+  - DOMAIN-SUFFIX,nflxso.net,netflix节点选择
+  - DOMAIN-SUFFIX,nflxvideo.net,netflix节点选择
+  - DOMAIN-SUFFIX,netflixdnstest0.com,netflix节点选择
+  - DOMAIN-SUFFIX,netflixdnstest1.com,netflix节点选择
+  - DOMAIN-SUFFIX,netflixdnstest2.com,netflix节点选择
+  - DOMAIN-SUFFIX,netflixdnstest3.com,netflix节点选择
+  - DOMAIN-SUFFIX,netflixdnstest4.com,netflix节点选择
+  - DOMAIN-SUFFIX,netflixdnstest5.com,netflix节点选择
+  - DOMAIN-SUFFIX,netflixdnstest6.com,netflix节点选择
+  - DOMAIN-SUFFIX,netflixdnstest7.com,netflix节点选择
+  - DOMAIN-SUFFIX,netflixdnstest8.com,netflix节点选择
+  - DOMAIN-SUFFIX,netflixdnstest9.com,netflix节点选择
+
   - DOMAIN-SUFFIX,deezer.com,国外媒体等
   - DOMAIN-SUFFIX,dzcdn.net,国外媒体等
   - DOMAIN-SUFFIX,kkbox.com,国外媒体等
