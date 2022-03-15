@@ -557,6 +557,7 @@ proxy-groups:
   proxies:   
     - "Kr节点选择"
     - "Jp节点选择"
+    - "Hk节点选择"
     - "NatSg节点选择"
     - "Us节点选择"
 
