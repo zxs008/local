@@ -302,17 +302,15 @@ proxies:
   }
 
 proxy-groups:
-# 代理节点选择
+# Kr代理节点选择
 - name: "Kr节点选择"
   type: select
   proxies:
     - "全球选择"
     - "🇰🇷 KoreaN (Vmess)"
     - "🇰🇷 KoreaN (Trojan)"
-    - "🇭🇰 Az HongKong (Vmess)"
-    - "🇭🇰 Az HongKong (Trojan)"
 
-#代理节点选择
+#Jp代理节点选择
 - name: "Jp节点选择"
   type: select
   proxies:
@@ -323,6 +321,7 @@ proxy-groups:
     - "🇯🇵 JapanN CU (Vmess)"
     - "🇯🇵 JapanN (Trojan)"
 
+#Hk代理节点选择
 - name: "Hk节点选择"
   type: select
   proxies:
