@@ -7,6 +7,7 @@ if [[ $EUID -ne 0 ]]; then
 fi
 
 export tmpPassWord='Pwd@Linux'
+export hostName=''
 export territory=''
 
 function CopyRight() {
@@ -110,6 +111,11 @@ function SetPassWord() {
     tmpPassWord=$input;
 }
 
+function SetHostName(){
+     read -r -p "SetHostName:" input
+    hostName=$input;
+}
+
 function Automatically() {
   read -r -p "Automatically obtain domestic and foreign mirrors? [Y/n]:" input
     case $input in
@@ -136,11 +142,11 @@ function Start() {
     echo "Netmask: $NETMASK"
   fi
   
-  if [ -f "/root/installdds.sh" ]; then
-    rm -f /root/installdds.sh
-  fi
+  #if [ -f "/root/installdds.sh" ]; then
+   #rm -f /root/installdds.sh
+  #fi
   
-  wget --no-check-certificate -qO installdds.sh "https://zxs008.github.io/local/linux/dd/installdds.sh" && chmod +x installdds.sh
+  #wget --no-check-certificate -qO installdds.sh "https://zxs008.github.io/local/linux/dd/installdds.sh" && chmod +x installdds.sh
   
   CMIRROR=''
   DMIRROR=''
@@ -172,16 +178,16 @@ function Start() {
   echo -ne "\nYour option: "
   read N
   case $N in
-    1) echo -e "\nPassword: $tmpPassWord\n"; read -s -n1 -p "Press any key to continue..." ; bash <(wget --no-check-certificate -qO- 'https://zxs008.github.io/local/linux/dd/cxthhhhh.sh') -u 16.04 -v 64 -p $tmpPassWord $UMIRROR ;;
-    2) echo -e "\nPassword: $tmpPassWord\n"; read -s -n1 -p "Press any key to continue..." ; bash installdds.sh -u 18.04 -v 64 -p $tmpPassWord $UMIRROR ;;
-    3) echo -e "\nPassword: $tmpPassWord\n"; read -s -n1 -p "Press any key to continue..." ; bash installdds.sh -u 20.04 -v 64 -p $tmpPassWord $UMIRROR ;;
-    11) echo -e "\nPassword: $tmpPassWord\n"; read -s -n1 -p "Press any key to continue..." ; bash installdds.sh -d 9 -v 64 -p $tmpPassWord $DMIRROR ;;
-    12) echo -e "\nPassword: $tmpPassWord\n"; read -s -n1 -p "Press any key to continue..." ; bash installdds.sh -d 10 -v 64 -p $tmpPassWord $DMIRROR ;;
-    13) echo -e "\nPassword: $tmpPassWord\n"; read -s -n1 -p "Press any key to continue..." ; bash installdds.sh -d 11 -v 64 -p $tmpPassWord $DMIRROR ;;
-    14) echo -e "\nPassword: $tmpPassWord\n"; read -s -n1 -p "Press any key to continue..." ; bash installdds.sh -d 12 -v 64 -p $tmpPassWord $DMIRROR ;;
-    27) echo -e "\nPassword: $tmpPassWord\n"; read -s -n1 -p "Press any key to continue..." ; bash installdds.sh -c 6.9 -v 64 -p $tmpPassWord $CMIRROR ;;
-    28) echo -e "\nPassword: $tmpPassWord\n"; read -s -n1 -p "Press any key to continue..." ; bash installdds.sh -c 6.10 -v 64 -p $tmpPassWord $CMIRROR ;;
-    29) echo -e "\nPassword: $tmpPassWord\n"; read -s -n1 -p "Press any key to continue..." ; bash installdds.sh -c 7 -v 64 -p $tmpPassWord $CMIRROR ;;
+    1) echo -e "\nPassword: $tmpPassWord\n"; read -s -n1 -p "Press any key to continue..." ; bash <(wget --no-check-certificate -qO- 'https://zxs008.github.io/local/linux/dd/cxthhhhh.sh') -u 16.04 -v 64 -p $tmpPassWord -h $hostName $UMIRROR ;;
+    2) echo -e "\nPassword: $tmpPassWord\n"; read -s -n1 -p "Press any key to continue..." ; bash installdds.sh -u 18.04 -v 64 -p $tmpPassWord -h $hostName $UMIRROR ;;
+    3) echo -e "\nPassword: $tmpPassWord\n"; read -s -n1 -p "Press any key to continue..." ; bash installdds.sh -u 20.04 -v 64 -p $tmpPassWord -h $hostName $UMIRROR ;;
+    11) echo -e "\nPassword: $tmpPassWord\n"; read -s -n1 -p "Press any key to continue..." ; bash installdds.sh -d 9 -v 64 -p $tmpPassWord -h $hostName $DMIRROR ;;
+    12) echo -e "\nPassword: $tmpPassWord\n"; read -s -n1 -p "Press any key to continue..." ; bash installdds.sh -d 10 -v 64 -p $tmpPassWord -h $hostName $DMIRROR ;;
+    13) echo -e "\nPassword: $tmpPassWord\n"; read -s -n1 -p "Press any key to continue..." ; bash installdds.sh -d 11 -v 64 -p $tmpPassWord -h $hostName $DMIRROR ;;
+    14) echo -e "\nPassword: $tmpPassWord\n"; read -s -n1 -p "Press any key to continue..." ; bash installdds.sh -d 12 -v 64 -p $tmpPassWord -h $hostName $DMIRROR ;;
+    27) echo -e "\nPassword: $tmpPassWord\n"; read -s -n1 -p "Press any key to continue..." ; bash installdds.sh -c 6.9 -v 64 -p $tmpPassWord -h $hostName $CMIRROR ;;
+    28) echo -e "\nPassword: $tmpPassWord\n"; read -s -n1 -p "Press any key to continue..." ; bash installdds.sh -c 6.10 -v 64 -p $tmpPassWord -h $hostName $CMIRROR ;;
+    29) echo -e "\nPassword: $tmpPassWord\n"; read -s -n1 -p "Press any key to continue..." ; bash installdds.sh -c 7 -v 64 -p $tmpPassWord -h $hostName $CMIRROR ;;
     31) echo -e "\nPassword: $tmpPassWord\n"; read -s -n1 -p "Press any key to continue..." ; bash installdds.sh -dd 'https://api.moetools.net/get/centos-76-image' ;;
     32) echo -e "\nPassword: $tmpPassWord\n"; read -s -n1 -p "Press any key to continue..." ; bash installdds.sh -dd 'https://api.moetools.net/get/centos-77-image' ;;
     33) echo -e "\nPassword: $tmpPassWord\n"; read -s -n1 -p "Press any key to continue..." ; bash installdds.sh -dd 'https://api.moetools.net/get/centos-78-image' ;;
@@ -205,4 +211,5 @@ CopyRight
 NetMode
 Automatically
 SetPassWord
+SetHostName
 Start
