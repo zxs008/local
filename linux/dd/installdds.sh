@@ -37,6 +37,7 @@ export GRUBFILE=''
 export GRUBVER=''
 export VER=''
 export tmpTerritory=''
+export hostnameZdy=''
 
 while [[ $# -ge 1 ]]; do
   case $1 in
@@ -72,6 +73,11 @@ while [[ $# -ge 1 ]]; do
     -p|--password)
       shift
       tmpWORD="$1"
+      shift
+      ;;
+    -h|--hostname)
+      shift
+      hostnameZdy="$1"
       shift
       ;;
     -i|--interface)
@@ -149,6 +155,11 @@ while [[ $# -ge 1 ]]; do
   done
 
 [[ "$EUID" -ne '0' ]] && echo "Error:This script must be run as root!" && exit 1;
+
+if [ "$hostnameZdy" == '' ]; then
+  hostnameZdy=$(hostname);
+fi
+
 
 function dependence(){
   Full='0';
@@ -486,7 +497,7 @@ if [[ "$linux_relese" == 'centos' ]]; then
 fi
 
 #输入ip,gateway,netmask
-echo "hostname: $(hostname)";
+echo "hostname: $hostnameZdy";
 echo "ip: $IPv4";
 echo "gateway: $GATE";
 echo "netmask: $MASK";
@@ -673,7 +684,7 @@ d-i netcfg/get_netmask string $MASK
 d-i netcfg/get_gateway string $GATE
 d-i netcfg/get_nameservers string $ipDNS
 d-i netcfg/no_default_route boolean true
-d-i netcfg/hostname string $(hostname)
+d-i netcfg/hostname string $hostnameZdy
 d-i netcfg/confirm_static boolean true
 d-i hw-detect/load_firmware boolean true
 
@@ -809,7 +820,7 @@ vnc
 skipx
 timezone --isUtc Asia/Hong_Kong
 #ONDHCP network --bootproto=dhcp --onboot=on
-network --bootproto=static --ip=$IPv4 --netmask=$MASK --gateway=$GATE --nameserver=$ipDNS --hostname=$(hostname) --onboot=on
+network --bootproto=static --ip=$IPv4 --netmask=$MASK --gateway=$GATE --nameserver=$ipDNS --hostname=$hostnameZdy --onboot=on
 bootloader --location=mbr --append="rhgb quiet crashkernel=auto"
 zerombr
 clearpart --all --initlabel 
