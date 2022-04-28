@@ -142,11 +142,11 @@ function Start() {
     echo "Netmask: $NETMASK"
   fi
   
-  #if [ -f "/root/installdds.sh" ]; then
-   #rm -f /root/installdds.sh
-  #fi
+  if [ -f "/root/installdds.sh" ]; then
+   rm -f /root/installdds.sh
+  fi
   
-  #wget --no-check-certificate -qO installdds.sh "https://zxs008.github.io/local/linux/dd/installdds.sh" && chmod +x installdds.sh
+  wget --no-check-certificate -qO installdds.sh "https://zxs008.github.io/local/linux/dd/installdds.sh" && chmod +x installdds.sh
   
   CMIRROR=''
   DMIRROR=''
