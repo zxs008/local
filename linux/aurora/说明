@@ -1,0 +1,14 @@
+自创建网站 下载aurora.zip 压缩包到根目录 
+
+增加以下配置
+location /api {
+            proxy_pass http://backend:8888/api;
+
+        proxy_set_header Host $host;
+        proxy_set_header X-Real-IP $remote_addr;
+        proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+        }
+
+    location / {
+        try_files $uri /index.html;
+    }
