@@ -208,7 +208,7 @@ function selectMirror(){
   declare -A MirrorBackup
   ping -c 1 www.google.com >>/dev/null 2>&1
   if [[ $? != 0 ]] || [[ "$tmpTerritory" == "cn" ]]; then
-	 MirrorBackup=(["debian0"]="" ["debian1"]="https://mirrors.aliyun.com/debian" ["debian2"]="https://mirrors.163.com/debian-archive" ["ubuntu0"]="" ["ubuntu1"]="https://mirrors.aliyun.com/ubuntu" ["ubuntu2"]="https://mirrors.163.com/ubuntu" ["centos0"]="" ["centos1"]="https://mirrors.aliyun.com/centos" ["centos2"]="https://mirrors.aliyun.com/centos-vault" ["fedora0"]="" ["fedora1"]="https://mirrors.aliyun.com/fedora")
+	 MirrorBackup=(["debian0"]="https://mirrors.ustc.edu.cn/debian" ["debian1"]="https://mirrors.aliyun.com/debian" ["debian2"]="https://mirrors.163.com/debian-archive" ["ubuntu0"]="https://mirrors.ustc.edu.cn/ubuntu" ["ubuntu1"]="https://mirrors.aliyun.com/ubuntu" ["ubuntu2"]="https://mirrors.163.com/ubuntu" ["centos0"]="" ["centos1"]="https://mirrors.aliyun.com/centos" ["centos2"]="https://mirrors.aliyun.com/centos-vault" ["fedora0"]="" ["fedora1"]="https://mirrors.aliyun.com/fedora")
   else	
 	 MirrorBackup=(["debian0"]="" ["debian1"]="https://deb.debian.org/debian" ["debian2"]="https://archive.debian.org/debian" ["ubuntu0"]="" ["ubuntu1"]="http://archive.ubuntu.com/ubuntu" ["ubuntu2"]="http://ports.ubuntu.com" ["centos0"]="" ["centos1"]="http://mirror.centos.org/centos" ["centos2"]="https://vault.centos.org" ["fedora0"]="" ["fedora1"]="https://mirrors.aliyun.com/fedora")	
   fi
