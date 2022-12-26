@@ -123,7 +123,7 @@ show_menu() {
         ;;
 		4) sudo_install
         ;;
-		4) ping_install
+		5) ping_install
         ;;
         *) echo -e "${red}请输入正确的数字${plain}"
         ;;
