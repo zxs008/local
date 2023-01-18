@@ -6,7 +6,7 @@ services:
     ports:
       - "3306:3306"
     environment:
-      MYSQL_ROOT_PASSWORD: "zz@12&..121314!"
+      MYSQL_ROOT_PASSWORD: "XXXXXXXX"
       TZ: Asia/Shanghai
     command: mysqld
     #设置为true，不然数据卷可能挂载不了，启动不起
@@ -28,7 +28,7 @@ services:
           memory: 800M
     networks:
       mynetwork:
-        ipv4_address: "172.18.0.2"
+        ipv4_address: "172.18.0.X"
 networks:
   default:
     external:
