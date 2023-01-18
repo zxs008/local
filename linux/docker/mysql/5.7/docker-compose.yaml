@@ -1,0 +1,37 @@
+version: "3.7"
+services:
+  mysql:
+    container_name: mysql5.7
+    image: mysql:5.7
+    ports:
+      - "3306:3306"
+    environment:
+      MYSQL_ROOT_PASSWORD: "zz@12&..121314!"
+      TZ: Asia/Shanghai
+    command: mysqld
+    #设置为true，不然数据卷可能挂载不了，启动不起
+    privileged: true
+    restart: always
+    #只针对version 2 限制
+    #mem_limit: "800M" 
+    volumes:
+      #根据宿主机下的配置文件创建容器
+      - "/docker/mysql-1/conf/my.cnf:/etc/mysql/my.cnf"
+      #映射mysql的数据目录到宿主机，保存数据
+      - "/docker/mysql-1/data:/var/lib/mysql"
+      - "/docker/mysql-1/log:/var/log/mysql"
+    #只针对version 3 限制 启动时增加 --compatibility
+    deploy:
+      resources:
+        limits:
+          #cpus: '0.5'
+          memory: 800M
+    networks:
+      mynetwork:
+        ipv4_address: "172.18.0.2"
+networks:
+  default:
+    external:
+      name: mynetwork
+  mynetwork:
+    external: true
