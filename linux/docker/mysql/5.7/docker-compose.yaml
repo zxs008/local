@@ -16,10 +16,10 @@ services:
     #mem_limit: "800M" 
     volumes:
       #根据宿主机下的配置文件创建容器
-      - "/docker/mysql-1/conf/my.cnf:/etc/mysql/my.cnf"
+      - "./conf/my.cnf:/etc/mysql/my.cnf"
       #映射mysql的数据目录到宿主机，保存数据
-      - "/docker/mysql-1/data:/var/lib/mysql"
-      - "/docker/mysql-1/log:/var/log/mysql"
+      - "./data:/var/lib/mysql"
+      - "./log:/var/log/mysql"
     #只针对version 3 限制 启动时增加 --compatibility
     deploy:
       resources:
