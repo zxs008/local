@@ -199,7 +199,7 @@ install_agent() {
     echo -e "正在下载监控端"
     wget -O nezha-agent_linux_${os_arch}.tar.gz https://${GITHUB_URL}/zxs008/nezha_bak/releases/download/${version}/nezha-agent_linux_${os_arch}.tar.gz >/dev/null 2>&1
     if [[ $? != 0 ]]; then
-        wget -O nezha-agent_linux_${os_arch}.tar.gz https://${GITHUB_URL}/zxs008/nezha_bak/releases/download/${version}/nezha-agent_linux_${os_arch}.zip >/dev/null 2>&1
+        wget -O nezha-agent_linux_${os_arch}.zip https://${GITHUB_URL}/zxs008/nezha_bak/releases/download/${version}/nezha-agent_linux_${os_arch}.zip >/dev/null 2>&1
         if [[ $? != 0 ]]; then
            echo -e "${red}Release 下载失败，请检查本机能否连接 ${GITHUB_URL}${plain}"
            return 0
