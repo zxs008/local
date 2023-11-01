@@ -1,0 +1,4 @@
+payload:
+- DOMAIN-KEYWORD,potato,potato
+- DOMAIN-KEYWORD,otatop,potato
+- DOMAIN-SUFFIX,otatop.app,potato

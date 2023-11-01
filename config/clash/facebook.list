@@ -1,0 +1,23 @@
+payload:
+###facebook###
+- DOMAIN-SUFFIX,fb.com,facebook
+- DOMAIN-SUFFIX,fb.me,facebook
+- DOMAIN-SUFFIX,fbaddins.com,facebook
+- DOMAIN-SUFFIX,fbcdn.net,facebook
+- DOMAIN-SUFFIX,fbsbx.com,facebook
+- DOMAIN-SUFFIX,fbworkmail.com,facebook
+- DOMAIN-KEYWORD,facebook,facebook
+###facebook###
+
+###instagram###
+- DOMAIN-SUFFIX,instagram.com,facebook 
+- DOMAIN-SUFFIX,cdninstagram.com,facebook
+- DOMAIN-KEYWORD,instagram,facebook
+- DOMAIN-SUFFIX,m.me,facebook 
+- DOMAIN-SUFFIX,messenger.com,facebook
+- DOMAIN-SUFFIX,oculus.com,facebook
+- DOMAIN-SUFFIX,oculuscdn.com,facebook
+- DOMAIN-SUFFIX,rocksdb.org,facebook
+- DOMAIN-SUFFIX,whatsapp.com,facebook
+- DOMAIN-SUFFIX,whatsapp.net,facebook
+###instagram###
