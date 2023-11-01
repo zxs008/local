@@ -1,12 +1,12 @@
-host-keyword, google, google节点选择
-host-suffix,youtu.be,google节点选择
-host-keyword,youtube,google节点选择
-host-suffix,youtube.com,google节点选择
-host,youtubei.googleapis.com,google节点选择
-host-keyword,youtube,google节点选择
-host,youtubei.googleapis.com,google节点选择
-host,yt3.ggpht.com,google节点选择
-host-suffix,googlevideo.com,google节点选择
-host-suffix,youtu.be,google节点选择
-host-suffix,youtube.com,google节点选择
-host-suffix,ytimg.com,google节点选择
+host-keyword, google, google
+host-suffix,youtu.be,google
+host-keyword,youtube,google
+host-suffix,youtube.com,google
+host,youtubei.googleapis.com,google
+host-keyword,youtube,google
+host,youtubei.googleapis.com,google
+host,yt3.ggpht.com,google
+host-suffix,googlevideo.com,google
+host-suffix,youtu.be,google
+host-suffix,youtube.com,google
+host-suffix,ytimg.com,google
