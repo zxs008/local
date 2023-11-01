@@ -1,3 +1,5 @@
+#########google#########
+###GoogleYoutu###
 host-keyword, google, google
 host-suffix,youtu.be,google
 host-keyword,youtube,google
@@ -10,8 +12,10 @@ host-suffix,googlevideo.com,google
 host-suffix,youtu.be,google
 host-suffix,youtube.com,google
 host-suffix,ytimg.com,google
-host-suffix,gvt0.com,google
+###GoogleYoutu###
+###GooglePlay###
+host-suffix,gvt0.com,google 
 host-suffix,gvt2.com,google
-host-suffix,gvt1.com,google
-host-suffix,gvt3.com,google
-host-suffix,gmail.com,google
+host-suffix,gvt1.com,google 
+host-suffix,gvt3.com,google 
+###Google Play###
