@@ -1,1 +1,12 @@
-DOMAIN-SUFFIX,googel.com
+host-keyword, google, google节点选择
+host-suffix,youtu.be,google节点选择
+host-keyword,youtube,google节点选择
+host-suffix,youtube.com,google节点选择
+host,youtubei.googleapis.com,google节点选择
+host-keyword,youtube,google节点选择
+host,youtubei.googleapis.com,google节点选择
+host,yt3.ggpht.com,google节点选择
+host-suffix,googlevideo.com,google节点选择
+host-suffix,youtu.be,google节点选择
+host-suffix,youtube.com,google节点选择
+host-suffix,ytimg.com,google节点选择
