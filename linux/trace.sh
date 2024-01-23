@@ -9,7 +9,7 @@ arch=$(arch)
 install() {   
    [[ -d /BestTrace ]] && rm -rf /BestTrace
    mkdir /BestTrace && cd /BestTrace
-   wget https://cdn.ipip.net/17mon/besttrace4linux.zip && unzip besttrace4linux.zip && chmod +x besttrace && chmod +x besttracearm
+   wget https://github.com/zxs008/local/releases/download/bestlinux/besttrace4linux.zip && unzip besttrace4linux.zip && chmod +x besttrace && chmod +x besttracearm
 
    Before_ShowMenu
 }
