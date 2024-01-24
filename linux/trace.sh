@@ -6,7 +6,7 @@ yellow='\033[0;33m'
 plain='\033[0m'
 arch=$(arch)
 
-install() {   
+installBestTrace() {   
    [[ -d /BestTrace ]] && rm -rf /BestTrace
    mkdir /BestTrace && cd /BestTrace
    wget https://github.com/zxs008/local/releases/download/bestlinux/besttrace4linux.zip && unzip besttrace4linux.zip && chmod +x besttrace && chmod +x besttracearm
@@ -14,12 +14,12 @@ install() {
    Before_ShowMenu
 }
 
-unInstall() {   
+unInstallBestTrace() {   
    rm -rf /BestTrace
    Before_ShowMenu
 }
 
-pingIp() {   
+pingBestTraceIp() {   
    cd /BestTrace
    
    if [[ $arch == "x86_64" || $arch == "x64" || $arch == "amd64" ]]; then
@@ -28,6 +28,35 @@ pingIp() {
     ./besttracearm -q1 -g cn $1
    fi
    
+   Before_ShowMenu
+}
+
+installNextTrace() {
+   rm -rf nexttrace
+   checkSystemArch
+   wget -O nexttrace https://github.com/zxs008/local/releases/download/nexttrace/nexttrace_${osDistribution}_${archParam} && chmod +x nexttrace
+   Before_ShowMenu
+}
+
+checkSystemArch() {
+    osDistribution="linux"
+    arch=$(uname -m)
+    if [[ $arch == "x86_64" ]]; then
+    archParam="amd64"
+    elif [[ $arch == "aarch64" ]]; then
+    archParam="arm64"
+    elif [[ $arch == "armv7l" ]] || [[ $arch == "armv7ml" ]]; then
+    archParam="armv7"
+    fi
+}
+
+unInstallNextTrace() {   
+   rm -rf nexttrace
+   Before_ShowMenu
+}
+
+pingNextTraceIp() {   
+   ./nexttrace -M $1
    Before_ShowMenu
 }
 
@@ -43,18 +72,29 @@ ShowMenu(){
   ————————————————
   ${green}1.${plain} 安装BestTrace
   ${green}2.${plain} 卸载BestTrace
-  ${green}3.${plain} ping测试
+  ${green}3.${plain} BestTrace ping测试
+
+  ${green}4.${plain} 安装NextTrace
+  ${green}5.${plain} 卸载NextTrace
+  ${green}6.${plain} NextTrace ping测试
   ————————————————
 "
   echo && read -p "请输入选择 [0-3]: " num
     case "${num}" in
         0) exit 0;;
-        1) install;;
-	   2) unInstall;;
+        1) installBestTrace;;
+	   2) unInstallBestTrace;;
 	   3)
         read -r -p "Ip: " ipAddr
         echo -e "\n"
-        pingIp $ipAddr
+        pingBestTraceIp $ipAddr
+        ;;
+        4) installNextTrace;;
+	   5) unInstallNextTrace;;
+	   6)
+        read -r -p "Ip: " ipAddr
+        echo -e "\n"
+        pingNextTraceIp $ipAddr
         ;;
         *) echo -e "${red}请输入正确的数字${plain}"
         ;;
