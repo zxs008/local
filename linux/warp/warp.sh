@@ -78,8 +78,8 @@ if [[ -z $(command -v curl) ]]; then
     exit 1
 fi
 
-WGCF_Profile='warp-account.conf'
-WGCF_ProfileDir="/etc/wireguard"
+WGCF_Profile='wgcf-profile.conf'
+WGCF_ProfileDir="/etc/warp"
 WGCF_ProfilePath="${WGCF_ProfileDir}/${WGCF_Profile}"
 
 WireGuard_Interface='warp'
@@ -461,7 +461,6 @@ Start_WireGuard() {
         systemctl enable wg-quick@${WireGuard_Interface} --now
         systemctl start warp-svc
     else
-        apt install systemctl -y
         systemctl enable wg-quick@${WireGuard_Interface} --now
     fi
     Check_WireGuard
@@ -541,11 +540,11 @@ Disable_WireGuard() {
         log INFO "Disabling WireGuard..."
         if [[ ${WARP_Client_Status} = active ]]; then
             systemctl stop warp-svc
-            systemctl stop wg-quick@wgcf
+            systemctl stop wg-quick@${WireGuard_Interface}
             systemctl disable wg-quick@${WireGuard_Interface} --now
             systemctl start warp-svc
         else
-            systemctl stop wg-quick@wgcf
+            systemctl stop wg-quick@${WireGuard_Interface}
             systemctl disable wg-quick@${WireGuard_Interface} --now
         fi
         Check_WireGuard
@@ -1224,12 +1223,12 @@ do
     echo -e "${IPV4}"
     if [[ "$result" == "404" ]];then
         echo -e "Originals Only, Changing IP..."
-        systemctl restart wg-quick@wgcf
+        systemctl restart wg-quick@${WireGuard_Interface}
         sleep 3
 	
     elif  [[ "$result" == "403" ]];then
         echo -e "No, Changing IP..."
-        systemctl restart wg-quick@wgcf
+        systemctl restart wg-quick@${WireGuard_Interface}
         sleep 3
 	
     elif  [[ "$result" == "200" ]];then
@@ -1239,7 +1238,7 @@ do
 		fi
         if [[ "$region" != "$area" ]];then
             echo -e "Region: ${region} Not match, Changing IP..."
-            systemctl restart wg-quick@wgcf
+            systemctl restart wg-quick@${WireGuard_Interface}
             sleep 3
         else
             echo -e "Region: ${region} Done, monitoring..."
@@ -1248,7 +1247,7 @@ do
 
     elif  [[ "$result" == "000" ]];then
 	echo -e "Failed, retrying..."
-        systemctl restart wg-quick@wgcf
+        systemctl restart wg-quick@${WireGuard_Interface}
     fi
 done
 }
