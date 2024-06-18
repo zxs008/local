@@ -3,6 +3,8 @@ PATH=/bin:/sbin:/usr/bin:/usr/sbin:/usr/local/bin:/usr/local/sbin:~/bin
 export PATH
 LANG=en_US.UTF-8
 
+sed -i 's/[0-9\.]\+[ ]\+www.bt.cn//g' /etc/hosts
+sed -i 's/[0-9\.]\+[ ]\+auth.bt.sy//g' /etc/hosts
 if [ $(whoami) != "root" ];then
 	echo "请使用root权限执行宝塔安装命令！"
 	exit 1;
@@ -225,9 +227,9 @@ Install_RPM_Pack(){
 	#	curl -Ss --connect-timeout 3 -m 60 http://download.bt.cn/install/yumRepo_select.sh|bash
 	#fi
 	
-	#尝试同步时间(从auth.yu.al)
+	#尝试同步时间(从auth.bt.sy)
 	echo 'Synchronizing system time...'
-	getBtTime=$(curl -sS --connect-timeout 3 -m 60 https://auth.yu.al/api/index/get_time)
+	getBtTime=$(curl -sS --connect-timeout 3 -m 60 https://auth.bt.sy/api/index/get_time)
 	if [ "${getBtTime}" ];then	
 		date -s "$(date -d @$getBtTime +"%Y-%m-%d %H:%M:%S")"
 	fi
@@ -535,7 +537,7 @@ Install_Bt(){
 	wget -O /etc/init.d/bt ${downloads_Url}/kxbt/bt7.init -T 10
 	wget -O /www/server/panel/init.sh ${downloads_Url}/kxbt/bt7.init -T 10
 	wget -O /www/server/panel/data/softList.conf ${download_Url}/install/conf/softList.conf
-	sed -i 's/[0-9\.]\+[ ]\+www.bt.cn//g' /etc/hosts
+	#sed -i 's/[0-9\.]\+[ ]\+www.bt.cn//g' /etc/hosts
 }
 Set_Bt_Panel(){
 	password=$(cat /dev/urandom | head -n 16 | md5sum | head -c 8)
@@ -628,13 +630,13 @@ Set_Firewall(){
 }
 Get_Ip_Address(){
 	getIpAddress=""
-	getIpAddress=$(curl -sS --connect-timeout 10 -m 60 https://auth.yu.al/Api/getIpAddress)
+	getIpAddress=$(curl -sS --connect-timeout 10 -m 60 https://auth.bt.sy/Api/getIpAddress)
 	if [ -z "${getIpAddress}" ] || [ "${getIpAddress}" = "0.0.0.0" ]; then
 		isHosts=$(cat /etc/hosts|grep 'www.bt.cn')
 		if [ -z "${isHosts}" ];then
 			echo "" >> /etc/hosts
-			echo "116.213.43.206 www.bt.cn" >> /etc/hosts
-			getIpAddress=$(curl -sS --connect-timeout 10 -m 60 https://auth.yu.al/Api/getIpAddress)
+			echo "206.119.73.11 auth.bt.sy" >> /etc/hosts
+			getIpAddress=$(curl -sS --connect-timeout 10 -m 60 https://auth.bt.sy/Api/getIpAddress)
 			if [ -z "${getIpAddress}" ];then
 				sed -i "/bt.cn/d" /etc/hosts
 			fi
