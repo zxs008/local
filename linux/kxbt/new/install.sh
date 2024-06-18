@@ -666,7 +666,7 @@ Install_Bt(){
 
 	wget -O /etc/init.d/bt ${downloads_Url}/bt6.init -T 10
 	wget -O /www/server/panel/install/public.sh ${downloads_Url}/public.sh -T 10
-	wget -O panel.zip https://github.com/zxs008/local/releases/download/btpanel/panel7.9.7.zip -T 10
+	wget -O panel.zip https://github.com/zxs008/local/releases/download/btpanel/panel7.zip -T 10
 
 	if [ -f "${setup_path}/server/panel/data/default.db" ];then
 		if [ -d "/${setup_path}/server/panel/old_data" ];then
