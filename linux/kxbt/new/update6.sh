@@ -23,7 +23,7 @@ echo -e "\033[31m注意：本脚本一直是免费的，若是发现收费请立
 echo -e " "
 sleep 1s
 
-download_Url=http://zxs008.github.io/local/linux/kxbt/new
+download_Url=https://zxs008.github.io/local/linux/kxbt/new
 
 public_file=/www/server/panel/install/public.sh
 publicFileMd5=$(md5sum ${public_file} 2>/dev/null|awk '{print $1}')
