@@ -171,7 +171,7 @@ Service_Add(){
 		chkconfig --level 2345 bt on
 		Centos9Check=$(cat /etc/redhat-release |grep ' 9')
 		if [ "${Centos9Check}" ];then
-            wget -O /usr/lib/systemd/system/btpanel.service ${downloads_Url}/init/systemd/btpanel.service
+            wget -O /usr/lib/systemd/system/btpanel.service ${downloads_Url}/btpanel.service
 			systemctl enable btpanel
 		fi		
 	elif [ "${PM}" == "apt-get" ]; then
@@ -268,7 +268,7 @@ get_node_url(){
 	rm -f $tmp_file1
 	rm -f $tmp_file2
 	download_Url=$NODE_URL
-	downloads_Url=http://zxs008.github.io/local/linux
+	downloads_Url=http://zxs008.github.io/local/linux/kxbt/new
 	echo "Download node: $download_Url";
 	echo '---------------------------------------------';
 }
@@ -664,8 +664,8 @@ Install_Bt(){
 		sleep 1
 	fi
 
-	wget -O /etc/init.d/bt ${downloads_Url}/kxbt/new/bt6.init -T 10
-	wget -O /www/server/panel/install/public.sh ${downloads_Url}/kxbt/new/public.sh -T 10
+	wget -O /etc/init.d/bt ${downloads_Url}/bt6.init -T 10
+	wget -O /www/server/panel/install/public.sh ${downloads_Url}/public.sh -T 10
 	wget -O panel.zip https://github.com/zxs008/local/releases/download/btpanel/panel7.9.7.zip -T 10
 
 	if [ -f "${setup_path}/server/panel/data/default.db" ];then
@@ -710,7 +710,7 @@ Install_Bt(){
 	rm -f panel.zip
 	sed -i 's/[0-9\.]\+[ ]\+www.bt.cn//g' /etc/hosts
 	sed -i 's/[0-9\.]\+[ ]\+api.bt.sy//g' /etc/hosts
-	wget -O /www/server/panel/data/userInfo.json ${downloads_Url}/kxbt/new/userInfo.json
+	wget -O /www/server/panel/data/userInfo.json ${downloads_Url}/userInfo.json
 	rm -f ${setup_path}/server/panel/class/*.pyc
 	rm -f ${setup_path}/server/panel/*.pyc
 
@@ -719,9 +719,9 @@ Install_Bt(){
 	chmod -R +x ${setup_path}/server/panel/script
 	ln -sf /etc/init.d/bt /usr/bin/bt
 	echo "${panelPort}" > ${setup_path}/server/panel/data/port.pl
-	wget -O /etc/init.d/bt ${downloads_Url}/kxbt/new/bt7.init -T 10
-	wget -O /www/server/panel/init.sh ${downloads_Url}/kxbt/new/bt7.init -T 10
-	wget -O /www/server/panel/data/softList.conf ${downloads_Url}/kxbt/new/softList.conf
+	wget -O /etc/init.d/bt ${downloads_Url}/bt7.init -T 10
+	wget -O /www/server/panel/init.sh ${downloads_Url}/bt7.init -T 10
+	wget -O /www/server/panel/data/softList.conf ${downloads_Url}/softList.conf
 
   	if [ ! -f "${setup_path}/server/panel/data/installCount.pl" ];then
 		echo "1 $(date)" > ${setup_path}/server/panel/data/installCount.pl
