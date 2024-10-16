@@ -7,3 +7,4 @@ payload:
 - DOMAIN-SUFFIX,twitpic.com,twitter
 - DOMAIN-SUFFIX,vine.co,twitter
 - DOMAIN-KEYWORD,twitter,twitter
+- DOMAIN-SUFFIX,x.com,twitter
