@@ -18,6 +18,4 @@ payload:
 - DOMAIN-SUFFIX,oculus.com,facebook
 - DOMAIN-SUFFIX,oculuscdn.com,facebook
 - DOMAIN-SUFFIX,rocksdb.org,facebook
-- DOMAIN-SUFFIX,whatsapp.com,facebook
-- DOMAIN-SUFFIX,whatsapp.net,facebook
 ###instagram###
