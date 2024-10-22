@@ -1,0 +1,12 @@
+DOMAIN-KEYWORD,telegram,telegra
+DOMAIN-SUFFIX,t.me,telegra
+DOMAIN-SUFFIX,tdesktop.com,telegra
+DOMAIN-SUFFIX,telegra.ph,telegra
+DOMAIN-SUFFIX,telegram.me,telegra
+DOMAIN-SUFFIX,telegram.org,telegra
+IP-CIDR,91.108.4.0/22,telegra
+IP-CIDR,91.108.8.0/22,telegra
+IP-CIDR,91.108.12.0/22,telegra
+IP-CIDR,91.108.16.0/22,telegra
+IP-CIDR,91.108.56.0/22,telegra
+IP-CIDR,149.154.160.0/20,telegra
