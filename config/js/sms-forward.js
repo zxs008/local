@@ -175,7 +175,6 @@ let result
     const titleTpl = $.getdata(KEY_TITLE) || '[号码]'
     const subtitleTpl = $.getdata(KEY_SUBTITLE) || '[码][复制提示]'
     const bodyTpl = $.getdata(KEY_BODY) || '[内容]'
-
     const title = renderTpl(titleTpl, msgData)
     const subtitle = renderTpl(subtitleTpl, msgData)
     const body = renderTpl(bodyTpl, msgData)
@@ -261,6 +260,12 @@ async function notify(title, subtitle, body, { copy, KEY_PUSHDEER, KEY_BARK }) {
           .replace('[推送标题]', encodeURIComponent(title))
           .replace('[推送内容]', encodeURIComponent(`${subtitle}\n${body}`))
           .replace('[复制内容]', encodeURIComponent(copy))
+        if( subtitle === '99999')){
+          url = bark
+          .replace('[推送标题]', encodeURIComponent(title))
+          .replace('[推送内容]', encodeURIComponent(`${body}`))
+          .replace('[复制内容]', encodeURIComponent(copy))
+        }
         $.log(`开始 bark 请求: ${url}`)
         const res = await $.http.get({ url })
         // console.log(res)
