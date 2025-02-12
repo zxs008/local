@@ -260,12 +260,6 @@ async function notify(title, subtitle, body, { copy, KEY_PUSHDEER, KEY_BARK }) {
           .replace('[推送标题]', encodeURIComponent(title))
           .replace('[推送内容]', encodeURIComponent(`${subtitle}\n${body}`))
           .replace('[复制内容]', encodeURIComponent(copy))
-        if( subtitle === '99999')){
-          url = bark
-          .replace('[推送标题]', encodeURIComponent(title))
-          .replace('[推送内容]', encodeURIComponent(`${body}`))
-          .replace('[复制内容]', encodeURIComponent(copy))
-        }
         $.log(`开始 bark 请求: ${url}`)
         const res = await $.http.get({ url })
         // console.log(res)
