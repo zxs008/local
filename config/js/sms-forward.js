@@ -256,10 +256,6 @@ async function notify(title, subtitle, body, { copy, KEY_PUSHDEER, KEY_BARK }) {
     }
     if (bark) {
       try {
-        const url = bark
-          .replace('[推送标题]', encodeURIComponent(title))
-          .replace('[推送内容]', encodeURIComponent(`${subtitle}\n${body}`))
-          .replace('[复制内容]', encodeURIComponent(copy))
         if(subtitle === '99999'){
           const url = bark
           .replace('[推送标题]', encodeURIComponent(title))
