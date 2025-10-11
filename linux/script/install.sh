@@ -335,7 +335,7 @@ modify_dashboard_config() {
     sed -i "s/nz_site_title/${nz_site_title}/" ${NZ_DASHBOARD_PATH}/data/config.yaml
     sed -i "s/nz_site_port/${nz_site_port}/" ${NZ_DASHBOARD_PATH}/docker-compose.yaml
     sed -i "s/nz_grpc_port/${nz_grpc_port}/g" ${NZ_DASHBOARD_PATH}/docker-compose.yaml
-    sed -i "s/nz_image_url/${Docker_IMG}:${version}/" ${NZ_DASHBOARD_PATH}/docker-compose.yaml
+    #sed -i "s/nz_image_url/${Docker_IMG}:${version}/" ${NZ_DASHBOARD_PATH}/docker-compose.yaml
 
     echo -e "面板配置 ${green}修改成功，请稍等重启生效${plain}"
 
@@ -348,10 +348,28 @@ modify_dashboard_config() {
 
 restart_and_update() {
     echo -e "> 重启并更新面板"
-
+    imag=$(docker inspect -f '{{.Config.Image}}' dashboard_dashboard_1 | sed 's/\"//g;s/,//g;s/ //g' )
+    if [[ ${imag} == "" ]]; then
+        imag="nz_image_url"
+    fi
+    echo -e "${imag}"
+    
     cd $NZ_DASHBOARD_PATH
-    docker-compose pull
     docker-compose down
+
+    local version=$(curl -m 10 -sL "https://zxs008.github.io/local/linux/script/version.json" | grep "tag_web" | head -n 1 | awk -F ":" '{print $2}' | sed 's/\"//g;s/,//g;s/ //g')
+
+    if [ ! -n "$version" ]; then
+        echo -e "获取版本号失败，请检查本机能否链接 https://zxs008.github.io/local/linux/script/version.json"
+        return 0
+    else
+        echo -e "当前最新版本为: ${version}"
+    fi
+
+    sed -i 's|'${imag}'|'${Docker_IMG}':'${version}'|' ${NZ_DASHBOARD_PATH}/docker-compose.yaml
+
+    docker-compose pull
+    #docker-compose down
     docker-compose up -d
     if [[ $? == 0 ]]; then
         echo -e "${green}哪吒监控 重启成功${plain}"
