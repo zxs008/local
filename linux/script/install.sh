@@ -176,25 +176,29 @@ install_dashboard() {
     fi
 }
 
-install_agent() {
-    install_base
-
+download_agent(){
     echo -e "> 安装监控Agent"
 
     echo -e "正在获取监控Agent版本号"
 
     local version=$(curl -m 10 -sL "https://zxs008.github.io/local/linux/script/version.json" | grep "tag_name" | head -n 1 | awk -F ":" '{print $2}' | sed 's/\"//g;s/,//g;s/ //g')
-
+    #local version='0.14.11'
     if [ ! -n "$version" ]; then
         echo -e "获取版本号失败，请检查本机能否链接 https://zxs008.github.io/local/linux/script/version.json"
         return 0
     else
         echo -e "当前最新版本为: ${version}"
+        echo -e "当前系统版本: ${os_arch}"
     fi
 
-    # 哪吒监控文件夹
-    mkdir -p $NZ_AGENT_PATH
-    chmod 777 -R $NZ_AGENT_PATH
+    if [ ! -d "$NZ_AGENT_PATH" ]; then
+        echo "目录 '$NZ_AGENT_PATH' 不存在，正在创建..."
+        mkdir -p $NZ_AGENT_PATH
+        chmod 777 -R $NZ_AGENT_PATH
+        echo "目录 '$NZ_AGENT_PATH' 已创建。"
+    else
+        echo "目录 '$NZ_AGENT_PATH' 已存在。"
+    fi
 
     echo -e "正在下载监控端"
     wget -O nezha-agent_linux_${os_arch}.tar.gz https://${GITHUB_URL}/zxs008/nezha_bak/releases/download/${version}/nezha-agent_linux_${os_arch}.tar.gz >/dev/null 2>&1
@@ -213,6 +217,12 @@ install_agent() {
         mv nezha-agent $NZ_AGENT_PATH &&
         rm -rf nezha-agent_linux_${os_arch}.tar.gz README.md
     fi
+}
+
+install_agent() {
+    install_base
+
+    download_agent
     
     if [ $# -ge 3 ]; then
         modify_agent_config "$@"
@@ -220,6 +230,18 @@ install_agent() {
         modify_agent_config 0
     fi
 
+    if [[ $# == 0 ]]; then
+        before_show_menu
+    fi
+}
+
+update_agent() {
+    echo -e "停止agent服务"
+       
+    download_agent
+    echo -e "启动agent服务"
+    systemctl restart nezha-agent
+    
     if [[ $# == 0 ]]; then
         before_show_menu
     fi
@@ -257,10 +279,10 @@ modify_agent_config() {
     sed -i "s/nz_grpc_port/${nz_grpc_port}/" ${NZ_AGENT_SERVICE}
     sed -i "s/nz_client_secret/${nz_client_secret}/" ${NZ_AGENT_SERVICE}
 
-    shift 3
+    #shift 3
     if [ $# -gt 0 ]; then
         args=" $*"
-        sed -i "/ExecStart/ s/$/${args}/" ${NZ_AGENT_SERVICE}
+        sed -i "/ExecStart/ s/$/" ${NZ_AGENT_SERVICE}
     fi
 
     echo -e "Agent配置 ${green}修改成功，请稍等重启生效${plain}"
@@ -492,6 +514,7 @@ show_usage() {
     echo "./nezha.sh uninstall_dashboard        - 卸载管理面板"
     echo "--------------------------------------------------------"
     echo "./nezha.sh install_agent              - 安装监控Agent"
+    echo "./nezha.sh update_agent               - 升级监控Agent"
     echo "./nezha.sh modify_agent_config        - 修改Agent配置"
     echo "./nezha.sh show_agent_log             - 查看Agent日志"
     echo "./nezha.sh uninstall_agent            - 卸载Agen"
@@ -512,12 +535,13 @@ show_menu() {
     ${green}7.${plain}  卸载管理面板
     ————————————————-
     ${green}8.${plain}  安装监控Agent
-    ${green}9.${plain}  修改Agent配置
-    ${green}10.${plain} 查看Agent日志
-    ${green}11.${plain} 卸载Agent
-    ${green}12.${plain} 重启Agent
+    ${green}9.${plain}  升级监控Agent
+    ${green}10.${plain} 修改Agent配置
+    ${green}11.${plain} 查看Agent日志
+    ${green}12.${plain} 卸载Agent
+    ${green}13.${plain} 重启Agent
     ————————————————-
-    ${green}13.${plain} 更新脚本
+    ${green}14.${plain} 更新脚本
     ————————————————-
     ${green}0.${plain}  退出脚本
     "
@@ -552,18 +576,21 @@ show_menu() {
         install_agent
         ;;
     9)
+        update_agent
+        ;;    
+    10)
         modify_agent_config
         ;;
-    10)
+    11)
         show_agent_log
         ;;
-    11)
+    12)
         uninstall_agent
         ;;
-    12)
+    13)
         restart_agent
         ;;
-    13)
+    14)
         update_script
         ;;
     *)
@@ -604,6 +631,9 @@ if [[ $# > 0 ]]; then
         else
             install_agent 0
         fi
+        ;;
+    "update_agent")
+        update_agent 0
         ;;
     "modify_agent_config")
         modify_agent_config 0
