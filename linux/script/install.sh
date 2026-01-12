@@ -68,17 +68,17 @@ pre_check() {
         fi
     fi
 
-    if [[ -z "${CN}" ]]; then
+    if [[ -z ${CN} ]]; then
         GITHUB_RAW_URL="zxs008.github.io/local/linux"
         GITHUB_URL="github.com"
-        Github_Cn="https://gh-proxy.org/"
+        Github_Cn=""
         Get_Docker_URL="get.docker.com"
         Get_Docker_Argu=" "
         Docker_IMG="zxs008\/dashboard"
     else
         GITHUB_RAW_URL="zxs008.github.io/local/linux"
         GITHUB_URL="github.com"
-        Github_Cn=""
+        Github_Cn="https://gh-proxy.org/"
         Get_Docker_URL="get.docker.com"
         Get_Docker_Argu=" "
         Docker_IMG="zxs008\/dashboard"
