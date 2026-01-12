@@ -71,12 +71,14 @@ pre_check() {
     if [[ -z "${CN}" ]]; then
         GITHUB_RAW_URL="zxs008.github.io/local/linux"
         GITHUB_URL="github.com"
+        Github_Cn="https://gh-proxy.org/"
         Get_Docker_URL="get.docker.com"
         Get_Docker_Argu=" "
         Docker_IMG="zxs008\/dashboard"
     else
         GITHUB_RAW_URL="zxs008.github.io/local/linux"
         GITHUB_URL="github.com"
+        Github_Cn=""
         Get_Docker_URL="get.docker.com"
         Get_Docker_Argu=" "
         Docker_IMG="zxs008\/dashboard"
@@ -201,11 +203,11 @@ download_agent(){
     fi
 
     echo -e "正在下载监控端"
-    wget -O nezha-agent_linux_${os_arch}.tar.gz https://${GITHUB_URL}/zxs008/nezha_bak/releases/download/${version}/nezha-agent_linux_${os_arch}.tar.gz >/dev/null 2>&1
+    wget -O nezha-agent_linux_${os_arch}.tar.gz https://${Github_Cn}${GITHUB_URL}/zxs008/nezha_bak/releases/download/${version}/nezha-agent_linux_${os_arch}.tar.gz >/dev/null 2>&1
     if [[ $? != 0 ]]; then
-        wget -O nezha-agent_linux_${os_arch}.zip https://${GITHUB_URL}/zxs008/nezha_bak/releases/download/${version}/nezha-agent_linux_${os_arch}.zip >/dev/null 2>&1
+        wget -O nezha-agent_linux_${os_arch}.zip https://${Github_Cn}${GITHUB_URL}/zxs008/nezha_bak/releases/download/${version}/nezha-agent_linux_${os_arch}.zip >/dev/null 2>&1
         if [[ $? != 0 ]]; then
-           echo -e "${red}Release 下载失败，请检查本机能否连接 ${GITHUB_URL}${plain}"
+           echo -e "${red}Release 下载失败，请检查本机能否连接 ${Github_Cn}${GITHUB_URL}${plain}"
            return 0
         else 
            unzip -qo nezha-agent_linux_${os_arch}.zip &&
