@@ -71,7 +71,7 @@ pre_check() {
     if [[ -z "${CN}" ]]; then
         GITHUB_RAW_URL="zxs008.github.io/local/linux"
         GITHUB_URL="github.com"
-        Github_Cn="https://gh-proxy.org/"
+        Github_Cn=""
         Get_Docker_URL="get.docker.com"
         Get_Docker_Argu=" "
         Docker_IMG="zxs008\/dashboard"
@@ -80,7 +80,7 @@ pre_check() {
         GITHUB_URL="github.com"
         Github_Cn=""
         Get_Docker_URL="get.docker.com"
-        Get_Docker_Argu=" "
+        Get_Docker_Argu="https://gh-proxy.org/"
         Docker_IMG="zxs008\/dashboard"
     fi
 }
@@ -203,6 +203,7 @@ download_agent(){
     fi
 
     echo -e "正在下载监控端"
+    echo -e "是否使用代理地址:${Github_Cn}"
     wget -O nezha-agent_linux_${os_arch}.tar.gz ${Github_Cn}https://${GITHUB_URL}/zxs008/nezha_bak/releases/download/${version}/nezha-agent_linux_${os_arch}.tar.gz >/dev/null 2>&1
     if [[ $? != 0 ]]; then
         wget -O nezha-agent_linux_${os_arch}.zip ${Github_Cn}https://${GITHUB_URL}/zxs008/nezha_bak/releases/download/${version}/nezha-agent_linux_${os_arch}.zip >/dev/null 2>&1
