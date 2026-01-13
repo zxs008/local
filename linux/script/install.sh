@@ -50,7 +50,7 @@ pre_check() {
     if [[ -z "${CN}" ]]; then
         local IpCn=$(curl -m 10 -s https://api.ip.sb/geoip | grep 'China');
         if [[ ${IpCn} == "" ]]; then
-           IpCn=$(curl -m 10 -s https://ipinfo.io | grep 'China');
+           IpCn=$(curl -m 10 -s https://ipinfo.io | grep 'CN');
         fi
         if [[ ${IpCn} != "" ]]; then
             echo "根据ip.sb提供的信息，当前IP可能在中国"
