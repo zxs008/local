@@ -48,23 +48,30 @@ pre_check() {
 
     ## China_IP
     if [[ -z "${CN}" ]]; then
-        if [[ $(curl -m 10 -s https://api.ip.sb/geoip | grep 'China') != "" ]]; then
+        local IpCn=$(curl -m 10 -s https://api.ip.sb/geoip | grep 'China');
+        if [[ ${IpCn} == "" ]]; then
+           IpCn=$(curl -m 10 -s https://ipinfo.io | grep 'China');
+        fi
+        if [[ ${IpCn} != "" ]]; then
             echo "根据ip.sb提供的信息，当前IP可能在中国"
-            read -e -r -p "是否选用中国镜像完成安装? [Y/n] " input
-            case $input in
-            [yY][eE][sS] | [yY])
-                echo "使用中国镜像"
+            if [[ $1 != "" ]]; then
                 CN=true
-                ;;
-
-            [nN][oO] | [nN])
-                echo "不使用中国镜像"
-                ;;
-            *)
-                echo "使用中国镜像"
-                CN=true
-                ;;
-            esac
+            else
+                read -e -r -p "是否选用中国镜像完成安装? [Y/n] " input
+                case $input in
+                [yY][eE][sS] | [yY])
+                    echo "使用中国镜像"
+                    CN=true
+                    ;;
+                [nN][oO] | [nN])
+                    echo "不使用中国镜像"
+                    ;;
+                *)
+                    echo "使用中国镜像"
+                    CN=true
+                    ;;
+                esac
+             fi
         fi
     fi
 
