@@ -609,7 +609,7 @@ show_menu() {
     esac
 }
 
-pre_check
+pre_check "$@"
 
 if [[ $# > 0 ]]; then
     case $1 in
