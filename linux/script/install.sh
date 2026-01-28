@@ -83,7 +83,7 @@ pre_check() {
         Get_Docker_Argu=" "
         Docker_IMG="zxs008\/dashboard"
     else
-        GITHUB_RAW_URL="zxs008.github.io/local/linux"
+        GITHUB_RAW_URL="git.dyna.eu.org/linux"
         GITHUB_URL="github.com"
         Github_Cn="https://gh-proxy.org/"
         Get_Docker_URL="get.docker.com"
@@ -190,10 +190,10 @@ download_agent(){
 
     echo -e "正在获取监控Agent版本号"
 
-    local version=$(curl -m 10 -sL "https://zxs008.github.io/local/linux/script/version.json" | grep "tag_name" | head -n 1 | awk -F ":" '{print $2}' | sed 's/\"//g;s/,//g;s/ //g')
+    local version=$(curl -m 10 -sL "https://${GITHUB_RAW_URL}/script/version.json" | grep "tag_name" | head -n 1 | awk -F ":" '{print $2}' | sed 's/\"//g;s/,//g;s/ //g')
     #local version='0.14.11'
     if [ ! -n "$version" ]; then
-        echo -e "获取版本号失败，请检查本机能否链接 https://zxs008.github.io/local/linux/script/version.json"
+        echo -e "获取版本号失败，请检查本机能否链接 https://${GITHUB_RAW_URL}/script/version.json"
         return 0
     else
         echo -e "当前最新版本为: ${version}"
@@ -307,10 +307,10 @@ modify_agent_config() {
 }
 
 modify_dashboard_config() {
-    local version=$(curl -m 10 -sL "https://zxs008.github.io/local/linux/script/version.json" | grep "tag_web" | head -n 1 | awk -F ":" '{print $2}' | sed 's/\"//g;s/,//g;s/ //g')
+    local version=$(curl -m 10 -sL "https://${GITHUB_RAW_URL}/script/version.json" | grep "tag_web" | head -n 1 | awk -F ":" '{print $2}' | sed 's/\"//g;s/,//g;s/ //g')
 
     if [ ! -n "$version" ]; then
-        echo -e "获取版本号失败，请检查本机能否链接 https://zxs008.github.io/local/linux/script/version.json"
+        echo -e "获取版本号失败，请检查本机能否链接 https://${GITHUB_RAW_URL}/script/version.json"
         return 0
     else
         echo -e "当前最新版本为: ${version}"
@@ -389,10 +389,10 @@ restart_and_update() {
     cd $NZ_DASHBOARD_PATH
     docker-compose down
 
-    local version=$(curl -m 10 -sL "https://zxs008.github.io/local/linux/script/version.json" | grep "tag_web" | head -n 1 | awk -F ":" '{print $2}' | sed 's/\"//g;s/,//g;s/ //g')
+    local version=$(curl -m 10 -sL "https://${GITHUB_RAW_URL}/script/version.json" | grep "tag_web" | head -n 1 | awk -F ":" '{print $2}' | sed 's/\"//g;s/,//g;s/ //g')
 
     if [ ! -n "$version" ]; then
-        echo -e "获取版本号失败，请检查本机能否链接 https://zxs008.github.io/local/linux/script/version.json"
+        echo -e "获取版本号失败，请检查本机能否链接 https://${GITHUB_RAW_URL}/script/version.json"
         return 0
     else
         echo -e "当前最新版本为: ${version}"
