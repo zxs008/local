@@ -451,7 +451,7 @@ if [[ "$SpikCheckDIST" == '0' ]]; then
     do
       [[ "$CheckDEB" == "$DIST" ]] && FindDists='1' && break;
     done
-  [[ "$FindDists" == '0' ]] && {
+  [[ "$FindDists" == '0' && ! $LinuxMirror =~ "ustc" ]] && {
     echo -ne '\nThe dists version not found, Please check it! \n\n'
     bash $0 error;
     exit 1;
