@@ -1,11 +1,98 @@
-DOMAIN-KEYWORD,tiktok,tiktok
-DOMAIN-SUFFIX,byteoversea.com,tiktok
-DOMAIN-SUFFIX,ibytedtos.com,tiktok
-DOMAIN-SUFFIX,ipstatp.com,tiktok
-DOMAIN-SUFFIX,muscdn.com,tiktok
-DOMAIN-SUFFIX,musical.ly,tiktok
-DOMAIN-SUFFIX,tik-tokapi.com,tiktok
-DOMAIN-SUFFIX,tiktok.com,tiktok
-DOMAIN-SUFFIX,tiktokcdn.com,tiktok
-DOMAIN-SUFFIX,tiktokv.com,tiktok
-USER-AGENT,tiktok*,tiktok
+DOMAIN-KEYWORD,tiktok,TikTok节点选择
+AND, ((GEOIP, CN), (DOMAIN, pitaya.bytedance.com)), DIRECT
+DOMAIN, api.snapkit.com, TikTok节点选择
+DOMAIN, cocacola.co.jp, TikTok节点选择
+DOMAIN, courses.snapsolve.com, TikTok节点选择
+DOMAIN, engagements.appsflyer.com, TikTok节点选择
+DOMAIN, lf16-campaign.ttlstatic.com, TikTok节点选择
+DOMAIN, lf16-csp.oecstatic.com, TikTok节点选择
+DOMAIN, lf16-pkgcdn.pitaya-clientai.com, TikTok节点选择
+DOMAIN, lf16-scmcdn.oecstatic.com, TikTok节点选择
+DOMAIN, lf19-csp.oecstatic.com, TikTok节点选择
+DOMAIN, lf19-pkgcdn.pitaya-clientai.com, TikTok节点选择
+DOMAIN, lf19-scmcdn.oecstatic.com, TikTok节点选择
+DOMAIN, musically-alternate.app.link, TikTok节点选择
+DOMAIN, musically.app.link, TikTok节点选择
+DOMAIN, p1-tt-ipv6.byteimg.com, TikTok节点选择
+DOMAIN, p1-tt.byteimg.com, TikTok节点选择
+DOMAIN, p26-tt.byteimg.com, TikTok节点选择
+DOMAIN, p3-tt-ipv6.byteimg.com, TikTok节点选择
+DOMAIN, p9-tt.byteimg.com, TikTok节点选择
+DOMAIN, pull-f3-hs.pstatp.com, TikTok节点选择
+DOMAIN, pull-f5-hs.flive.pstatp.com, TikTok节点选择
+DOMAIN, pull-f5-hs.pstatp.com, TikTok节点选择
+DOMAIN, pull-f5-mus.pstatp.com, TikTok节点选择
+DOMAIN, pull-flv-f1-hs.pstatp.com, TikTok节点选择
+DOMAIN, pull-flv-f6-hs.pstatp.com, TikTok节点选择
+DOMAIN, pull-flv-l1-hs.pstatp.com, TikTok节点选择
+DOMAIN, pull-flv-l1-mus.pstatp.com, TikTok节点选择
+DOMAIN, pull-flv-l6-hs.pstatp.com, TikTok节点选择
+DOMAIN, pull-hls-l1-mus.pstatp.com, TikTok节点选择
+DOMAIN, pull-l3-hs.pstatp.com, TikTok节点选择
+DOMAIN, pull-rtmp-f1-hs.pstatp.com, TikTok节点选择
+DOMAIN, pull-rtmp-f6-hs.pstatp.com, TikTok节点选择
+DOMAIN, pull-rtmp-l1-hs.pstatp.com, TikTok节点选择
+DOMAIN, pull-rtmp-l1-mus.pstatp.com, TikTok节点选择
+DOMAIN, pull-rtmp-l6-hs.pstatp.com, TikTok节点选择
+DOMAIN, roovza-launches.appsflyersdk.com, TikTok节点选择
+DOMAIN-SUFFIX, bytedance.com, TikTok节点选择
+DOMAIN-SUFFIX, bytedance.net, TikTok节点选择
+DOMAIN-SUFFIX, bytedapm.com, TikTok节点选择
+DOMAIN-SUFFIX, bytefcdn-oversea.com, TikTok节点选择
+DOMAIN-SUFFIX, bytefcdn-ttpeu.com, TikTok节点选择
+DOMAIN-SUFFIX, bytegecko-i18n.com, TikTok节点选择
+DOMAIN-SUFFIX, byteglb.com, TikTok节点选择
+DOMAIN-SUFFIX, byteicdn.com, TikTok节点选择
+DOMAIN-SUFFIX, byteigtm.com, TikTok节点选择
+DOMAIN-SUFFIX, byteintl.com, TikTok节点选择
+DOMAIN-SUFFIX, byteintl.net, TikTok节点选择
+DOMAIN-SUFFIX, byteoversea.com, TikTok节点选择
+DOMAIN-SUFFIX, byteoversea.net, TikTok节点选择
+DOMAIN-SUFFIX, bytetcdn.com, TikTok节点选择
+DOMAIN-SUFFIX, capcut.com, TikTok节点选择
+DOMAIN-SUFFIX, ibytedtos.com, TikTok节点选择
+DOMAIN-SUFFIX, ibyteimg.com, TikTok节点选择
+DOMAIN-SUFFIX, ipstatp.com, TikTok节点选择
+DOMAIN-SUFFIX, isnssdk.com, TikTok节点选择
+DOMAIN-SUFFIX, muscdn.com, TikTok节点选择
+DOMAIN-SUFFIX, musemuse.cn, TikTok节点选择
+DOMAIN-SUFFIX, musical.ly, TikTok节点选择
+DOMAIN-SUFFIX, sgpstatp.com, TikTok节点选择
+DOMAIN-SUFFIX, sgsnssdk.com, TikTok节点选择
+DOMAIN-SUFFIX, tik-tokapi.com, TikTok节点选择
+DOMAIN-SUFFIX, tiktok-usts.net, TikTok节点选择
+DOMAIN-SUFFIX, tiktok.com, TikTok节点选择
+DOMAIN-SUFFIX, tiktok.in, TikTok节点选择
+DOMAIN-SUFFIX, tiktokcdn-eu.com, TikTok节点选择
+DOMAIN-SUFFIX, tiktokcdn-eu.net, TikTok节点选择
+DOMAIN-SUFFIX, tiktokcdn-in.com, TikTok节点选择
+DOMAIN-SUFFIX, tiktokcdn-us.com, TikTok节点选择
+DOMAIN-SUFFIX, tiktokcdn.com, TikTok节点选择
+DOMAIN-SUFFIX, tiktokd.net, TikTok节点选择
+DOMAIN-SUFFIX, tiktokd.org, TikTok节点选择
+DOMAIN-SUFFIX, tiktokglobalshop.com, TikTok节点选择
+DOMAIN-SUFFIX, tiktokglobalshopv.com, TikTok节点选择
+DOMAIN-SUFFIX, tiktokmusic.app, TikTok节点选择
+DOMAIN-SUFFIX, tiktokshop.com, TikTok节点选择
+DOMAIN-SUFFIX, tiktokstaticb.com, TikTok节点选择
+DOMAIN-SUFFIX, tiktokv.com, TikTok节点选择
+DOMAIN-SUFFIX, tiktokv.eu, TikTok节点选择
+DOMAIN-SUFFIX, tiktokv.us, TikTok节点选择
+DOMAIN-SUFFIX, tiktokw.us, TikTok节点选择
+DOMAIN-SUFFIX, tlivecdn.com, TikTok节点选择
+DOMAIN-SUFFIX, tlivepush.com, TikTok节点选择
+DOMAIN-SUFFIX, ttadsmanager.com, TikTok节点选择
+DOMAIN-SUFFIX, ttapis.com, TikTok节点选择
+DOMAIN-SUFFIX, ttdns2.com, TikTok节点选择
+DOMAIN-SUFFIX, ttlivecdn.com, TikTok节点选择
+DOMAIN-SUFFIX, ttoversea.net, TikTok节点选择
+DOMAIN-SUFFIX, ttoverseaus.net, TikTok节点选择
+DOMAIN-SUFFIX, ttwstatic.com, TikTok节点选择
+DOMAIN-SUFFIX, tzvbfs.com, TikTok节点选择
+DOMAIN-KEYWORD, bytedance.map., TikTok节点选择
+DOMAIN-KEYWORD, musical.ly., TikTok节点选择
+DOMAIN-KEYWORD, tiktokcdn-, TikTok节点选择
+DOMAIN-KEYWORD, tiktokcdn.com., TikTok节点选择
+DOMAIN-KEYWORD, tiktokv.com., TikTok节点选择
+DOMAIN-KEYWORD, ttcdn-tos., TikTok节点选择
+DOMAIN-KEYWORD, ttlivecdn.com., TikTok节点选择
