@@ -1,0 +1,69 @@
+###Facebook###
+DOMAIN-SUFFIX,fb.com, Facebook节点选择
+DOMAIN-SUFFIX,fb.me, Facebook节点选择
+DOMAIN-SUFFIX,fbaddins.com, Facebook节点选择
+DOMAIN-SUFFIX,fbcdn.net, Facebook节点选择
+DOMAIN-SUFFIX,fbsbx.com, Facebook节点选择
+DOMAIN-SUFFIX,fbworkmail.com, Facebook节点选择
+DOMAIN-KEYWORD,facebook, Facebook节点选择
+###Facebook###
+
+###instagram###
+DOMAIN-SUFFIX,instagram.com, Facebook节点选择 
+DOMAIN-SUFFIX,cdninstagram.com, Facebook节点选择
+DOMAIN-KEYWORD,instagram, Facebook节点选择
+DOMAIN-SUFFIX,m.me, Facebook节点选择 
+DOMAIN-SUFFIX,messenger.com, Facebook节点选择
+DOMAIN-SUFFIX,oculus.com, Facebook节点选择
+DOMAIN-SUFFIX,oculuscdn.com, Facebook节点选择
+DOMAIN-SUFFIX,rocksdb.org, Facebook节点选择
+###instagram###
+
+###telegram###
+DOMAIN-KEYWORD,telegram,Telegram节点选择
+DOMAIN-SUFFIX,t.me,Telegram节点选择
+DOMAIN-SUFFIX,tdesktop.com,Telegram节点选择
+DOMAIN-SUFFIX,telegra.ph,Telegram节点选择
+DOMAIN-SUFFIX,telegram.me,Telegram节点选择
+DOMAIN-SUFFIX,telegram.org,Telegram节点选择
+IP-CIDR,91.108.4.0/22,Telegram节点选择
+IP-CIDR,91.108.8.0/22,Telegram节点选择
+IP-CIDR,91.108.12.0/22,Telegram节点选择
+IP-CIDR,91.108.16.0/22,Telegram节点选择
+IP-CIDR,91.108.56.0/22,Telegram节点选择
+IP-CIDR,149.154.160.0/20,Telegram节点选择
+###telegram###
+
+###twitter###
+DOMAIN-SUFFIX,pscp.tv,Twitter节点选择
+DOMAIN-SUFFIX,periscope.tv,Twitter节点选择
+DOMAIN-SUFFIX,t.co,Twitter节点选择
+DOMAIN-SUFFIX,twimg.co,Twitter节点选择
+DOMAIN-SUFFIX,twimg.com,Twitter节点选择
+DOMAIN-SUFFIX,twitpic.com,Twitter节点选择
+DOMAIN-SUFFIX,vine.co,Twitter节点选择
+DOMAIN-KEYWORD,twitter,Twitter节点选择
+DOMAIN-SUFFIX,x.com,Twitter节点选择
+###twitter###
+
+###whatsapp###
+DOMAIN-KEYWORD,whatsapp, WhatsApp节点选择
+DOMAIN-SUFFIX,whatsapp.com,WhatsApp节点选择
+DOMAIN-SUFFIX,whatsapp.net,WhatsApp节点选择
+###whatsapp###
+
+###safechat###
+DOMAIN-SUFFIX,safechat.com,Chat节点选择
+DOMAIN-KEYWORD,safechat,Chat节点选择
+###safechat###
+
+###potato###
+DOMAIN-KEYWORD,potato,Chat节点选择
+DOMAIN-KEYWORD,otatop,Chat节点选择
+DOMAIN-SUFFIX,otatop.app,Chat节点选择
+###potato###
+
+###chatgpt###
+DOMAIN-KEYWORD,chatgpt,Chat节点选择
+DOMAIN-KEYWORD,openai,Chat节点选择
+###chatgpt###

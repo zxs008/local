@@ -1,0 +1,21 @@
+#########Google节点选择#########
+###GoogleYoutu###
+DOMAIN-KEYWORD, google, Google节点选择
+DOMAIN-SUFFIX,youtu.be, Google节点选择
+DOMAIN-KEYWORD,youtube, Google节点选择
+DOMAIN-SUFFIX,youtube.com, Google节点选择
+DOMAIN,youtubei.googleapis.com, Google节点选择
+DOMAIN-KEYWORD,youtube, Google节点选择
+DOMAIN,youtubei.googleapis.com, Google节点选择
+DOMAIN,yt3.ggpht.com, Google节点选择
+DOMAIN-SUFFIX, Google节点选择video.com, Google节点选择
+DOMAIN-SUFFIX,youtu.be, Google节点选择
+DOMAIN-SUFFIX,youtube.com, Google节点选择
+DOMAIN-SUFFIX,ytimg.com, Google节点选择
+###GoogleYoutu###
+###GooglePlay###
+DOMAIN-SUFFIX,gvt0.com, Google节点选择 
+DOMAIN-SUFFIX,gvt2.com, Google节点选择
+DOMAIN-SUFFIX,gvt1.com, Google节点选择 
+DOMAIN-SUFFIX,gvt3.com, Google节点选择 
+###Google Play###

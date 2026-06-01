@@ -1,0 +1,6 @@
+payload:
+- DOMAIN-SUFFIX,wikimapia.org,wiki
+- DOMAIN-SUFFIX,wikimedia.org,wiki
+- DOMAIN-SUFFIX,wikipedia.org,wiki
+- DOMAIN-SUFFIX,wikiquote.org,wiki
+- DOMAIN-SUFFIX,wikiwand.com,wiki

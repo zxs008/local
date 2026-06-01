@@ -1,0 +1,22 @@
+payload:
+#########google#########
+###GoogleYoutu###
+- DOMAIN-KEYWORD, google, google
+- DOMAIN-SUFFIX,youtu.be,google
+- DOMAIN-KEYWORD,youtube,google
+- DOMAIN-SUFFIX,youtube.com,google
+- DOMAIN,youtubei.googleapis.com,google
+- DOMAIN-KEYWORD,youtube,google
+- DOMAIN,youtubei.googleapis.com,google
+- DOMAIN,yt3.ggpht.com,google
+- DOMAIN-SUFFIX,googlevideo.com,google
+- DOMAIN-SUFFIX,youtu.be,google
+- DOMAIN-SUFFIX,youtube.com,google
+- DOMAIN-SUFFIX,ytimg.com,google
+###GoogleYoutu###
+###GooglePlay###
+- DOMAIN-SUFFIX,gvt0.com,google 
+- DOMAIN-SUFFIX,gvt2.com,google
+- DOMAIN-SUFFIX,gvt1.com,google 
+- DOMAIN-SUFFIX,gvt3.com,google 
+###Google Play###
